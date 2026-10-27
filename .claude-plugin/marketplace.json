@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "chargezen",
+  "description": "Chargezen plugins for Claude: run your Shopify brand's checkout, subscriptions, loyalty and customer conversations.",
+  "owner": {
+    "name": "Chargezen",
+    "email": "hello@chargezen.com"
+  },
+  "plugins": [
+    {
+      "name": "chargezen-checkoutos",
+      "description": "Build and optimize Shopify checkout upsells, post-purchase offers, discounts, branding and checkout extensions with Chargezen CheckoutOS.",
+      "category": "productivity",
+      "source": "./chargezen-checkoutos",
+      "homepage": "https://chargezen.com"
+    }
+  ]
+}

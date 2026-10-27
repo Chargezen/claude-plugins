@@ -1,0 +1,6 @@
+{
+  "chargezen-checkoutos": {
+    "type": "http",
+    "url": "https://mcp.chargezen.com/mcp/checkoutos"
+  }
+}

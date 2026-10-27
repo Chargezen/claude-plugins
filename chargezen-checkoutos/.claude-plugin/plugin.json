@@ -1,6 +1,7 @@
 {
   "name": "chargezen-checkoutos",
   "version": "0.1.0",
+  "license": "MIT",
   "description": "Create, test and optimize Shopify checkout and post-purchase upsells, discount functions, cart transforms, validations, trust badges, texts and checkout branding. Requires a Chargezen workspace with CheckoutOS on a Shopify store.",
   "author": {
     "name": "Chargezen",

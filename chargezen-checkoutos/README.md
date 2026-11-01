@@ -14,7 +14,7 @@ Build and optimize your Shopify checkout from Claude: checkout and post-purchase
 /plugin install chargezen-checkoutos@chargezen
 ```
 
-Then run `/mcp`, choose `chargezen-checkoutos` and sign in. You'll sign in to Chargezen, pick your workspace and approve what Claude may do. You can revoke access at any time from Chargezen.
+Then run `/mcp`, choose `chargezen-checkoutos` and sign in. You'll sign in to Chargezen, pick your workspace and approve what Claude may do. To disconnect, remove it in Claude, or in Chargezen open **Connected accounts** in your account menu and click **Disconnect**. Full guide: https://chargezen.com/docs/checkoutos/api/mcp
 
 ## What's included
 

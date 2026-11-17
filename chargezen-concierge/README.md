@@ -30,6 +30,7 @@ Read and reply to inbox conversations on text, email, WhatsApp and chat, assign,
 | `chargezen` skill | Teaches Claude how to reach the tools, the safe order for changes (read → draft → preview → go live) and the rules it never breaks |
 | `/inbox-triage [count]` | Works through customers waiting on a reply, oldest first: checks their real order, drafts a reply for you to approve, then sends, assigns, tags or closes |
 | `/loyalty-review` | Reviews how customers earn and redeem points, tiers, referrals and rewards emails against real activity, recommends up to three changes and makes the ones you approve |
+| `/points <customer>` | Looks up a customer's points, tier and rewards, and adds, deducts, redeems or undoes points on your OK |
 
 Claude asks before anything reaches your customers or changes your store. The skills are copied from [`chargezen/skills`](../chargezen/skills); edit them there and run `scripts/sync-product-plugins.py`.
 

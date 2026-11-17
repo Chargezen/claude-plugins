@@ -20,6 +20,13 @@
       "category": "productivity",
       "source": "./chargezen-checkoutos",
       "homepage": "https://chargezen.com"
+    },
+    {
+      "name": "chargezen-subscriptions",
+      "description": "Run Shopify subscriptions from Claude: change customers' subscriptions, set up subscribe-and-save plans, read cancellations, invoices and loyalty.",
+      "category": "productivity",
+      "source": "./chargezen-subscriptions",
+      "homepage": "https://chargezen.com/mcp"
     }
   ]
 }

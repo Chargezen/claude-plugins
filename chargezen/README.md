@@ -36,6 +36,7 @@ Then run `/mcp`, choose `chargezen` and sign in. You'll sign in to Chargezen, pi
 | `/cancellations [days]` | Read-only: who canceled and what it cost, the customers worth a personal note, the reasons they gave, and what to do next |
 | `/renewals [days]` | Read-only: orders renewing in the coming days with a packing list, recurring revenue and stock warnings |
 | `/product-swap <old> [new]` | Moves every active subscriber of a product onto a replacement after you approve the batch, skipping and reporting any that can't be swapped |
+| `/plan-audit` | Read-only review of every subscription plan: options, discounts, where it shows and which products carry it, with the gaps worth fixing |
 
 Claude asks before anything reaches your customers or changes your store.
 

@@ -37,4 +37,4 @@ Write like a helpful teammate: short sentences, plain words, no tool names, IDs 
 
 ## Other Chargezen skills
 
-`/weekly-brief`, `/inbox-triage`, `/campaign`, `/win-back`, `/payment-recovery`, `/subscribe-and-save` and `/loyalty-review` each do one whole job and follow this skill.
+`/weekly-brief`, `/inbox-triage`, `/campaign`, `/win-back`, `/payment-recovery`, `/subscribe-and-save`, `/loyalty-review` and `/creator-review` each do one whole job and follow this skill.

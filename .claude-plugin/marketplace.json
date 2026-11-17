@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "chargezen",
-      "description": "Run your Shopify brand from Claude with every Chargezen product: Concierge, Subscriptions, CheckoutOS, SmartyTap and Spark!, plus a weekly brief of what needs you.",
+      "description": "Run your Shopify brand from Claude with every Chargezen product: a weekly brief, inbox triage, email and text campaigns, win-back and failed-payment flows, subscribe-and-save plans, and loyalty and creator reviews.",
       "category": "productivity",
       "source": "./chargezen",
       "homepage": "https://chargezen.com/mcp"

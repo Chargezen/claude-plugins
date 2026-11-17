@@ -29,11 +29,14 @@ Then run `/mcp`, choose `chargezen` and sign in. You'll sign in to Chargezen, pi
 | `/payment-recovery` | Builds a flow for failed renewal payments: a kind email and text with a secure link to update the card, plus an alert to your team when retries run out |
 | `/subscribe-and-save <product>` | Sets up delivery options and a subscriber discount for a product, shows you exactly what shoppers will see, and creates it in Shopify on your OK |
 | `/loyalty-review` | Reviews how customers earn and redeem points, tiers, referrals and rewards emails against real activity, recommends up to three changes and makes the ones you approve |
+| `/creator-review [days]` | Read-only: your top creators, what you owe them, whether your balance covers it, refunds that took commission back, and applications waiting on you |
 
 Claude asks before anything reaches your customers or changes your store.
 
 ## Try
 
 - `/weekly-brief`
+- `/win-back 20% off your next order`
+- `/campaign Holiday bundle to the VIP list, Friday 9am`
 - "Which orders from the last week haven't shipped?"
 - "Skip Jane Cooper's next subscription order."

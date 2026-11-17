@@ -2,7 +2,7 @@
   "name": "chargezen",
   "version": "0.1.0",
   "license": "MIT",
-  "description": "Run your Shopify brand from Claude with every Chargezen product: Concierge, Subscriptions, CheckoutOS, SmartyTap and Spark!, plus a weekly brief of what needs you. Requires a Chargezen workspace.",
+  "description": "Run your Shopify brand from Claude with every Chargezen product: a weekly brief, inbox triage, email and text campaigns, win-back and failed-payment flows, subscribe-and-save plans, and loyalty and creator reviews. Requires a Chargezen workspace.",
   "author": {
     "name": "Chargezen",
     "email": "hello@chargezen.com"

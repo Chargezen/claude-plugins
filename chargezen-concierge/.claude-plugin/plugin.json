@@ -1,5 +1,6 @@
 {
   "name": "chargezen-concierge",
+  "displayName": "Chargezen Concierge",
   "version": "0.1.0",
   "license": "MIT",
   "description": "Work your Chargezen inbox and hand jobs to Concierge, your digital employees, from Claude: customer conversations on every channel, orders and shipping, reports, knowledge and loyalty. Requires a Chargezen workspace with Concierge.",

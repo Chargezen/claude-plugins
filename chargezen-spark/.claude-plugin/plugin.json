@@ -1,5 +1,6 @@
 {
   "name": "chargezen-spark",
+  "displayName": "Chargezen Spark!",
   "version": "0.1.0",
   "license": "MIT",
   "description": "Review your Spark! creator and affiliate program from Claude with Chargezen: partners, credited orders, commissions, payouts and your program balance. Read-only. Requires a Chargezen workspace with Spark!.",

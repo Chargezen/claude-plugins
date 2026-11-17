@@ -1,5 +1,6 @@
 {
   "name": "chargezen-subscriptions",
+  "displayName": "Chargezen Subscriptions",
   "version": "0.1.0",
   "license": "MIT",
   "description": "Run Shopify subscriptions from Claude with Chargezen: find and change customers' subscriptions, set up subscribe-and-save plans, read new and canceled subscriptions, invoices and loyalty. Requires a Chargezen workspace with Subscriptions.",

@@ -1,5 +1,6 @@
 {
   "name": "chargezen-smartytap",
+  "displayName": "Chargezen SmartyTap",
   "version": "0.1.0",
   "license": "MIT",
   "description": "Run SmartyTap email, text and WhatsApp marketing from Claude with Chargezen: campaigns, automatic flows, lists, segments, surveys and the inbox. Requires a Chargezen workspace with SmartyTap.",

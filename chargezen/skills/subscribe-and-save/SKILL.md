@@ -13,7 +13,8 @@ Follow the `chargezen` skill for how to reach the tools. Saving a plan changes t
 ## 1. Find the product and what it already has
 
 1. `products.search` for the product. Keep its `product_record_id` exactly as returned; never substitute a Shopify ID.
-2. `admin_selling_plan_groups.list` with that `product_record_id`. It returns only the groups that already hold the product or one of its variants, active or not. If there's one, show it and ask whether they want another option in it or a separate plan; don't create a duplicate by accident.
+2. Each variant's `purchase_options` lists the plans shoppers can already buy it with. If any names a plan, find that group in `admin_selling_plan_groups.list` (its `shopify_id` equals the `plan_ref`'s `selling_plan_group_id`) and `admin_selling_plan_groups.get` its `record_id`. Show it and ask whether they want another option in it or a separate plan; don't create a duplicate by accident.
+3. If they say they had a plan before that shoppers can't see, `admin_selling_plan_groups.list` with `active: false` and offer to reuse it rather than create a new one.
 
 ## 2. Propose the plan
 

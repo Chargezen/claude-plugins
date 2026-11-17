@@ -41,6 +41,13 @@
       "category": "productivity",
       "source": "./chargezen-smartytap",
       "homepage": "https://chargezen.com/mcp"
+    },
+    {
+      "name": "chargezen-spark",
+      "description": "Review your Spark! creator and affiliate program from Claude: top creators, commissions, payouts and balance. Read-only.",
+      "category": "productivity",
+      "source": "./chargezen-spark",
+      "homepage": "https://chargezen.com/mcp"
     }
   ]
 }

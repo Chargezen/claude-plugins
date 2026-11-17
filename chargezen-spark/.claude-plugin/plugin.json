@@ -1,0 +1,20 @@
+{
+  "name": "chargezen-spark",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Review your Spark! creator and affiliate program from Claude with Chargezen: partners, credited orders, commissions, payouts and your program balance. Read-only. Requires a Chargezen workspace with Spark!.",
+  "author": {
+    "name": "Chargezen",
+    "email": "hello@chargezen.com"
+  },
+  "homepage": "https://chargezen.com/mcp",
+  "privacyPolicyUrl": "https://chargezen.com/privacy-policy",
+  "keywords": [
+    "affiliates",
+    "creators",
+    "influencers",
+    "commissions",
+    "partner-program",
+    "ecommerce"
+  ]
+}

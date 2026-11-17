@@ -39,6 +39,18 @@ Then run `/mcp`, choose `chargezen` and sign in. You'll sign in to Chargezen, pi
 | `/plan-audit` | Read-only review of every subscription plan: options, discounts, where it shows and which products carry it, with the gaps worth fixing |
 | `/invoice <customer or order>` | Finds an invoice, gets its PDF, or emails it to an address you approve, creating it if the order has none |
 | `/points <customer>` | Looks up a customer's points, tier and rewards, and adds, deducts, redeems or undoes points on your OK |
+| `/checkout-upsell <offer>` | Adds a product upsell inside checkout: products, discount, who sees it and the layout, live on your OK |
+| `/post-purchase <offer>` | Builds a one-click offer or a funnel of up to three steps after payment, checks who it shows to against a real order, then publishes or schedules it |
+| `/volume-discount <deal>` | Quantity breaks, automatic product, order or shipping discounts, subscriber-only deals and campaign-link discounts, with the price math shown first |
+| `/bundle <bundle>` | Bundles and kits: a bundle product that ships as its parts, or parts merged into one bundle line at a bundle price |
+| `/checkout-rules <what to stop>` | Blocks checkouts that would cause trouble: products or subscriptions shipping where they can't, overweight orders, label-breaking addresses, blocked customers |
+| `/trust-badges` | Adds secure-payment, shipping and returns badges to checkout, only promising what your store offers |
+| `/thank-you-page` | A message after purchase for some or all orders, and an address check that catches typos before they ship |
+| `/checkout-widgets <widget>` | Reviews, a rewards progress bar, live chat, gift-message checkboxes, an image banner or a subscribe-and-save upgrade in checkout |
+| `/checkout-branding` | Matches checkout to your brand: colors, buttons, fonts, corners and logo, tried on a draft first (Shopify Plus) |
+| `/gift-card-design` | Designs your gift card and its purchase form from a template or a copy |
+| `/upsell-experiment <offer>` | Sets up an A/B test on one offer |
+| `/checkout-audit [days]` | Read-only audit of your checkout with a ranked list of fixes |
 
 Claude asks before anything reaches your customers or changes your store.
 

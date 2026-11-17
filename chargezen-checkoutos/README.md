@@ -21,9 +21,19 @@ Then run `/mcp`, choose `chargezen-checkoutos` and sign in. You'll sign in to Ch
 | Part | What it does |
 |---|---|
 | `chargezen-checkoutos` MCP server | Connects to `https://mcp.chargezen.com/mcp/checkoutos` |
-| `checkoutos` skill | Teaches Claude the safe order (placement → read → draft → preview → go live) and how to optimize from data |
-| `/checkout-audit [days]` | Read-only audit of your checkout with a ranked list of fixes |
+| `chargezen` and `checkoutos` skills | Teaches Claude the safe order (placement → read → draft → preview → go live) and how to optimize from data |
+| `/checkout-upsell <offer>` | Adds a product upsell inside checkout: products, discount, who sees it and the layout, live on your OK |
+| `/post-purchase <offer>` | Builds a one-click offer or a funnel of up to three steps after payment, checks who it shows to against a real order, then publishes or schedules it |
+| `/volume-discount <deal>` | Quantity breaks, automatic product, order or shipping discounts, subscriber-only deals and campaign-link discounts, with the price math shown first |
+| `/bundle <bundle>` | Bundles and kits: a bundle product that ships as its parts, or parts merged into one bundle line at a bundle price |
+| `/checkout-rules <what to stop>` | Blocks checkouts that would cause trouble: products or subscriptions shipping where they can't, overweight orders, label-breaking addresses, blocked customers |
+| `/trust-badges` | Adds secure-payment, shipping and returns badges to checkout, only promising what your store offers |
+| `/thank-you-page` | A message after purchase for some or all orders, and an address check that catches typos before they ship |
+| `/checkout-widgets <widget>` | Reviews, a rewards progress bar, live chat, gift-message checkboxes, an image banner or a subscribe-and-save upgrade in checkout |
+| `/checkout-branding` | Matches checkout to your brand: colors, buttons, fonts, corners and logo, tried on a draft first (Shopify Plus) |
+| `/gift-card-design` | Designs your gift card and its purchase form from a template or a copy |
 | `/upsell-experiment <offer>` | Sets up an A/B test on one offer |
+| `/checkout-audit [days]` | Read-only audit of your checkout with a ranked list of fixes |
 
 Claude asks before changing anything that shoppers will see.
 
@@ -31,4 +41,7 @@ Claude asks before changing anything that shoppers will see.
 
 - "Add a 10% off coffee upsell at checkout for carts with anything from Breakfast"
 - "Which of my upsells is underperforming this month?"
+- `/post-purchase a second bottle at 25% off for first-time customers`
+- `/volume-discount buy 2 save 10%, buy 3 save 15% on all coffee`
+- `/checkout-rules stop Kava Calm shipping to Germany`
 - `/checkout-audit 60`

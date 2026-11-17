@@ -16,7 +16,7 @@
     },
     {
       "name": "chargezen-checkoutos",
-      "description": "Build and optimize Shopify checkout upsells, post-purchase offers, discounts, branding and checkout extensions with Chargezen CheckoutOS.",
+      "description": "Run your Shopify checkout from Claude: upsells, post-purchase funnels, quantity breaks, bundles, checkout rules, trust badges, thank-you page, widgets and branding.",
       "category": "productivity",
       "source": "./chargezen-checkoutos",
       "homepage": "https://chargezen.com/checkoutos"

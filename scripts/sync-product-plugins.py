@@ -22,7 +22,7 @@ PRODUCT_SKILLS = {
     "chargezen-concierge": ["inbox-triage", "loyalty-review", "points"],
     "chargezen-smartytap": ["campaign", "inbox-triage"],
     "chargezen-spark": ["creator-review"],
-    "chargezen-checkoutos": ["checkoutos", "checkout-audit", "upsell-experiment", "checkout-upsell"],
+    "chargezen-checkoutos": ["checkoutos", "checkout-audit", "upsell-experiment", "checkout-upsell", "post-purchase"],
 }
 
 

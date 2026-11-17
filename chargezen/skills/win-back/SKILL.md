@@ -12,7 +12,7 @@ Follow the `chargezen` skill for how to reach the tools.
 
 ## 1. Size the problem
 
-`subscription_reports.movement` for the last 30 and the last 90 days (`sources: ["chargezen"]`). Tell the person how many subscribers canceled, the monthly revenue that went with them, and the three highest-spending customers who left. This is the case for the flow; keep it to three lines.
+`subscription_reports.movement` for the last 30 and the last 90 days (`sources: ["chargezen"]`). Tell the person how many subscribers canceled, the monthly revenue that went with them, and the three highest-spending customers who left with the reasons they gave (`cancellation_reasons`; say so when none was recorded). Keep each one's `customer_ref` for step 4. This is the case for the flow; keep it to three lines.
 
 Then `workflows.list` to check for a win-back flow already. If one exists, read it (`workflows.get`) and offer to improve it instead of adding a second.
 
@@ -40,4 +40,4 @@ The offer must be real: a discount code they already have in Shopify, named exac
 
 Only when they say so: `workflows.activate`. From then on, each cancellation starts it.
 
-It doesn't reach people who canceled before today. For those, offer a second flow with the same email and text whose trigger is Started by hand (`workflows.manual`), built and activated the same way. Then, for each customer they pick from step 1, find them with `customers.search` and start it with `workflows.trigger` (a new `operation_id` each), one at a time, each on their OK. A `null` result means the flow's filters or re-entry kept that customer out; say so.
+It doesn't reach people who canceled before today. For those, offer a second flow with the same email and text whose trigger is Started by hand (`workflows.manual`), built and activated the same way. Then, for each customer they pick from step 1, start it with `workflows.trigger`, passing that customer's `customer_ref.id` from the movement report as `customer_id` (a new `operation_id` each), one at a time, each on their OK. A `null` result means the flow's filters or re-entry kept that customer out; say so.

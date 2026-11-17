@@ -16,9 +16,9 @@ Run the independent reads together.
 
 1. **Shipping:** `shopify_reports.fulfillment_status` for fulfillment orders created in the period. Count what's still open (status not closed or cancelled, remaining quantity above 0). If `not_visible_categories` is set, say those locations weren't checked.
 2. **Sales and stock:** `shopify_reports.sales_by_sku` for the period. Take the five SKUs with the most units, then `shopify_reports.inventory` for those SKUs and report what's available across active locations. Sales are gross line-item sales before discounts and refunds; say so if you give a revenue figure.
-3. **Subscriptions:** `subscription_reports.movement` for the period with `sources: ["chargezen"]`: new and canceled counts (restarts aren't tracked), and the canceled customers with their order count and spend. Don't turn it into a churn rate or net figure; the tool says not to.
+3. **Subscriptions:** `subscription_reports.movement` for the period with `sources: ["chargezen"]`: new and canceled counts (restarts aren't tracked), and the canceled customers with their order count, spend and the reasons they gave (`cancellation_reasons`). Don't turn it into a churn rate or net figure; the tool says not to.
 4. **Customers waiting:** `inbox.list` with `status: "handoff_queue"` (waiting for a teammate), then `status: "open"` with `assigned: "unassigned"`. Note how many are waiting and the oldest.
-5. **Campaigns:** `smartytap_campaigns.list` for campaigns launched in the period, then `smartytap_campaigns.report` for each (at most five): delivered, opened, clicked, orders and revenue credited.
+5. **Campaigns:** `smartytap_campaigns.list` with `launched_from` and `launched_to` set to the period, then `smartytap_campaigns.report` for each (at most five): delivered, opened, clicked, orders and revenue credited.
 6. **Creators:** `admin_spark_partner_finance.get_balance`. Compare `available_balance` with `pending_commissions_net` plus `committed_payouts`, all in the balance's currency.
 
 ## Write the brief
@@ -29,7 +29,7 @@ Lead with **three things that need them**, ranked by money or customers at stake
 
 - orders waiting to ship longer than usual
 - a best seller with little stock left
-- high-spending customers who canceled (name the top two)
+- high-spending customers who canceled (name the top two and the reasons they gave)
 - customers waiting on a reply, with the oldest wait
 - a creator balance that doesn't cover what's owed
 - a campaign with many deliveries and few clicks

@@ -5,7 +5,7 @@ description: Use whenever the user wants to look something up or get something d
 
 # Chargezen
 
-The `chargezen` MCP server acts for the teammate who connected it, in the workspaces they picked when they pressed Allow. Chargezen checks their permissions and plan on every call; don't check those yourself. If a call says access is missing, tell them which product or permission they need and stop.
+This plugin's Chargezen MCP server acts for the teammate who connected it, in the workspaces they picked when they pressed Allow. Chargezen checks their permissions and plan on every call; don't check those yourself. If a call says access is missing, tell them which product or permission they need and stop. A product plugin reaches only that product's tools (plus customers, products and loyalty where the product offers them); when a job needs another product, say so and suggest the `chargezen` plugin, which reaches every product.
 
 ## Reach the tools
 
@@ -37,4 +37,4 @@ Write like a helpful teammate: short sentences, plain words, no tool names, IDs 
 
 ## Other Chargezen skills
 
-`/weekly-brief`, `/inbox-triage`, `/campaign`, `/win-back`, `/payment-recovery`, `/subscribe-and-save`, `/loyalty-review` and `/creator-review` each do one whole job and follow this skill.
+Every command in this plugin does one whole job and follows this skill.

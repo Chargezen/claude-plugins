@@ -34,6 +34,7 @@ Find a customer's subscriptions and pause, skip, swap, reschedule, change quanti
 | `/next-order <customer>` | Shows what their upcoming orders hold and changes the next one only: an item's quantity, a one-time add-on, a skipped order brought back, or shipping it now |
 | `/new-subscription <customer> <product>` | Starts a subscription on the customer's saved card from a priced plan, with quantity, first billing date and an optional discount, after you confirm the summary |
 | `/cancellations [days]` | Read-only: who canceled and what it cost, the customers worth a personal note, the reasons they gave, and what to do next |
+| `/renewals [days]` | Read-only: orders renewing in the coming days with a packing list, recurring revenue and stock warnings |
 
 Claude asks before anything reaches your customers or changes your store. The skills are copied from [`chargezen/skills`](../chargezen/skills); edit them there and run `scripts/sync-product-plugins.py`.
 

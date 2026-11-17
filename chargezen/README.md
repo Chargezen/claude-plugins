@@ -25,6 +25,7 @@ Then run `/mcp`, choose `chargezen` and sign in. You'll sign in to Chargezen, pi
 | `/weekly-brief [days]` | Read-only: shipping, best sellers and stock, subscriptions, customers waiting, campaigns and creator commissions, then the three things that need you |
 | `/inbox-triage [count]` | Works through customers waiting on a reply, oldest first: checks their real order and subscription, drafts a reply for you to approve, then sends, assigns, tags or closes |
 | `/campaign <brief>` | Builds an email, text or WhatsApp campaign as a draft from a short brief, fixes what Review flags, counts who gets it and what texts cost, sends you a test, and launches when you say so |
+| `/win-back [offer]` | Sizes what cancellations cost you, then builds a flow that starts when a subscription is canceled: an email, then a text, with your offer, stopping for anyone who comes back |
 
 Claude asks before anything reaches your customers or changes your store.
 

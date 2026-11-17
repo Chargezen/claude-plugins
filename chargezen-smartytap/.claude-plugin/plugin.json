@@ -8,7 +8,7 @@
     "name": "Chargezen",
     "email": "hello@chargezen.com"
   },
-  "homepage": "https://chargezen.com/mcp",
+  "homepage": "https://chargezen.com/smartytap",
   "privacyPolicyUrl": "https://chargezen.com/privacy-policy",
   "keywords": [
     "email-marketing",
@@ -19,7 +19,7 @@
     "ecommerce"
   ],
   "repository": "https://github.com/Chargezen/claude-plugins",
-  "documentationUrl": "https://chargezen.com/smartytap/integrations/claude",
+  "documentationUrl": "https://chargezen.com/mcp",
   "supportUrl": "https://chargezen.com/help",
   "termsOfServiceUrl": "https://chargezen.com/terms"
 }

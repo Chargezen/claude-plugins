@@ -19,35 +19,35 @@
       "description": "Build and optimize Shopify checkout upsells, post-purchase offers, discounts, branding and checkout extensions with Chargezen CheckoutOS.",
       "category": "productivity",
       "source": "./chargezen-checkoutos",
-      "homepage": "https://chargezen.com"
+      "homepage": "https://chargezen.com/checkoutos"
     },
     {
       "name": "chargezen-subscriptions",
       "description": "Run Shopify subscriptions from Claude: change customers' subscriptions, set up subscribe-and-save plans, read cancellations, invoices and loyalty.",
       "category": "productivity",
       "source": "./chargezen-subscriptions",
-      "homepage": "https://chargezen.com/mcp"
+      "homepage": "https://chargezen.com/subscriptions"
     },
     {
       "name": "chargezen-concierge",
       "description": "Work the Chargezen inbox and hand jobs to Concierge from Claude: conversations on every channel, orders, shipping, reports and loyalty.",
       "category": "productivity",
       "source": "./chargezen-concierge",
-      "homepage": "https://chargezen.com/mcp"
+      "homepage": "https://chargezen.com/concierge"
     },
     {
       "name": "chargezen-smartytap",
       "description": "Run SmartyTap email, text and WhatsApp marketing from Claude: campaigns, flows, lists, segments, surveys and the inbox.",
       "category": "productivity",
       "source": "./chargezen-smartytap",
-      "homepage": "https://chargezen.com/mcp"
+      "homepage": "https://chargezen.com/smartytap"
     },
     {
       "name": "chargezen-spark",
       "description": "Review your Spark! creator and affiliate program from Claude: top creators, commissions, payouts and balance. Read-only.",
       "category": "productivity",
       "source": "./chargezen-spark",
-      "homepage": "https://chargezen.com/mcp"
+      "homepage": "https://chargezen.com/spark"
     }
   ]
 }

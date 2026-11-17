@@ -37,4 +37,4 @@ Write like a helpful teammate: short sentences, plain words, no tool names, IDs 
 
 ## Other Chargezen skills
 
-`/weekly-brief` does one whole job and follows this skill.
+`/weekly-brief` and `/inbox-triage` each do one whole job and follow this skill.

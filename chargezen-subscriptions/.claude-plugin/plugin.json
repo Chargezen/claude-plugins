@@ -16,5 +16,9 @@
     "recurring-orders",
     "loyalty",
     "ecommerce"
-  ]
+  ],
+  "repository": "https://github.com/Chargezen/claude-plugins",
+  "documentationUrl": "https://chargezen.com/mcp",
+  "supportUrl": "https://chargezen.com/help",
+  "termsOfServiceUrl": "https://chargezen.com/terms"
 }

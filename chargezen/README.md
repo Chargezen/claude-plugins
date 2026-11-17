@@ -1,6 +1,6 @@
 # Chargezen for Claude
 
-Run your Shopify brand from Claude with Chargezen: Concierge, Subscriptions, CheckoutOS, SmartyTap and Spark! through one connection, plus skills that do whole jobs the safe way.
+Run your online brand, DTC Shopify store, blog or med spa from Claude with Chargezen: Concierge, Subscriptions, CheckoutOS, SmartyTap and Spark! through one connection, plus skills that do whole jobs the safe way.
 
 ## Requirements
 

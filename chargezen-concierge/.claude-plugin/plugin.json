@@ -16,5 +16,9 @@
     "ai-agents",
     "helpdesk",
     "ecommerce"
-  ]
+  ],
+  "repository": "https://github.com/Chargezen/claude-plugins",
+  "documentationUrl": "https://chargezen.com/docs/concierge/integrations-and-mcp",
+  "supportUrl": "https://chargezen.com/help",
+  "termsOfServiceUrl": "https://chargezen.com/terms"
 }

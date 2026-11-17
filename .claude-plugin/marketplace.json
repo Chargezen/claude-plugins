@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "chargezen",
-  "description": "Chargezen plugins for Claude: run your Shopify brand's checkout, subscriptions, loyalty and customer conversations.",
+  "description": "Chargezen plugins for Claude: run your online brand, DTC Shopify store, blog or med spa from Claude, from customer conversations and campaigns to subscriptions, checkout, loyalty and partners.",
   "owner": {
     "name": "Chargezen",
     "email": "hello@chargezen.com"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "chargezen",
-      "description": "Run your Shopify brand from Claude with every Chargezen product: a weekly brief, inbox triage, email and text campaigns, win-back and failed-payment flows, subscribe-and-save plans, and loyalty and creator reviews.",
+      "description": "Run your online brand, DTC Shopify store, blog or med spa from Claude with every Chargezen product: a weekly brief, inbox triage, email and text campaigns, win-back and failed-payment flows, subscribe-and-save plans, and loyalty and creator reviews.",
       "category": "productivity",
       "source": "./chargezen",
       "homepage": "https://chargezen.com/mcp"

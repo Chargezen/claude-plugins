@@ -16,5 +16,9 @@
     "campaigns",
     "automation",
     "ecommerce"
-  ]
+  ],
+  "repository": "https://github.com/Chargezen/claude-plugins",
+  "documentationUrl": "https://chargezen.com/smartytap/integrations/claude",
+  "supportUrl": "https://chargezen.com/help",
+  "termsOfServiceUrl": "https://chargezen.com/terms"
 }

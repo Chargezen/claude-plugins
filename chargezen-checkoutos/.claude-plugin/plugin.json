@@ -9,5 +9,16 @@
   },
   "homepage": "https://chargezen.com",
   "privacyPolicyUrl": "https://chargezen.com/privacy-policy",
-  "keywords": ["shopify", "checkout", "upsell", "post-purchase", "checkout-extensions", "ecommerce"]
+  "keywords": [
+    "shopify",
+    "checkout",
+    "upsell",
+    "post-purchase",
+    "checkout-extensions",
+    "ecommerce"
+  ],
+  "repository": "https://github.com/Chargezen/claude-plugins",
+  "documentationUrl": "https://chargezen.com/docs/checkoutos/api/mcp",
+  "supportUrl": "https://chargezen.com/help",
+  "termsOfServiceUrl": "https://chargezen.com/terms"
 }

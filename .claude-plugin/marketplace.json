@@ -8,6 +8,13 @@
   },
   "plugins": [
     {
+      "name": "chargezen",
+      "description": "Run your Shopify brand from Claude with every Chargezen product: Concierge, Subscriptions, CheckoutOS, SmartyTap and Spark!, plus a weekly brief of what needs you.",
+      "category": "productivity",
+      "source": "./chargezen",
+      "homepage": "https://chargezen.com/mcp"
+    },
+    {
       "name": "chargezen-checkoutos",
       "description": "Build and optimize Shopify checkout upsells, post-purchase offers, discounts, branding and checkout extensions with Chargezen CheckoutOS.",
       "category": "productivity",

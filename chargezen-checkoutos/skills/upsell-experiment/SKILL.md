@@ -8,7 +8,7 @@ argument-hint: "<offer name or ID> [what to change]"
 
 The merchant wants to test: $ARGUMENTS
 
-Follow the `checkoutos` skill for how to reach the tools.
+Follow the `chargezen` and `checkoutos` skills for how to reach the tools.
 
 1. Find the offer (checkout upsells or post-purchase offers) and read its configuration and its recent performance from `upsell_analytics.get`.
 2. Agree on **one** change to test. If the merchant didn't name one, propose the change most likely to lift conversion and say why.

@@ -5,11 +5,9 @@ description: Use when the user wants to create, change, audit or improve their S
 
 # Chargezen CheckoutOS
 
-The `chargezen-checkoutos` MCP server acts for the merchant who connected it, on their Shopify store. Chargezen enforces their permissions and plan; don't check those yourself. If a call says CheckoutOS access is missing, tell the merchant they need CheckoutOS on their Chargezen workspace and an admin role that can manage it.
+Follow the `chargezen` skill for how to reach the tools and the rules every change follows. This skill adds what's particular to the checkout. If a call says CheckoutOS access is missing, tell the merchant they need CheckoutOS on their Chargezen workspace and a teammate role that can manage it.
 
-## How to reach the tools
-
-Only discovery is loaded directly. List what this connection can do with `chargezen.tools.index.v1`, read the contracts you need with `chargezen.tools.describe.v1`, then run reads through `chargezen.tools.call_read.v1` and changes through `chargezen.tools.call_write.v1`. Each tool's description and schema are the contract: follow them rather than guessing field shapes.
+Every CheckoutOS job has its own command: `/checkout-upsell`, `/post-purchase`, `/volume-discount`, `/bundle`, `/checkout-rules`, `/trust-badges`, `/thank-you-page`, `/checkout-widgets`, `/checkout-branding`, `/gift-card-design`, `/upsell-experiment` and `/checkout-audit`.
 
 ## The order that works
 

@@ -8,7 +8,7 @@ argument-hint: "[days, default 30]"
 
 Audit window: the last $ARGUMENTS days (use 30 if no number was given).
 
-Use only reads (`chargezen.tools.call_read.v1`); change nothing. Follow the `checkoutos` skill for how to reach the tools.
+Use only reads (`chargezen.tools.call_read.v1`); change nothing. Follow the `chargezen` and `checkoutos` skills for how to reach the tools.
 
 1. **Placement:** `checkout_extensions.discover` — which Chargezen blocks are placed, editor-only, not seen recently or never seen.
 2. **What's live:** checkout upsells (with priority order), post-purchase offers and funnels, running experiments, discount functions, cart transforms, validations, trust badges, texts and branding.

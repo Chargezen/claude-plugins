@@ -18,7 +18,7 @@ SOURCE = ROOT / "chargezen" / "skills"
 
 # Plugin -> job skills that work on its address. Every plugin also gets `chargezen`.
 PRODUCT_SKILLS = {
-    "chargezen-subscriptions": ["subscribe-and-save", "loyalty-review", "subscription-help", "next-order", "new-subscription", "cancellations", "renewals", "product-swap", "plan-audit"],
+    "chargezen-subscriptions": ["subscribe-and-save", "loyalty-review", "subscription-help", "next-order", "new-subscription", "cancellations", "renewals", "product-swap", "plan-audit", "invoice"],
     "chargezen-concierge": ["inbox-triage", "loyalty-review"],
     "chargezen-smartytap": ["campaign", "inbox-triage"],
     "chargezen-spark": ["creator-review"],

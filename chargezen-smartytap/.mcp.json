@@ -1,0 +1,6 @@
+{
+  "chargezen-smartytap": {
+    "type": "http",
+    "url": "https://mcp.chargezen.com/mcp/smartytap"
+  }
+}

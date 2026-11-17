@@ -34,6 +34,13 @@
       "category": "productivity",
       "source": "./chargezen-concierge",
       "homepage": "https://chargezen.com/mcp"
+    },
+    {
+      "name": "chargezen-smartytap",
+      "description": "Run SmartyTap email, text and WhatsApp marketing from Claude: campaigns, flows, lists, segments, surveys and the inbox.",
+      "category": "productivity",
+      "source": "./chargezen-smartytap",
+      "homepage": "https://chargezen.com/mcp"
     }
   ]
 }

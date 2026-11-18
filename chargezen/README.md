@@ -83,6 +83,18 @@ Then run `/mcp`, choose `chargezen` and sign in. You'll sign in to Chargezen, pi
 | `/subscriber-report [days]` | Read-only: active and paused subscribers, monthly recurring revenue, top products and frequencies, new versus canceled and failing payments |
 | `/upsell-results [days]` | How every checkout and post-purchase offer, funnel and A/B test performed, then picks the winner and ends a finished test on your OK |
 | `/checkout-chat [count]` | Answers shoppers chatting from checkout, quickest first, with drafts you approve before they're sent |
+| `/ask-concierge <job>` | Hands a bigger job to Concierge (a return, a cancellation, a change across tools), relays each approval it asks for, and reports what it did |
+| `/order-status <order or customer>` | Answers "where is my order": live status, holds and tracking in plain words, and a reply for you to approve |
+| `/customer-profile <customer>` | One customer on one page: orders, every conversation, what the team promised them, and their points |
+| `/support-agent [channels]` | Sets up a customer-facing agent for chat, text, WhatsApp, email or phone: instructions, tools and channels, saved as a draft and turned on when you say so |
+| `/agent-tuning <agent>` | Reads what customers asked an agent and where it handed over, then improves its instructions, tools or reply style on your OK |
+| `/agent-health` | Read-only check of every agent: channels nobody answers, drafts never turned on, missing instructions or tools, customers waiting, with a ranked list of fixes |
+| `/knowledge-gaps [days]` | Finds customer questions your knowledge doesn't answer and drafts the missing answers from real policies and past replies |
+| `/customer-questions [days]` | Read-only: what customers wrote about this week, the main themes and complaints with example quotes, and what to fix |
+| `/saved-reply-review` | Read-only: checks saved replies against your knowledge, shipping and loyalty settings, and drafts corrected and missing replies |
+| `/unshipped-orders [days]` | Read-only: orders that are late, on hold or rejected by the warehouse, by location, with delay notes to customers on your OK |
+| `/stock-check [days]` | Read-only: best sellers, stock left across locations, days of cover and a suggested reorder quantity |
+| `/shipping-setup [country]` | Read-only: where you ship, rates and free-shipping thresholds, checked against what customers ask and what your knowledge promises |
 
 Claude asks before anything reaches your customers or changes your store.
 

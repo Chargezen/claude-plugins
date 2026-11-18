@@ -72,19 +72,19 @@
             {
               "description": "Campaign draft: build a SmartyTap email campaign as a draft and check it, without launching it.",
               "prompt": "Draft an email campaign to all subscribers announcing our spring sale with 15% off, sending next Tuesday at 9am. Don't send it.",
-              "tools_triggered": "chargezen.tools.index.v1, chargezen.tools.describe.v1, chargezen.tools.call_read.v1 (chargezen.smartytap_campaigns.authoring_options.v1, chargezen.smartytap_campaigns.review.v1, chargezen.smartytap_campaigns.preview_audience.v1), chargezen.tools.call_write.v1 (chargezen.smartytap_campaigns.create.v2, chargezen.email_documents.apply_ops.v1)",
+              "tools_triggered": "chargezen.smartytap_campaigns.authoring_options.v1, chargezen.smartytap_campaigns.review.v1, chargezen.smartytap_campaigns.preview_audience.v1, chargezen.smartytap_campaigns.create.v2, chargezen.email_documents.apply_ops.v1",
               "expected_behavior": "Creates the campaign as a draft with a subject, preview text, body and one button, then reports what the review found, who will receive it with the count, and the send time in the store's time zone. It does not launch or send the campaign and asks for an explicit OK before launching."
             },
             {
               "description": "Checkout offers: list the checkout upsells and how each one performed over a stated period.",
               "prompt": "List my checkout upsells and tell me how each one performed over the last 30 days.",
-              "tools_triggered": "chargezen.tools.index.v1, chargezen.tools.describe.v1, chargezen.tools.call_read.v1 (chargezen.checkout_upsells.list.v1, chargezen.upsell_analytics.get.v1)",
+              "tools_triggered": "chargezen.checkout_upsells.list.v1, chargezen.upsell_analytics.get.v1",
               "expected_behavior": "Lists each checkout upsell with its status (draft or active), then its views, conversions and revenue for the stated 30-day period, flagging offers with too few views to judge. Every figure comes from the tool results; it changes nothing."
             },
             {
               "description": "Read-only report: new and canceled subscriptions over a period, with the reasons customers gave.",
               "prompt": "How many subscriptions started and how many were canceled in the last 30 days, and why did people cancel?",
-              "tools_triggered": "chargezen.tools.index.v1, chargezen.tools.describe.v1, chargezen.tools.call_read.v1 (chargezen.subscription_reports.movement.v1)",
+              "tools_triggered": "chargezen.subscription_reports.movement.v1",
               "expected_behavior": "Reports the new and canceled counts and their monthly recurring revenue for the exact period it states, lists the canceled customers with the reasons they gave, and notes that Recharge and Stripe-backed subscriptions are excluded. It does not compute a churn rate the report does not provide and changes nothing."
             }
           ],

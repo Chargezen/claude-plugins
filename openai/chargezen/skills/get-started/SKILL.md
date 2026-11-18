@@ -21,8 +21,7 @@ In two or three short sentences: Chargezen runs a brand's customer conversations
 
 Explain this briefly only if they ask; otherwise just use it.
 
-- A few tools are loaded directly: finding customers (`chargezen.customers.search.v1`), their subscriptions (`chargezen.admin_customer_subscriptions.search.v1` and `.get.v2`), the inbox (`chargezen.inbox.list.v1`), SmartyTap contacts and Concierge.
-- Everything else is found in three steps: `chargezen.tools.index.v1` lists every tool this connection can use (narrow it with `namespaces` or `query`), `chargezen.tools.describe.v1` returns the contracts for the tools you need, and the tool is run through `chargezen.tools.call_read.v1` for reads or `chargezen.tools.call_write.v1` for changes.
+- Every tool this connection can use is listed and called directly by its name. `chargezen.tools.index.v1` searches them (narrow it with `namespaces` or `query`).
 - Chargezen checks their permissions and plan on every call. Changes that customers would see (launching, publishing, sending, cancelling, deleting) wait for their explicit OK.
 
 ## 4. Offer three things to try

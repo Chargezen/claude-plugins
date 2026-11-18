@@ -8,7 +8,7 @@ argument-hint: "[days, default 7]"
 
 Period: the last $ARGUMENTS days, ending now (use 7 if no number was given). Work out the start and end as timestamps with an explicit UTC offset and use the same period everywhere. Reports name the store's time zone in `scope.timezone`; once you know it, use its midnight for the start and end. Until then use UTC and say so.
 
-Follow the `chargezen` skill for how to reach the tools. **Use only reads** (`chargezen.tools.call_read.v1`); change nothing. Skip any part whose tools this connection doesn't have, and say which parts you skipped and why, in one line at the end.
+Follow the `chargezen` skill for how to reach the tools. **Use only tools that read**; change nothing. Skip any part whose tools this connection doesn't have, and say which parts you skipped and why, in one line at the end.
 
 ## Gather
 

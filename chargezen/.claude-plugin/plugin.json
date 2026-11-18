@@ -19,7 +19,7 @@
     "affiliates",
     "ecommerce"
   ],
-  "repository": "https://github.com/Chargezen/claude-plugins",
+  "repository": "https://github.com/Chargezen/claude-plugins/tree/main/chargezen",
   "documentationUrl": "https://chargezen.com/mcp",
   "supportUrl": "https://chargezen.com/help",
   "termsOfServiceUrl": "https://chargezen.com/terms"

@@ -37,7 +37,7 @@
     },
     {
       "name": "chargezen-smartytap",
-      "description": "Run SmartyTap email, text and WhatsApp marketing from Claude: campaigns, flows, lists, segments, surveys and the inbox.",
+      "description": "Run SmartyTap email, text and WhatsApp marketing from Claude: campaigns, A/B tests and results, welcome, abandoned cart, back-in-stock and thank-you flows, segments, list imports, surveys, WhatsApp templates and the inbox.",
       "category": "productivity",
       "source": "./chargezen-smartytap",
       "homepage": "https://chargezen.com/smartytap"

@@ -51,6 +51,25 @@ Then run `/mcp`, choose `chargezen` and sign in. You'll sign in to Chargezen, pi
 | `/gift-card-design` | Designs your gift card and its purchase form from a template or a copy |
 | `/upsell-experiment <offer>` | Sets up an A/B test on one offer |
 | `/checkout-audit [days]` | Read-only audit of your checkout with a ranked list of fixes |
+| `/welcome-series [list]` | Builds a welcome flow for new email and text subscribers: a first message right away, a follow-up a few days later, leaving out people you imported |
+| `/abandoned-cart [checkout, cart or browse]` | Builds abandoned checkout, abandoned cart or browse abandonment flows: an email, then a text, with their items and a link back, stopping when they order |
+| `/back-in-stock` | Builds a flow that emails and texts each shopper who asked about a product the moment it's back |
+| `/order-follow-up` | A thank-you after an order ships, then a review request or a quick rating by text, with a different path for first-time customers if you like |
+| `/order-tag-flow <tag> <action>` | Runs when an order gets a tag in Shopify: message the customer, alert your team, hold the order from shipping or tag it again |
+| `/birthday-flow` | A yearly birthday or join-date anniversary message, on the day or days before, and a survey to collect birthdays if you don't have them |
+| `/flow-health` | Read-only check of every flow: what's on or off, broken emails and texts, unapproved WhatsApp templates, overlaps and missing journeys, with a ranked list of fixes |
+| `/segment <who>` | Builds or changes a live audience (VIPs, lapsed buyers, unengaged, product buyers, survey answers), counted with sample names before it's saved |
+| `/list-import <people>` | Imports subscribers with their consent recorded, reports who was added or skipped and why, and handles single opt-ins and opt-outs |
+| `/sender-setup` | Gets texting ready: what setup still needs, the countries you text, another local or toll-free number you pick and approve, and a team email sender |
+| `/whatsapp-template <message>` | Writes a WhatsApp marketing template, submits it to Meta on your OK, checks the answer and fixes a rejection |
+| `/email-template` | Makes a reusable on-brand email template from a campaign that worked, a copy of a template or a starter design |
+| `/translate-campaign <campaign> <language>` | Adds a version of a campaign message for customers whose profile language matches, written in that language and counted before launch |
+| `/campaign-ab-test <campaign>` | Sets up a subject-line, content or send-time test on a campaign email, reads how each version is doing and picks the winner on your OK |
+| `/campaign-results [days]` | Read-only review of recent campaigns: delivered, opened, clicked, unsubscribed, orders and revenue, channels compared, then three takeaways |
+| `/marketing-calendar [month]` | Plans a month of campaigns from past results and your launches and sales, then drafts each one on the campaign calendar for you to launch |
+| `/survey <question>` | Builds a survey (how did you hear about us, NPS, feedback, birthdays) with an optional free gift, puts it live on your OK, sends it and reads the results |
+| `/direct-message <who> <what>` | Writes one person a text or email from your number or mailbox, saving them as a contact if they're new, now or scheduled for later |
+| `/manage-campaign <campaign> <change>` | Pauses, resumes, reschedules, fixes, stops, archives or deletes a scheduled or sending campaign, showing what will still go out |
 
 Claude asks before anything reaches your customers or changes your store.
 

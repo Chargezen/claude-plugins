@@ -1,0 +1,112 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "chargezen",
+  "version": "1.0.0",
+  "description": "Work in your Chargezen workspace from ChatGPT: the customer inbox, subscriptions, email and text campaigns, automated flows, checkout offers, loyalty points, Spark! creators and payouts, reports, and handing longer jobs to Concierge. Requires a Chargezen workspace.",
+  "author": {
+    "name": "Chargezen",
+    "email": "hello@chargezen.com",
+    "url": "https://chargezen.com"
+  },
+  "homepage": "https://chargezen.com/mcp",
+  "repository": "https://github.com/Chargezen/claude-plugins/tree/main/openai/chargezen",
+  "license": "MIT",
+  "keywords": [
+    "shopify",
+    "subscriptions",
+    "email-marketing",
+    "sms",
+    "loyalty",
+    "customer-service",
+    "affiliates",
+    "ecommerce"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Chargezen",
+        "shortDescription": "Run the business, not busywork",
+        "longDescription": "Chargezen is the unified revenue operations platform for businesses that want to get more done. It brings digital employees, billing, influencer marketing and customer engagement into one place, replacing scattered tools so your whole stack runs on the same business and customer data. Products: Concierge (AI digital employees for chat, phone, text and email), Subscriptions (subscriptions, billing and failed-payment recovery for Shopify brands), CheckoutOS (checkout offers and upsells), SmartyTap (text, email and phone marketing) and Spark! (affiliate, creator and influencer programs).\n\nConnect Chargezen and ChatGPT works in your Chargezen workspaces as you, with the permissions you already have. Ask it to look things up: customer conversations, orders, subscriptions, campaign results, loyalty balances and what your partners sell. Or have it do the work: answer customers from the inbox, draft and launch email and text campaigns, change a customer's subscription, build checkout offers, adjust loyalty points, or hand a longer job to Concierge.\n\nBig changes ask first. Deleting, launching or publishing waits for your OK, and new offers, flows and campaigns start as drafts customers don't see. One connection can reach several workspaces, owners and admins get an email whenever an assistant is connected, and anyone can disconnect it at any time in Settings → Connected AI assistants.\n\nNew to Chargezen? Create an account on the sign-in screen while you connect.",
+        "developerName": "Chargezen",
+        "category": "Business & Operations",
+        "capabilities": [
+          "Triage and answer customer conversations in the shared inbox",
+          "Look up customers, orders, stock and subscriptions",
+          "Skip, pause, swap, reschedule or cancel a subscription",
+          "Draft, test and launch email, text and WhatsApp campaigns",
+          "Build automated flows such as welcome and abandoned checkout",
+          "Build checkout upsells, post-purchase offers and A/B tests",
+          "Report on subscriptions, campaigns, offers and sales",
+          "Adjust loyalty points and review Spark! creators and payouts",
+          "Hand longer jobs to Concierge"
+        ],
+        "websiteURL": "https://chargezen.com/mcp",
+        "supportURL": "https://chargezen.com/help",
+        "privacyPolicyURL": "https://chargezen.com/privacy-policy",
+        "termsOfServiceURL": "https://chargezen.com/terms",
+        "defaultPrompt": [
+          "Which customer conversations in my inbox are waiting on a reply?",
+          "Give me a weekly brief: sales, new and canceled subscriptions, and what needs my attention.",
+          "Draft an email campaign announcing our new product to subscribers. Don't send it yet."
+        ],
+        "brandColor": "#00080B",
+        "composerIcon": "./assets/composer-icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Inbox triage: list the open customer conversations waiting on the team, without replying or marking anything read.",
+              "prompt": "Which customer conversations in my Chargezen inbox are open and waiting on a reply?",
+              "tools_triggered": "chargezen.inbox.list.v1",
+              "expected_behavior": "Lists the open conversations in the test workspace, most recent first: the customer, channel, who it is assigned to, the latest message preview and the unread count. It sends no reply, marks nothing read, and offers to draft replies for the person to approve."
+            },
+            {
+              "description": "Subscriptions: find a customer and show every subscription they have, in any status.",
+              "prompt": "Find the customer Jordan in Chargezen and show all of their subscriptions, including paused and canceled ones, with the next charge date.",
+              "tools_triggered": "chargezen.customers.search.v1, chargezen.admin_customer_subscriptions.search.v1, chargezen.admin_customer_subscriptions.get.v2",
+              "expected_behavior": "Finds the matching customer (asking which one if several match), then lists each subscription with its products, status, frequency, price and next charge date. It changes nothing and says that subscriptions still on Recharge or Stripe are not included."
+            },
+            {
+              "description": "Campaign draft: build a SmartyTap email campaign as a draft and check it, without launching it.",
+              "prompt": "Draft an email campaign to all subscribers announcing our spring sale with 15% off, sending next Tuesday at 9am. Don't send it.",
+              "tools_triggered": "chargezen.tools.index.v1, chargezen.tools.describe.v1, chargezen.tools.call_read.v1 (chargezen.smartytap_campaigns.authoring_options.v1, chargezen.smartytap_campaigns.review.v1, chargezen.smartytap_campaigns.preview_audience.v1), chargezen.tools.call_write.v1 (chargezen.smartytap_campaigns.create.v2, chargezen.email_documents.apply_ops.v1)",
+              "expected_behavior": "Creates the campaign as a draft with a subject, preview text, body and one button, then reports what the review found, who will receive it with the count, and the send time in the store's time zone. It does not launch or send the campaign and asks for an explicit OK before launching."
+            },
+            {
+              "description": "Checkout offers: list the checkout upsells and how each one performed over a stated period.",
+              "prompt": "List my checkout upsells and tell me how each one performed over the last 30 days.",
+              "tools_triggered": "chargezen.tools.index.v1, chargezen.tools.describe.v1, chargezen.tools.call_read.v1 (chargezen.checkout_upsells.list.v1, chargezen.upsell_analytics.get.v1)",
+              "expected_behavior": "Lists each checkout upsell with its status (draft or active), then its views, conversions and revenue for the stated 30-day period, flagging offers with too few views to judge. Every figure comes from the tool results; it changes nothing."
+            },
+            {
+              "description": "Read-only report: new and canceled subscriptions over a period, with the reasons customers gave.",
+              "prompt": "How many subscriptions started and how many were canceled in the last 30 days, and why did people cancel?",
+              "tools_triggered": "chargezen.tools.index.v1, chargezen.tools.describe.v1, chargezen.tools.call_read.v1 (chargezen.subscription_reports.movement.v1)",
+              "expected_behavior": "Reports the new and canceled counts and their monthly recurring revenue for the exact period it states, lists the canceled customers with the reasons they gave, and notes that Recharge and Stripe-backed subscriptions are excluded. It does not compute a churn rate the report does not provide and changes nothing."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Moving money to another person is outside the plugin. It should decline rather than look for a way to pay someone.",
+              "prompt": "Send $500 from my Chargezen balance to my friend's bank account."
+            },
+            {
+              "description": "Acting on another company's workspace. The plugin reaches only the workspaces the connected teammate approved, so it should decline.",
+              "prompt": "Open my competitor's Chargezen store and export their customer list and subscription prices."
+            },
+            {
+              "description": "A request unrelated to commerce. The plugin should not call any Chargezen tool.",
+              "prompt": "Plan a five-day hiking trip in Patagonia for me."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "First release of Chargezen for ChatGPT: the full Chargezen connector (inbox, subscriptions, SmartyTap campaigns and flows, CheckoutOS offers, loyalty, Spark!, reports and Concierge) with a getting-started skill and the 75 Chargezen job skills."
+      }
+    }
+  }
+}

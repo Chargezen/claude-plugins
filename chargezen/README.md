@@ -70,6 +70,19 @@ Then run `/mcp`, choose `chargezen` and sign in. You'll sign in to Chargezen, pi
 | `/survey <question>` | Builds a survey (how did you hear about us, NPS, feedback, birthdays) with an optional free gift, puts it live on your OK, sends it and reads the results |
 | `/direct-message <who> <what>` | Writes one person a text or email from your number or mailbox, saving them as a contact if they're new, now or scheduled for later |
 | `/manage-campaign <campaign> <change>` | Pauses, resumes, reschedules, fixes, stops, archives or deletes a scheduled or sending campaign, showing what will still go out |
+| `/partner-report [month or days]` | A shareable monthly or period report: every partner's credited orders, sales and commission ranked and compared with the period before, new partners, refunds and payouts made |
+| `/payout-prep [partner]` | What each partner is owed, payouts waiting or failed, who's under the minimum, refund deductions, and whether your balance covers it, with where to mark payouts paid |
+| `/commission-plans [profile or partner]` | Every commission profile's rate, customer discount, limits and schedule, who's on it and what it earned, with the gaps worth fixing |
+| `/sale-credit <order, partner or date>` | Did this sale get credited? Which partner, by link or code, the commission, its status, refunds and payout, or the settings that explain a missing credit |
+| `/partner-profile <partner>` | One partner in depth: links and rates, clicks, orders and sales by month, refunds and clawbacks, payouts, with suggestions |
+| `/partner-finance [month or days]` | Month-end reconciliation: deposits, payouts, fees and adjustments against the recorded balance, flagging anything that doesn't add up |
+| `/partner-health [days]` | Program check: applications waiting, partners with no sales or gone quiet, unusual refund or dispute patterns, set-up gaps and settings worth a second look |
+| `/spark-help <question>` | How to do something in the Spark! admin, with the exact page and steps, using your real settings |
+| `/failed-payments [retrying or ended]` | Whose renewal payment failed, why, when it's retried and what's at risk, then a secure card-update link to the customers you pick |
+| `/bulk-change <who> <change>` | One change to many subscriptions: push back or skip a product's next orders, pause until a date, change frequency, apply a code or cancel, after one approval for the batch |
+| `/subscriber-report [days]` | Read-only: active and paused subscribers, monthly recurring revenue, top products and frequencies, new versus canceled and failing payments |
+| `/upsell-results [days]` | How every checkout and post-purchase offer, funnel and A/B test performed, then picks the winner and ends a finished test on your OK |
+| `/checkout-chat [count]` | Answers shoppers chatting from checkout, quickest first, with drafts you approve before they're sent |
 
 Claude asks before anything reaches your customers or changes your store.
 

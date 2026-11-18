@@ -3,7 +3,7 @@
   "displayName": "Chargezen Spark!",
   "version": "0.1.0",
   "license": "MIT",
-  "description": "Review your Spark! creator and affiliate program from Claude with Chargezen: partners, credited orders, commissions, payouts and your program balance. Read-only. Requires a Chargezen workspace with Spark!.",
+  "description": "Run reports on your Spark! creator and affiliate program from Claude with Chargezen: partner leaderboards and monthly reports, payout prep and funding checks, commission plans, sale-credit checks, one-partner deep dives, finance reconciliation, program health and how-to help for the Spark! admin. Read-only. Requires a Chargezen workspace with Spark!.",
   "author": {
     "name": "Chargezen",
     "email": "hello@chargezen.com"
@@ -16,7 +16,9 @@
     "influencers",
     "commissions",
     "partner-program",
-    "ecommerce"
+    "ecommerce",
+    "payouts",
+    "affiliate-reports"
   ],
   "repository": "https://github.com/Chargezen/claude-plugins/tree/main/chargezen-spark",
   "documentationUrl": "https://chargezen.com/mcp",

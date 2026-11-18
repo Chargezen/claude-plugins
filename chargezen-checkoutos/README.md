@@ -34,6 +34,8 @@ Then run `/mcp`, choose `chargezen-checkoutos` and sign in. You'll sign in to Ch
 | `/gift-card-design` | Designs your gift card and its purchase form from a template or a copy |
 | `/upsell-experiment <offer>` | Sets up an A/B test on one offer |
 | `/checkout-audit [days]` | Read-only audit of your checkout with a ranked list of fixes |
+| `/upsell-results [days]` | How every checkout and post-purchase offer, funnel and A/B test performed, then picks the winner and ends a finished test on your OK |
+| `/checkout-chat [count]` | Answers shoppers chatting from checkout, quickest first, with drafts you approve before they're sent |
 
 Claude asks before changing anything that shoppers will see.
 
@@ -45,3 +47,5 @@ Claude asks before changing anything that shoppers will see.
 - `/volume-discount buy 2 save 10%, buy 3 save 15% on all coffee`
 - `/checkout-rules stop Kava Calm shipping to Germany`
 - `/checkout-audit 60`
+- `/upsell-results 30`
+- "Who's waiting in checkout chat?"

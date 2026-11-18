@@ -16,14 +16,14 @@
     },
     {
       "name": "chargezen-checkoutos",
-      "description": "Run your Shopify checkout from Claude: upsells, post-purchase funnels, quantity breaks, bundles, checkout rules, trust badges, thank-you page, widgets and branding.",
+      "description": "Run your Shopify checkout from Claude: upsells and their results, post-purchase funnels, quantity breaks, bundles, checkout rules, trust badges, thank-you page, widgets, branding and checkout chat.",
       "category": "productivity",
       "source": "./chargezen-checkoutos",
       "homepage": "https://chargezen.com/checkoutos"
     },
     {
       "name": "chargezen-subscriptions",
-      "description": "Run Shopify subscriptions from Claude: change customers' subscriptions, set up subscribe-and-save plans, read cancellations, invoices and loyalty.",
+      "description": "Run Shopify subscriptions from Claude: change customers' subscriptions one by one or in bulk, chase failed payments, set up subscribe-and-save plans, read subscribers, cancellations, invoices and loyalty.",
       "category": "productivity",
       "source": "./chargezen-subscriptions",
       "homepage": "https://chargezen.com/subscriptions"
@@ -44,7 +44,7 @@
     },
     {
       "name": "chargezen-spark",
-      "description": "Review your Spark! creator and affiliate program from Claude: top creators, commissions, payouts and balance. Read-only.",
+      "description": "Report on your Spark! creator and affiliate program from Claude: leaderboards and monthly reports, payout prep, commission plans, sale-credit checks, finance reconciliation and program health. Read-only.",
       "category": "productivity",
       "source": "./chargezen-spark",
       "homepage": "https://chargezen.com/spark"

@@ -20,7 +20,7 @@ Want every Chargezen product in one connection, plus the weekly brief, win-back 
 
 ## What Claude can do
 
-Find a customer's subscriptions and pause, skip, swap, reschedule, change quantity, frequency or address, apply a discount, send a card-update link or cancel; create subscriptions and subscribe-and-save plans; read the new and canceled subscriptions report and invoices; run loyalty points and rewards.
+Find a customer's subscriptions and pause, skip, swap, reschedule, change quantity, frequency or address, apply a discount, send a card-update link or cancel; create subscriptions and subscribe-and-save plans; read the subscriber base, the new and canceled subscriptions report, failed payments and invoices; make the same change to many subscriptions at once; run loyalty points and rewards.
 
 ## What's included
 
@@ -39,6 +39,9 @@ Find a customer's subscriptions and pause, skip, swap, reschedule, change quanti
 | `/plan-audit` | Read-only review of every subscription plan: options, discounts, where it shows and which products carry it, with the gaps worth fixing |
 | `/invoice <customer or order>` | Finds an invoice, gets its PDF, or emails it to an address you approve, creating it if the order has none |
 | `/points <customer>` | Looks up a customer's points, tier and rewards, and adds, deducts, redeems or undoes points on your OK |
+| `/failed-payments [retrying or ended]` | Whose renewal payment failed, why, when it's retried and what's at risk, then a secure card-update link to the customers you pick |
+| `/bulk-change <who> <change>` | One change to many subscriptions: push back or skip a product's next orders, pause until a date, change frequency, apply a code or cancel, after one approval for the batch |
+| `/subscriber-report [days]` | Read-only: active and paused subscribers, monthly recurring revenue, top products and frequencies, new versus canceled and failing payments |
 
 Claude asks before anything reaches your customers or changes your store. The skills are copied from [`chargezen/skills`](../chargezen/skills); edit them there and run `scripts/sync-product-plugins.py`.
 
@@ -47,3 +50,5 @@ Claude asks before anything reaches your customers or changes your store. The sk
 - "Skip Jane Cooper's next coffee delivery."
 - "Who canceled last month, and how much monthly revenue went with them?"
 - `/subscribe-and-save Cold brew, 15% off`
+- "Cold brew is out of stock: push everyone's next cold brew order back two weeks."
+- `/failed-payments`

@@ -3,7 +3,7 @@
   "displayName": "Chargezen CheckoutOS",
   "version": "0.1.0",
   "license": "MIT",
-  "description": "Run your Shopify checkout from Claude: checkout and one-click post-purchase upsells, quantity breaks and automatic discounts, bundles, checkout rules, trust badges, thank-you messages, reviews, gift notes, live chat, branding and gift-card designs, with A/B tests and audits. Requires a Chargezen workspace with CheckoutOS on a Shopify store.",
+  "description": "Run your Shopify checkout from Claude: checkout and one-click post-purchase upsells, quantity breaks and automatic discounts, bundles, checkout rules, trust badges, thank-you messages, reviews, gift notes, live chat, branding and gift-card designs, with A/B tests, upsell results, checkout chat replies and audits. Requires a Chargezen workspace with CheckoutOS on a Shopify store.",
   "author": {
     "name": "Chargezen",
     "email": "hello@chargezen.com"
@@ -18,7 +18,8 @@
     "checkout-extensions",
     "ecommerce",
     "bundles",
-    "discounts"
+    "discounts",
+    "analytics"
   ],
   "repository": "https://github.com/Chargezen/claude-plugins/tree/main/chargezen-checkoutos",
   "documentationUrl": "https://chargezen.com/mcp",

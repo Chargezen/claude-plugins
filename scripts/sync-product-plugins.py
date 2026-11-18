@@ -20,7 +20,7 @@ SOURCE = ROOT / "chargezen" / "skills"
 PRODUCT_SKILLS = {
     "chargezen-subscriptions": ["subscribe-and-save", "loyalty-review", "subscription-help", "next-order", "new-subscription", "cancellations", "renewals", "product-swap", "plan-audit", "invoice", "points"],
     "chargezen-concierge": ["inbox-triage", "loyalty-review", "points"],
-    "chargezen-smartytap": ["campaign", "inbox-triage", "welcome-series", "abandoned-cart", "back-in-stock", "order-follow-up", "order-tag-flow", "birthday-flow", "flow-health"],
+    "chargezen-smartytap": ["campaign", "inbox-triage", "welcome-series", "abandoned-cart", "back-in-stock", "order-follow-up", "order-tag-flow", "birthday-flow", "flow-health", "segment", "list-import", "sender-setup", "whatsapp-template", "direct-message"],
     "chargezen-spark": ["creator-review"],
     "chargezen-checkoutos": ["checkoutos", "checkout-audit", "upsell-experiment", "checkout-upsell", "post-purchase", "volume-discount", "bundle", "checkout-rules", "trust-badges", "thank-you-page", "checkout-widgets", "checkout-branding", "gift-card-design"],
 }

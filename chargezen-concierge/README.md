@@ -1,6 +1,6 @@
 # Chargezen Concierge for Claude
 
-Work your Chargezen inbox and hand jobs to Concierge, your digital employees, from Claude: customer conversations on every channel, the agents that answer them, orders and shipping, stock, knowledge and loyalty.
+Work your Chargezen inbox and set up Concierge, your digital employees, from Claude: customer conversations on every channel, the agents that answer them, orders and shipping, stock, knowledge and loyalty.
 
 ## Requirements
 
@@ -28,7 +28,6 @@ Read and reply to inbox conversations on text, email, WhatsApp and chat, assign,
 |---|---|
 | `chargezen-concierge` MCP server | Connects to `https://mcp.chargezen.com/mcp/concierge`, only Concierge's tools, so Claude has fewer to choose from |
 | `chargezen` skill | Teaches Claude how to reach the tools, the safe order for changes (read → draft → preview → go live) and the rules it never breaks |
-| `/ask-concierge <job>` | Hands a bigger job to Concierge (a return, a cancellation, a change across tools), relays each approval it asks for, and reports what it did |
 | `/inbox-triage [count]` | Works through customers waiting on a reply, oldest first: checks their real order, drafts a reply for you to approve, then sends, assigns, tags or closes |
 | `/order-status <order or customer>` | Answers "where is my order": live status, holds and tracking in plain words, and a reply for you to approve |
 | `/customer-profile <customer>` | One customer on one page: orders, every conversation, what the team promised them, and their points |
@@ -50,7 +49,6 @@ Claude asks before anything reaches your customers or changes your store. The sk
 ## Try
 
 - "Which conversations are waiting on a reply, on every channel?"
-- "Ask Concierge to sum up last week's customer conversations."
 - "Which orders from the last week haven't shipped?"
 - `/support-agent web chat and text, order and shipping questions`
 - `/knowledge-gaps 30`

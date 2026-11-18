@@ -42,6 +42,6 @@ Greet the customer by first name, give the answer above with real dates and the 
 
 - **Reply in an existing conversation:** `inbox.reply` with a new `operation_id` and the approved words exactly. It can't be unsent.
 - **No conversation yet:** `inbox.compose` by text or email to the address on the order, with the approved words.
-- **It needs a change** (cancel, a new shipment, a hold released, a refund or return): this connection can't do those directly. Offer to hand it to Concierge with `/ask-concierge`, which asks the merchant to approve before it acts, or to assign the conversation to a teammate (`inbox.assignable_teammates`, `inbox.assign`).
+- **It needs a change** (cancel, a new shipment, a hold released, a refund or return): this connection can't do those directly. Offer to assign the conversation to a teammate (`inbox.assignable_teammates`, `inbox.assign`).
 
 Report what was sent and anything left for a teammate.

@@ -30,7 +30,7 @@
     },
     {
       "name": "chargezen-concierge",
-      "description": "Work the Chargezen inbox and hand jobs to Concierge from Claude: replies on every channel, support agents set up and tuned, knowledge gaps, customer themes, unshipped orders, stock and reorders, shipping setup and loyalty.",
+      "description": "Work the Chargezen inbox and set up Concierge from Claude: replies on every channel, support agents set up and tuned, knowledge gaps, customer themes, unshipped orders, stock and reorders, shipping setup and loyalty.",
       "category": "productivity",
       "source": "./chargezen-concierge",
       "homepage": "https://chargezen.com/concierge"

@@ -31,7 +31,7 @@ Batch the easy ones: when several conversations ask the same thing (often "where
 ## 3. Act only on their OK
 
 - **Send:** `inbox.reply` with a new `operation_id` and the approved words exactly. It goes out from the store's number or mailbox and can't be unsent. Texts to someone who opted out aren't sent; tell the person when the result says so.
-- **Subscription requests** (skip, pause, swap, change date or address, update card): make the change with the matching `admin_customer_subscriptions` tool once the person agrees, then reply confirming what changed. If this connection has no subscription tools, hand the change to Concierge with `/ask-concierge` where this connection can ask it, or assign the conversation to a teammate who can make the change, and tell the person why. For a new card, `request_payment_method_update` emails the customer a secure link; never ask for card details in the chat.
+- **Subscription requests** (skip, pause, swap, change date or address, update card): make the change with the matching `admin_customer_subscriptions` tool once the person agrees, then reply confirming what changed. If this connection has no subscription tools, assign the conversation to a teammate who can make the change, and tell the person why. For a new card, `request_payment_method_update` emails the customer a secure link; never ask for card details in the chat.
 - **Hand off:** `inbox.assignable_teammates`, then `inbox.assign`.
 - **Organize:** `inbox.tag`, and `inbox.set_status` to close when the customer has what they need, snooze until a date when you're waiting on something, or mark spam.
 

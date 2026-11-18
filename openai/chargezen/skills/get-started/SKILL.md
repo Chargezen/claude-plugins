@@ -21,7 +21,7 @@ In two or three short sentences: Chargezen runs a brand's customer conversations
 
 Explain this briefly only if they ask; otherwise just use it.
 
-- Every tool this connection can use is listed and called directly by its name. `chargezen.tools.index.v1` searches them (narrow it with `namespaces` or `query`).
+- Every tool this connection can use is listed and called directly by its name.
 - Chargezen checks their permissions and plan on every call. Changes that customers would see (launching, publishing, sending, cancelling, deleting) wait for their explicit OK.
 
 ## 4. Offer three things to try

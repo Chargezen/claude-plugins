@@ -35,7 +35,7 @@ Lead with the headline: how many orders are unshipped, how many are late, and th
 - **Rejected by the warehouse:** resend the request or move it to another location.
 - **Late at one location:** the location is behind; consider moving orders.
 
-These tools read only; releasing holds, rerouting or creating fulfillments need a change. Offer to hand that to Concierge with `/ask-concierge`, which asks before it acts.
+These tools read only; releasing holds, rerouting or creating fulfillments need a change in the Chargezen admin or Shopify.
 
 ## 4. Delay notes, on their OK
 

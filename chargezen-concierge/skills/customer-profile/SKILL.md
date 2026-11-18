@@ -23,7 +23,7 @@ Run these together:
 3. **What was said before:** `history.search` with their order numbers, and with words from the complaint or request the person mentioned. Read around anything a teammate or agent promised (a refund, a replacement, a callback) with `history.read`.
 4. **Loyalty:** `admin_rewards.get_customer`: points balance, tier, points about to expire and rewards issued.
 
-Subscriptions aren't on this connection; if the person asks about them, say the full Chargezen connector or Concierge (`/ask-concierge`) can check.
+Subscriptions aren't on this connection; if the person asks about them, say the full Chargezen connector can check.
 
 ## 3. Report
 
@@ -31,4 +31,4 @@ Lead with a two-line summary: who they are (first order date, number of orders, 
 
 Then short sections: recent orders (up to five, with status), conversations (open first), promises found in past messages with their dates, and loyalty. Messages show what was said, not whether it was done: check orders before saying a promise was kept.
 
-End with the most useful next step: reply to their waiting conversation (`/inbox-triage` or `/order-status`), add goodwill points (`/points`), or hand a refund or replacement to Concierge (`/ask-concierge`).
+End with the most useful next step: reply to their waiting conversation (`/inbox-triage` or `/order-status`), or add goodwill points (`/points`).

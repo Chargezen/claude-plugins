@@ -83,7 +83,6 @@ Then run `/mcp`, choose `chargezen` and sign in. You'll sign in to Chargezen, pi
 | `/subscriber-report [days]` | Read-only: active and paused subscribers, monthly recurring revenue, top products and frequencies, new versus canceled and failing payments |
 | `/upsell-results [days]` | How every checkout and post-purchase offer, funnel and A/B test performed, then picks the winner and ends a finished test on your OK |
 | `/checkout-chat [count]` | Answers shoppers chatting from checkout, quickest first, with drafts you approve before they're sent |
-| `/ask-concierge <job>` | Hands a bigger job to Concierge (a return, a cancellation, a change across tools), relays each approval it asks for, and reports what it did |
 | `/order-status <order or customer>` | Answers "where is my order": live status, holds and tracking in plain words, and a reply for you to approve |
 | `/customer-profile <customer>` | One customer on one page: orders, every conversation, what the team promised them, and their points |
 | `/support-agent [channels]` | Sets up a customer-facing agent for chat, text, WhatsApp, email or phone: instructions, tools and channels, saved as a draft and turned on when you say so |

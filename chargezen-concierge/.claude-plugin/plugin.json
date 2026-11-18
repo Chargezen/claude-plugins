@@ -3,7 +3,7 @@
   "displayName": "Chargezen Concierge",
   "version": "0.1.0",
   "license": "MIT",
-  "description": "Work your Chargezen inbox and hand jobs to Concierge, your digital employees, from Claude: inbox triage and \"where is my order\" replies, customer profiles, customer-facing support agents for chat, text, WhatsApp, email and phone set up, tuned and health-checked, knowledge gaps, customer themes, saved-reply reviews, unshipped orders, stock and reorder checks, shipping setup, a weekly brief and loyalty points. Requires a Chargezen workspace with Concierge.",
+  "description": "Work your Chargezen inbox and set up Concierge, your digital employees, from Claude: inbox triage and \"where is my order\" replies, customer profiles, customer-facing support agents for chat, text, WhatsApp, email and phone set up, tuned and health-checked, knowledge gaps, customer themes, saved-reply reviews, unshipped orders, stock and reorder checks, shipping setup, a weekly brief and loyalty points. Requires a Chargezen workspace with Concierge.",
   "author": {
     "name": "Chargezen",
     "email": "hello@chargezen.com"

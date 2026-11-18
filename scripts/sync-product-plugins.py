@@ -18,11 +18,11 @@ SOURCE = ROOT / "chargezen" / "skills"
 
 # Plugin -> job skills that work on its address. Every plugin also gets `chargezen`.
 PRODUCT_SKILLS = {
-    "chargezen-subscriptions": ["subscribe-and-save", "loyalty-review", "subscription-help", "next-order", "new-subscription", "cancellations", "renewals", "product-swap", "plan-audit", "invoice", "points"],
+    "chargezen-subscriptions": ["subscribe-and-save", "loyalty-review", "subscription-help", "next-order", "new-subscription", "cancellations", "renewals", "product-swap", "plan-audit", "invoice", "points", "failed-payments", "bulk-change", "subscriber-report"],
     "chargezen-concierge": ["inbox-triage", "loyalty-review", "points"],
     "chargezen-smartytap": ["campaign", "inbox-triage", "welcome-series", "abandoned-cart", "back-in-stock", "order-follow-up", "order-tag-flow", "birthday-flow", "flow-health", "segment", "list-import", "sender-setup", "whatsapp-template", "direct-message", "email-template", "translate-campaign", "campaign-ab-test", "campaign-results", "marketing-calendar", "survey", "manage-campaign"],
-    "chargezen-spark": ["creator-review"],
-    "chargezen-checkoutos": ["checkoutos", "checkout-audit", "upsell-experiment", "checkout-upsell", "post-purchase", "volume-discount", "bundle", "checkout-rules", "trust-badges", "thank-you-page", "checkout-widgets", "checkout-branding", "gift-card-design"],
+    "chargezen-spark": ["creator-review", "partner-report", "payout-prep", "commission-plans", "sale-credit", "partner-profile", "partner-finance", "partner-health", "spark-help"],
+    "chargezen-checkoutos": ["checkoutos", "checkout-audit", "upsell-experiment", "checkout-upsell", "post-purchase", "volume-discount", "bundle", "checkout-rules", "trust-badges", "thank-you-page", "checkout-widgets", "checkout-branding", "gift-card-design", "upsell-results", "checkout-chat"],
 }
 
 

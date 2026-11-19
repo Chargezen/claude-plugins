@@ -12,15 +12,15 @@ Follow the `chargezen` skill for how to reach the tools. **Read only**; change n
 
 ## 1. See what came in
 
-1. **Recent conversations:** `inbox.list` with `status: "all"`, a page of 50, most recent activity first. Keep paging while `last_message_at` is inside the period, up to 200 conversations. Each row's latest message preview, channel and handling (`ai`, `handoff_pending`, `human`) gives a first sketch.
+1. **Recent conversations:** `chargezen.inbox.list.v1` with `status: "all"`, a page of 50, most recent activity first. Keep paging while `last_message_at` is inside the period, up to 200 conversations. Each row's latest message preview, channel and handling (`ai`, `handoff_pending`, `human`) gives a first sketch.
 2. **Group them** into themes from the previews: where is my order, returns and refunds, damaged or wrong item, product questions (size, ingredients, compatibility), stock and restocks, discount codes and pricing, subscriptions, loyalty points, account and login, shipping costs and countries, praise. Add themes the previews suggest.
-3. **Read deeper:** for each of the biggest themes, `inbox.get` on two or three conversations to see what customers actually asked and how it ended.
+3. **Read deeper:** for each of the biggest themes, `chargezen.inbox.get.v1` on two or three conversations to see what customers actually asked and how it ended.
 
 ## 2. Dig into each theme
 
-- `history.search` with the customers' own words for the theme (for example "arrived broken", "smaller than expected", "still waiting") and `since` set to the period, to find more examples across channels. Keep matches with `sender: "customer"`; read around one with `history.read` when needed.
-- For a product that keeps coming up, `products.search` to name it exactly, and `shopify_reports.sales_by_sku` for the period to set the complaints against how many sold.
-- For shipping themes, `shopify_reports.fulfillment_status` for the period, to see whether there's a real backlog behind the questions.
+- `chargezen.history.search.v1` with the customers' own words for the theme (for example "arrived broken", "smaller than expected", "still waiting") and `since` set to the period, to find more examples across channels. Keep matches with `sender: "customer"`; read around one with `chargezen.history.read.v1` when needed.
+- For a product that keeps coming up, `chargezen.products.search.v1` to name it exactly, and `chargezen.shopify_reports.sales_by_sku.v1` for the period to set the complaints against how many sold.
+- For shipping themes, `chargezen.shopify_reports.fulfillment_status.v1` for the period, to see whether there's a real backlog behind the questions.
 
 Search results are the best matches, not every one, and the inbox sample is what you paged through. Report "N of the M conversations read", never a total or a percentage of all customers.
 

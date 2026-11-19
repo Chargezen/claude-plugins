@@ -1,26 +1,26 @@
 ---
 name: campaign-results
-description: A read-only review of SmartyTap campaign results in Chargezen over a period — what was delivered, opened, clicked and unsubscribed, the orders and revenue credited, how email, text and WhatsApp compared, which A/B versions won — ending with what worked, what didn't and three things to do next. Use when they ask how their campaigns did, which campaign made the most, or for a monthly marketing report.
+description: A read-only review of SmartyTap one-off campaign results in Chargezen over a period — what was delivered, opened, clicked and unsubscribed, the orders and revenue credited, how email, text and WhatsApp compared, which A/B versions won — ending with what worked, what didn't and three things to do next. Use when they ask how their campaigns did, which campaign made the most, or to compare several campaigns.
 argument-hint: "[days, default 30]"
 ---
 
 # Campaign results
 
-Period: the last $ARGUMENTS days, ending now (use 30 if no number was given). Work out the start and end as timestamps with an explicit UTC offset and use the store's time zone (`smartytap_campaigns.authoring_options` names it) once you know it.
+Period: the last $ARGUMENTS days, ending today (use 30 if no number was given). The report tool takes days (`YYYY-MM-DD`) in the store's time zone, at most 366 days apart.
 
 Follow the `chargezen` skill for how to reach the tools. **Use only reads**; change nothing.
 
 ## 1. Gather
 
-1. `smartytap_campaigns.list` with `launched_from` and `launched_to` set to the period; follow `next_page` until it's done. Campaigns never launched are left out.
-2. `smartytap_campaigns.report` for each (run them together). Per campaign and per message: accepted, delivered, opened, clicked, replied, bounced, unsubscribed, orders and revenue credited, conversion rate, and A/B versions with the winner.
-3. Note the attribution window the report describes (for example, orders within 5 days of a click), and say it once in the review.
+1. `chargezen.smartytap_reports.campaigns.v1` with `start_date` and `end_date`, following `next_cursor` while `has_more` is true: every one-off campaign that sent in the period or had orders placed in it credited to it, with recipients, delivered, opened, clicked, unsubscribed, credited orders and revenue, the rates and what its texts cost, all in one call. Sends count on the day they were sent and orders on the day they were placed. This is the table for several campaigns.
+2. `chargezen.smartytap_campaigns.report.v1` only for the campaigns you need to open up (the best and the worst, and any with an A/B test): one campaign's figures all time, per message and per A/B version with the winner. Say these are all time when you show them beside the period's table.
+3. Note the attribution window the results describe (for example, orders within 5 days of a click), and say it once in the review.
 
-A figure a channel doesn't report (opens for texts) is null with a reason; don't fill it in. Flows (automations) aren't campaigns and aren't in these results.
+A figure a channel doesn't report (opens for texts) is null with a reason; don't fill it in. Flows (automations) aren't campaigns and aren't in these results; `/flow-results` covers them.
 
 ## 2. Work it out
 
-From the counts, work out per campaign: open rate and click rate (of delivered), unsubscribe rate, revenue per message delivered. Say these are worked out from the report's counts.
+Use the rates the table returns; work out only what it doesn't give, such as revenue per message delivered, and say that one is worked out from the counts.
 
 Look for:
 - **Best and worst** by revenue and by clicks, and what they had in common (channel, day and time, audience, offer, subject style);

@@ -12,9 +12,9 @@ Follow the `chargezen` skill for how to reach the tools. Covers subscriptions th
 
 ## 1. Find who matches
 
-`admin_customer_subscriptions.find` with the filters that fit, all of which must match:
+`chargezen.admin_customer_subscriptions.find.v1` with the filters that fit, all of which must match:
 
-- a product: `products.search`, then its `product_selection.product_id`;
+- a product: `chargezen.products.search.v1`, then its `product_selection.product_id`;
 - a status: `statuses` (`ACTIVE`, `PAUSED`; most changes need `ACTIVE`);
 - renewing on certain days: `next_charge_from` and `next_charge_to` (store time zone), with `sort: "next_charge"`.
 
@@ -26,12 +26,12 @@ One change for the whole batch:
 
 | Change | Tool | What to settle |
 |---|---|---|
-| Move the next order to a date | `admin_customer_subscriptions.reschedule_next_charge` | the date (or "two weeks later than each one's current date") |
-| Skip the next order | `admin_customer_subscriptions.skip_next` | uses each subscription's own next charge date from the same result |
-| Pause | `admin_customer_subscriptions.pause` | until a date (`resume_on`) or until resumed |
-| How often it ships | `admin_customer_subscriptions.update_frequency` | interval and count |
-| Discount code | `admin_customer_subscriptions.apply_discount` | the exact code they give; never suggest one |
-| Cancel | `admin_customer_subscriptions.cancel` | that it can't be undone here |
+| Move the next order to a date | `chargezen.admin_customer_subscriptions.reschedule_next_charge.v1` | the date (or "two weeks later than each one's current date") |
+| Skip the next order | `chargezen.admin_customer_subscriptions.skip_next.v1` | uses each subscription's own next charge date from the same result |
+| Pause | `chargezen.admin_customer_subscriptions.pause.v1` | until a date (`resume_on`) or until resumed |
+| How often it ships | `chargezen.admin_customer_subscriptions.update_frequency.v1` | interval and count |
+| Discount code | `chargezen.admin_customer_subscriptions.apply_discount.v1` | the exact code they give; never suggest one |
+| Cancel | `chargezen.admin_customer_subscriptions.cancel.v1` | that it can't be undone here |
 
 Say what each customer gets: skip and pause send the store's skipped-order or paused email and text, as the store's notifications are set up. For the other changes, read the tool's description and say what it states; if it says nothing, tell the person you can't confirm from here whether customers are told.
 
@@ -43,4 +43,4 @@ If one fails (not active any more, a code Shopify refuses), skip it, note why an
 
 ## 4. Report
 
-Changed, skipped with reasons, and left out (not changeable here). Offer to read them back with `find` to confirm the new dates.
+Changed, skipped with reasons, and left out (not changeable here). Offer to read them back with `chargezen.admin_customer_subscriptions.find.v1` to confirm the new dates.

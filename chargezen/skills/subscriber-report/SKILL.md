@@ -12,14 +12,14 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads.** Cov
 
 ## 1. Gather
 
-1. **The base:** `admin_customer_subscriptions.find` with `statuses: ["ACTIVE"]`, every page, then `statuses: ["PAUSED"]`. From each subscription's stored products, price and cadence, total:
+1. **The base:** `chargezen.admin_customer_subscriptions.find.v1` with `statuses: ["ACTIVE"]`, every page, then `statuses: ["PAUSED"]`. From each subscription's stored products, price and cadence, total:
    - active and paused counts;
    - recurring revenue per order, and per month by converting each cadence (weekly × 52 ÷ 12, every two months ÷ 2, and so on), by currency;
    - subscriptions and units per product, and how many are on each delivery frequency.
    For a very large base, say how many pages you read if you stop early.
-2. **Movement:** `subscription_reports.movement` for the period and the same length before it, `sources: ["chargezen"]`: new and canceled counts and the monthly revenue of each. Don't compute a churn rate or net figure; the report says it isn't the source for those.
-3. **At risk:** `admin_subscriptions.failed_payments` (retrying, first page) for how many renewals are failing now.
-4. **Coming up:** `admin_customer_subscriptions.find` with `statuses: ["ACTIVE"]` and next charge in the next 7 days: how many renew this week.
+2. **Movement:** `chargezen.subscription_reports.movement.v1` for the period and the same length before it, `sources: ["chargezen"]`: new and canceled counts and the monthly revenue of each. Don't compute a churn rate or net figure; the report says it isn't the source for those.
+3. **At risk:** `chargezen.admin_subscriptions.failed_payments.v1` (retrying, first page) for how many renewals are failing now.
+4. **Coming up:** `chargezen.admin_customer_subscriptions.find.v1` with `statuses: ["ACTIVE"]` and next charge in the next 7 days: how many renew this week.
 
 These are Chargezen's stored snapshots, not live Shopify state, and prices are before shipping and tax.
 

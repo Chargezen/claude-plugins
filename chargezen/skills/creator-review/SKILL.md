@@ -12,11 +12,11 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads**; Spa
 
 ## Gather
 
-1. **Partners:** `admin_spark_partners.list` with `status: "active"`, and again with `status: "pending"` for applications waiting on them.
-2. **Sales credited to partners:** `admin_spark_referred_orders.list` with `from` and `to` set to the period, reading every page (`pagination.total_pages`). Total each partner's credited orders and earnings in the period, and note orders with a refund impact or a `revoked` or `in_dispute` commission.
-3. **Money:** `admin_spark_partner_finance.get_balance`: available balance, pending deposits, net pending commissions and committed payouts. Pending deposits aren't available yet.
-4. **Payouts:** `admin_spark_partner_payouts.list` for recent and upcoming payouts.
-5. **Rates, if a partner stands out:** `admin_spark_partners.get` and `admin_spark_commission_profiles.get` for their commission terms.
+1. **Partners:** `chargezen.admin_spark_partners.list.v1` with `status: "active"`, and again with `status: "pending"` for applications waiting on them.
+2. **Sales credited to partners:** `chargezen.admin_spark_referred_orders.list.v1` with `from` and `to` set to the period, reading every page (`pagination.total_pages`). Total each partner's credited orders and earnings in the period, and note orders with a refund impact or a `revoked` or `in_dispute` commission.
+3. **Money:** `chargezen.admin_spark_partner_finance.get_balance.v1`: available balance, pending deposits, net pending commissions and committed payouts. Pending deposits aren't available yet.
+4. **Payouts:** `chargezen.admin_spark_partner_payouts.list.v1` for recent and upcoming payouts.
+5. **Rates, if a partner stands out:** `chargezen.admin_spark_partners.get.v1` and `chargezen.admin_spark_commission_profiles.get.v1` for their commission terms.
 
 Amounts are in the workspace's currency. Attribution here is Chargezen's record of credited orders, not live Shopify payment state; say so if someone asks about a specific payment.
 

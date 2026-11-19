@@ -12,10 +12,10 @@ Follow the `chargezen` skill for how to reach the tools.
 
 ## 1. Learn from what's there
 
-1. **Past results:** `smartytap_campaigns.list` launched in the last 90 days, then `report` on each: which channels, days, times, audiences and offers earned clicks and orders, and which drew unsubscribes.
-2. **Already planned:** `smartytap_campaigns.list` with status `scheduled` and `draft`, so the plan builds on them rather than doubling up.
-3. **Always-on flows:** `workflows.list` (welcome, abandoned cart, win-back…). A campaign doesn't need to do their job.
-4. **Audiences and setup:** `smartytap_campaigns.authoring_options` for lists, segments, senders, time zone and whether texts can send.
+1. **Past results:** `chargezen.smartytap_campaigns.list.v1` launched in the last 90 days, then `chargezen.smartytap_campaigns.report.v1` on each: which channels, days, times, audiences and offers earned clicks and orders, and which drew unsubscribes.
+2. **Already planned:** `chargezen.smartytap_campaigns.list.v1` with status `scheduled` and `draft`, so the plan builds on them rather than doubling up.
+3. **Always-on flows:** `chargezen.workflows.list.v1` (welcome, abandoned cart, win-back…). A campaign doesn't need to do their job.
+4. **Audiences and setup:** `chargezen.smartytap_campaigns.authoring_options.v1` for lists, segments, senders, time zone and whether texts can send.
 
 ## 2. Ask for what only they know
 
@@ -35,8 +35,8 @@ Adjust it with them until they're happy.
 
 ## 4. Draft the campaigns
 
-For each agreed row, on their OK: `smartytap_campaigns.create` with a new `operation_id`, the audience, the send time (`schedule_once` at the local date and time), the goal, a tag for the month and a `calendar_color`, so they show together on SmartyTap's campaign calendar. Write a first version of each email with `email_documents.apply_ops` and each text in the definition, following `/campaign`.
+For each agreed row, on their OK: `chargezen.smartytap_campaigns.create.v2` with a new `operation_id`, the audience, the send time (`schedule_once` at the local date and time), the goal, a tag for the month and a `calendar_color`, so they show together on SmartyTap's campaign calendar. Write a first version of each email with `chargezen.email_documents.apply_ops.v1` and each text in the definition, following `/campaign`.
 
-They stay **drafts**: a send time on a draft sends nothing. Tell the person so plainly. Each one goes out only when it's launched, one at a time, after `review` and `preview_audience` show who gets it and what texts cost, and they say yes (`/campaign` steps 3 and 4).
+They stay **drafts**: a send time on a draft sends nothing. Tell the person so plainly. Each one goes out only when it's launched, one at a time, after `chargezen.smartytap_campaigns.review.v1` and `chargezen.smartytap_campaigns.preview_audience.v1` show who gets it and what texts cost, and they say yes (`/campaign` steps 3 and 4).
 
 End with the list of drafts and their dates, and offer to finish and launch the first one.

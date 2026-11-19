@@ -12,9 +12,9 @@ Follow the `chargezen` skill for how to reach the tools.
 
 ## 1. Size the problem
 
-`subscription_reports.movement` for the last 30 and the last 90 days (`sources: ["chargezen"]`). Tell the person how many subscribers canceled, the monthly revenue that went with them, and the three highest-spending customers who left with the reasons they gave (`cancellation_reasons`; say so when none was recorded). Keep each one's `customer_ref` for step 4. This is the case for the flow; keep it to three lines.
+`chargezen.subscription_reports.movement.v1` for the last 30 and the last 90 days (`sources: ["chargezen"]`). Tell the person how many subscribers canceled, the monthly revenue that went with them, and the three highest-spending customers who left with the reasons they gave (`cancellation_reasons`; say so when none was recorded). Keep each one's `customer_ref` for step 4. This is the case for the flow; keep it to three lines.
 
-Then `workflows.list` to check for a win-back flow already. If one exists, read it (`workflows.get`) and offer to improve it instead of adding a second.
+Then `chargezen.workflows.list.v1` to check for a win-back flow already. If one exists, read it (`chargezen.workflows.get.v1`) and offer to improve it instead of adding a second.
 
 ## 2. Agree the plan
 
@@ -31,13 +31,13 @@ The offer must be real: a discount code they already have in Shopify, named exac
 
 ## 3. Build it as a draft
 
-1. `workflows.authoring_options` for the trigger, steps, senders, templates, personalization and whether texts can send.
-2. `workflows.create` with `status: "draft"` and a new `operation_id`.
-3. Write each email at the address in the result's `email_documents` with `email_documents.apply_ops`: subject under 50 characters, short body, one button, unsubscribe link and mailing address.
-4. `workflows.preview_email` and `workflows.preview_sms`; show the person both, with the timing.
+1. `chargezen.workflows.authoring_options.v1` for the trigger, steps, senders, templates, personalization and whether texts can send.
+2. `chargezen.workflows.create.v2` with `status: "draft"` and a new `operation_id`.
+3. Write each email at the address in the result's `email_documents` with `chargezen.email_documents.apply_ops.v1`: subject under 50 characters, short body, one button, unsubscribe link and mailing address.
+4. `chargezen.workflows.preview_email.v2` and `chargezen.workflows.preview_sms.v1`; show the person both, with the timing.
 
 ## 4. Turn it on
 
-Only when they say so: `workflows.activate`. From then on, each cancellation starts it.
+Only when they say so: `chargezen.workflows.activate.v1`. From then on, each cancellation starts it.
 
-It doesn't reach people who canceled before today on its own. For those, start this same flow by hand: for each customer they pick from step 1, find their cancelled subscription with `admin_customer_subscriptions.search` (their `customer_ref`), then `workflows.trigger` with `customer_id` set to the `customer_ref.id` and that `subscription_ref` (a new `operation_id` each), one at a time, each on their OK. It is refused if that subscription isn't cancelled any more. A `null` result means the flow's filters or re-entry kept that customer out; say so. Who cancelled isn't known for these, so a filter on `changed_in_shopify_admin` keeps everyone out: leave that filter off if they want to reach past cancellations.
+It doesn't reach people who canceled before today on its own. For those, start this same flow by hand: for each customer they pick from step 1, find their cancelled subscription with `chargezen.admin_customer_subscriptions.search.v1` (their `customer_ref`), then `chargezen.workflows.trigger.v1` with `customer_id` set to the `customer_ref.id` and that `subscription_ref` (a new `operation_id` each), one at a time, each on their OK. It is refused if that subscription isn't cancelled any more. A `null` result means the flow's filters or re-entry kept that customer out; say so. Who cancelled isn't known for these, so a filter on `changed_in_shopify_admin` keeps everyone out: leave that filter off if they want to reach past cancellations.

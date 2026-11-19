@@ -12,9 +12,9 @@ Follow the `chargezen` skill for how to reach the tools. These tools cover subsc
 
 ## 1. Find the right subscription
 
-1. `customers.search` with what you were given. If several people match, show name, email and stored address and ask which one.
-2. `admin_customer_subscriptions.search` for that customer (every status, so paused and canceled ones show too). If there's more than one, list them (products, how often, next charge, status) and ask which.
-3. `admin_customer_subscriptions.get.v2` for the one chosen: products, price, cadence, next charge, address and card on file. Keep its `customer_ref`, `subscription_ref` and `next_charge_at` exactly as returned.
+1. `chargezen.customers.search.v1` with what you were given. If several people match, show name, email and stored address and ask which one.
+2. `chargezen.admin_customer_subscriptions.search.v1` for that customer (every status, so paused and canceled ones show too). If there's more than one, list them (products, how often, next charge, status) and ask which.
+3. `chargezen.admin_customer_subscriptions.get.v2` for the one chosen: products, price, cadence, next charge, address and card on file. Keep its `customer_ref`, `subscription_ref` and `next_charge_at` exactly as returned.
 
 ## 2. Say what will happen, then act on the OK
 
@@ -22,18 +22,18 @@ Before every change, tell the person in one or two lines: what changes, from wha
 
 | They want | Tool | Watch for |
 |---|---|---|
-| Skip the next order | `skip_next` with the same `next_charge_at` | Only the very next charge. To bring it back: `restore_skipped_order` |
-| Move the next charge | `reschedule_next_charge` | Needs an exact date. "Early March" isn't one: ask for the day |
-| Pause | `pause` | Ask whether it should resume on a date (`resume_on`, an exact day) or stay paused |
-| Resume | `resume` | |
-| Ship the next order now | `order_now.v2` | **Charges their saved card right away.** Say the amount and get a clear yes. If it returns `ORDER_NOW_PROCESSING`, repeat the identical call a few seconds later; if it needs bank approval, share the link it returns |
-| Change how often | `update_frequency` | Billing and delivery move together |
-| Change quantity, or remove an item from every order | `update_quantity` / `remove_item` | For the next order only, use `/next-order` |
-| Swap a product | `list_swap_options`, then `swap_product` | Show the replacements with price and stock; pass the result back unchanged |
-| New delivery address | `update_shipping_address` | Read the full address back first |
-| Add a discount code | `apply_discount` | The code must already exist in Shopify |
-| New card | `request_payment_method_update` | Emails the customer a secure link. Never take card details in the chat |
-| Cancel | `cancel` | See below |
+| Skip the next order | `chargezen.admin_customer_subscriptions.skip_next.v1` with the same `next_charge_at` | Only the very next charge. To bring it back: `chargezen.admin_customer_subscriptions.restore_skipped_order.v1` |
+| Move the next charge | `chargezen.admin_customer_subscriptions.reschedule_next_charge.v1` | Needs an exact date. "Early March" isn't one: ask for the day |
+| Pause | `chargezen.admin_customer_subscriptions.pause.v1` | Ask whether it should resume on a date (`resume_on`, an exact day) or stay paused |
+| Resume | `chargezen.admin_customer_subscriptions.resume.v1` | |
+| Ship the next order now | `chargezen.admin_customer_subscriptions.order_now.v2` | **Charges their saved card right away.** Say the amount and get a clear yes. If it returns `ORDER_NOW_PROCESSING`, repeat the identical call a few seconds later; if it needs bank approval, share the link it returns |
+| Change how often | `chargezen.admin_customer_subscriptions.update_frequency.v1` | Billing and delivery move together |
+| Change quantity, or remove an item from every order | `chargezen.admin_customer_subscriptions.update_quantity.v1` / `chargezen.admin_customer_subscriptions.remove_item.v1` | For the next order only, use `/next-order` |
+| Swap a product | `chargezen.admin_customer_subscriptions.list_swap_options.v1`, then `chargezen.admin_customer_subscriptions.swap_product.v1` | Show the replacements with price and stock; pass the result back unchanged |
+| New delivery address | `chargezen.admin_customer_subscriptions.update_shipping_address.v1` | Read the full address back first |
+| Add a discount code | `chargezen.admin_customer_subscriptions.apply_discount.v1` | The code must already exist in Shopify |
+| New card | `chargezen.admin_customer_subscriptions.request_payment_method_update.v1` | Emails the customer a secure link. Never take card details in the chat |
+| Cancel | `chargezen.admin_customer_subscriptions.cancel.v1` | See below |
 
 ## 3. Before canceling
 

@@ -12,10 +12,10 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads.**
 
 ## 1. Gather
 
-1. `admin_spark_partners.list` for each status: `pending`, `active`, `suspended`. Note how long pending applications have waited (`joined_at`).
-2. `admin_spark_referred_orders.list` for the window, every page. Per partner: orders, sales, commission, refunded orders, and `in_dispute` or `revoked` commission.
-3. `admin_spark_partner_settings.get`: auto-approval, default commission, minimum payout and frequency, attribution window (`cookie_duration_days`), self-referrals, tax info.
-4. For flagged partners only, `admin_spark_partners.get`: links and their profiles, clicks, refund clawbacks and negative balance.
+1. `chargezen.admin_spark_partners.list.v1` for each status: `pending`, `active`, `suspended`. Note how long pending applications have waited (`joined_at`).
+2. `chargezen.admin_spark_referred_orders.list.v1` for the window, every page. Per partner: orders, sales, commission, refunded orders, and `in_dispute` or `revoked` commission.
+3. `chargezen.admin_spark_partner_settings.get.v1`: auto-approval, default commission, minimum payout and frequency, attribution window (`cookie_duration_days`), self-referrals, tax info.
+4. For flagged partners only, `chargezen.admin_spark_partners.get.v1`: links and their profiles, clicks, refund clawbacks and negative balance.
 
 ## 2. What to flag
 
@@ -30,4 +30,4 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads.**
 
 Lead with the three fixes that matter most, each one line with the number behind it. Then one line each for the other findings, and a count of partners by status.
 
-All changes are made in the Spark! admin: approving or suspending on **Partner detail**, rates on **Commission Profiles**, the rest on **Settings**. Use `admin_spark_partner_app.guide` for the exact page and controls. Offer `/partner-profile` for any partner you flagged.
+All changes are made in the Spark! admin: approving or suspending on **Partner detail**, rates on **Commission Profiles**, the rest on **Settings**. Use `chargezen.admin_spark_partner_app.guide.v1` for the exact page and controls. Offer `/partner-profile` for any partner you flagged.

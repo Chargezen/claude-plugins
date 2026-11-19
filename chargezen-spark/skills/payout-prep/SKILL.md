@@ -12,10 +12,10 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads.** Spa
 
 ## 1. Gather
 
-1. **Rules:** `admin_spark_partner_settings.get`: minimum payout (`minimum_payout_amount`) and how often payouts run (`payout_frequency`). If `settings` is null, the program has no saved settings; say so.
-2. **Money:** `admin_spark_partner_finance.get_balance`: `available_balance`, `pending_deposits`, `pending_commissions_net` (commission not yet in a payout, after open refund adjustments) and `committed_payouts` (payouts pending or processing).
-3. **Payouts waiting:** `admin_spark_partner_payouts.list` with `status: "pending"`, then `"processing"`, then `"failed"`, every page. For a named partner, add `partner_id` (from `admin_spark_partners.list` with `query`). Read `admin_spark_partner_payouts.get` for each waiting payout over a size worth checking, or for the named partner: the orders in it and any adjustments (refund deductions).
-4. **Owed but not in a payout yet:** `admin_spark_referred_orders.list` with `commission_status: "pending"` and again `"processed"`, every page; orders with no `payout_id` are still to be batched. Total them per partner.
+1. **Rules:** `chargezen.admin_spark_partner_settings.get.v1`: minimum payout (`minimum_payout_amount`) and how often payouts run (`payout_frequency`). If `settings` is null, the program has no saved settings; say so.
+2. **Money:** `chargezen.admin_spark_partner_finance.get_balance.v1`: `available_balance`, `pending_deposits`, `pending_commissions_net` (commission not yet in a payout, after open refund adjustments) and `committed_payouts` (payouts pending or processing).
+3. **Payouts waiting:** `chargezen.admin_spark_partner_payouts.list.v1` with `status: "pending"`, then `"processing"`, then `"failed"`, every page. For a named partner, add `partner_id` (from `chargezen.admin_spark_partners.list.v1` with `query`). Read `chargezen.admin_spark_partner_payouts.get.v1` for each waiting payout over a size worth checking, or for the named partner: the orders in it and any adjustments (refund deductions).
+4. **Owed but not in a payout yet:** `chargezen.admin_spark_referred_orders.list.v1` with `commission_status: "pending"` and again `"processed"`, every page; orders with no `payout_id` are still to be batched. Total them per partner.
 
 ## 2. Check
 
@@ -29,4 +29,4 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads.** Spa
 
 Lead with one line: total due now, the balance, and covered or short by how much. Then a short table (partner, in waiting payouts, not yet batched, deductions, status) of at most fifteen rows, largest first.
 
-Then the next step, in the admin (use `admin_spark_partner_app.guide` with `partner_detail` and `finance` for the exact pages): add funds on **Partner Finance** if short, and after paying a partner outside Chargezen, open their **Partner detail** and use **Mark payout as paid** with the date and transaction reference. Paying early or below the minimum asks for an extra confirmation there. Never suggest Claude can pay or mark a payout.
+Then the next step, in the admin (use `chargezen.admin_spark_partner_app.guide.v1` with `partner_detail` and `finance` for the exact pages): add funds on **Partner Finance** if short, and after paying a partner outside Chargezen, open their **Partner detail** and use **Mark payout as paid** with the date and transaction reference. Paying early or below the minimum asks for an extra confirmation there. Never suggest Claude can pay or mark a payout.

@@ -9,9 +9,9 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads**; off
 
 ## Gather
 
-1. `admin_selling_plan_groups.list` for every group (active or not).
-2. `admin_selling_plan_groups.get` for each: its delivery options (billing and delivery cadence), each option's price adjustment, any minimum or maximum number of orders, the channels it shows on (online store, customer portal, subscription detail, contract import) and the products and variants it holds.
-3. `products.search` for the store's best sellers (or the products the merchant names) and read each one's `purchase_options` to see which plans shoppers can actually choose.
+1. `chargezen.admin_selling_plan_groups.list.v1` for every group (active or not).
+2. `chargezen.admin_selling_plan_groups.get.v1` for each: its delivery options (billing and delivery cadence), each option's price adjustment, any minimum or maximum number of orders, the channels it shows on (online store, customer portal, subscription detail, contract import) and the products and variants it holds.
+3. `chargezen.products.search.v1` for the store's best sellers (or the products the merchant names) and read each one's `purchase_options` to see which plans shoppers can actually choose.
 
 ## What to look for
 

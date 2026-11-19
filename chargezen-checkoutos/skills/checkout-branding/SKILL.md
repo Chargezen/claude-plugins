@@ -12,8 +12,8 @@ Follow the `chargezen` and `checkoutos` skills for how to reach the tools.
 
 ## 1. Profiles and what's set
 
-1. `checkout_branding.discover` (follow `next_cursor` to the end). Branding needs Shopify Plus or a development store; if the result says otherwise, stop and explain.
-2. Profiles are **published** (the live checkout) or **draft** (previewed in Shopify's checkout editor). `checkout_branding.get` the one they mean and describe what's set now in plain words.
+1. `chargezen.checkout_branding.discover.v1` (follow `next_cursor` to the end). Branding needs Shopify Plus or a development store; if the result says otherwise, stop and explain.
+2. Profiles are **published** (the live checkout) or **draft** (previewed in Shopify's checkout editor). `chargezen.checkout_branding.get.v1` the one they mean and describe what's set now in plain words.
 
 ## 2. Decide the look
 
@@ -29,6 +29,6 @@ Keep text readable: dark text on light backgrounds (or the reverse) and buttons 
 
 ## 3. Try it, then go live
 
-1. `checkout_branding.save` the complete decision on a **draft** profile if they have one, then `checkout_branding.apply` it. Applying to a draft changes only its editor preview: ask them to open it in Shopify's checkout editor and look.
-2. When they're happy, save the same decision on the published profile and, on a clear yes, `apply` it. That changes the live checkout immediately.
-3. `checkout_branding.get` to confirm what Shopify now has, and report any error. If Shopify didn't answer, read before retrying.
+1. `chargezen.checkout_branding.save.v1` the complete decision on a **draft** profile if they have one, then `chargezen.checkout_branding.apply.v1` it. Applying to a draft changes only its editor preview: ask them to open it in Shopify's checkout editor and look.
+2. When they're happy, save the same decision on the published profile and, on a clear yes, `chargezen.checkout_branding.apply.v1` it. That changes the live checkout immediately.
+3. `chargezen.checkout_branding.get.v1` to confirm what Shopify now has, and report any error. If Shopify didn't answer, read before retrying.

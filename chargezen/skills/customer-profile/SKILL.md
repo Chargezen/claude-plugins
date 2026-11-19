@@ -12,16 +12,17 @@ Follow the `chargezen` skill for how to reach the tools. **Read only** until the
 
 ## 1. Find them
 
-`customers.search` with what was given. If several match, or the stored address doesn't fit what the person knows, show the candidates and ask. Keep the exact `customer_ref`; its `id` is also the customer's ID for the inbox.
+`chargezen.customers.search.v1` with what was given. If several match, or the stored address doesn't fit what the person knows, show the candidates and ask. Keep the exact `customer_ref`; its `id` is also the customer's ID for the inbox.
 
 ## 2. Gather
 
 Run these together:
 
-1. **Orders:** `admin_shopify_orders.search` with the `customer_ref`: their 15 newest saved orders. For the latest, and any that aren't fulfilled, `admin_shopify_orders.get` for items, totals, status and tracking.
-2. **Open conversations:** `inbox.list` with `status: "all"` and `customer_uuid` set to the customer's ID: each conversation's channel, who's handling it, who it's assigned to and the latest message. `inbox.get` on any that are open or waiting.
-3. **What was said before:** `history.search` with their order numbers, and with words from the complaint or request the person mentioned. Read around anything a teammate or agent promised (a refund, a replacement, a callback) with `history.read`.
-4. **Loyalty:** `admin_rewards.get_customer`: points balance, tier, points about to expire and rewards issued.
+1. **Orders:** `chargezen.admin_shopify_orders.search.v1` with the `customer_ref`: their 15 newest saved orders. For the latest, and any that aren't fulfilled, `chargezen.admin_shopify_orders.get.v1` for items, totals, status and tracking.
+2. **Open conversations:** `chargezen.inbox.list.v1` with `status: "all"` and `customer_uuid` set to the customer's ID: each conversation's channel, who's handling it, who it's assigned to and the latest message. `chargezen.inbox.get.v1` on any that are open or waiting.
+3. **What was said before:** `chargezen.history.search.v1` with their order numbers, and with words from the complaint or request the person mentioned. Read around anything a teammate or agent promised (a refund, a replacement, a callback) with `chargezen.history.read.v1`.
+4. **Loyalty:** `chargezen.admin_rewards.get_customer.v1`: points balance, tier, points about to expire and rewards issued.
+5. **Marketing** (full Chargezen connection only): `chargezen.contacts.search.v1`, then `chargezen.contacts.get.v1` for their consent per channel, lists, custom properties and the timeline of what SmartyTap sent them.
 
 Subscriptions aren't on this connection; if the person asks about them, say the full Chargezen connector can check.
 

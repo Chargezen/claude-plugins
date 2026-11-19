@@ -10,9 +10,9 @@ Period: the last $ARGUMENTS days, ending now (30 if no number was given).
 
 Follow the `chargezen` skill for how to reach the tools. **Use only reads**; change nothing.
 
-1. `subscription_reports.movement` for the period and for the same length before it, `sources: ["chargezen"]`. It reports new and canceled counts, the monthly revenue of each, and the canceled customers with their order count and spend; where it returns a `customer_ref` and the reasons they gave, use them.
+1. `chargezen.subscription_reports.movement.v1` for the period and for the same length before it, `sources: ["chargezen"]`. It reports new and canceled counts, the monthly revenue of each, and the canceled customers with their order count and spend; where it returns a `customer_ref` and the reasons they gave, use them.
 2. Don't compute a churn rate or net figure; the report says it isn't the source for those.
-3. For the top five customers by spend who left, `admin_customer_subscriptions.search` with their `customer_ref` shows what they were subscribed to and when it ended.
+3. For the top five customers by spend who left, `chargezen.admin_customer_subscriptions.search.v1` with their `customer_ref` shows what they were subscribed to and when it ended.
 
 ## Report
 

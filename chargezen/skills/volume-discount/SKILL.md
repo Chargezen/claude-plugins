@@ -12,7 +12,7 @@ Follow the `chargezen` and `checkoutos` skills for how to reach the tools.
 
 ## 1. What exists
 
-`discount_functions.list`, then `get` any that cover the same products, so the new one doesn't stack by accident. Check how existing ones combine with product, order and shipping discounts.
+`chargezen.discount_functions.list.v1`, then `chargezen.discount_functions.get.v1` any that cover the same products, so the new one doesn't stack by accident. Check how existing ones combine with product, order and shipping discounts.
 
 ## 2. Shape the deal
 
@@ -21,7 +21,7 @@ Pick the type that matches what they said:
 | They want | Set up |
 |---|---|
 | Buy more, save more | `product` discount with volume tiers: each tier a minimum quantity and its percentage or amount. `progressive` gives each tier's rate to the units in that band; `uniform` gives the whole line the highest tier reached. Uniform is easier for shoppers to understand |
-| Money off certain products | `product` discount, specific products and variants (`products.search`) |
+| Money off certain products | `product` discount, specific products and variants (`chargezen.products.search.v1`) |
 | Money off the whole order | `order` discount |
 | Free or cheaper shipping | `shipping` discount, optionally limited to countries or to rates under a maximum cost |
 | Only subscribers, or only one-time buyers | `purchase_type` |
@@ -34,8 +34,8 @@ Agree how it **combines** with other product, order and shipping discounts. Stac
 
 ## 3. Preview and publish
 
-1. Save the draft (`discount_functions.create` with a new `operation_id`).
-2. `discount_functions.preview`, then show a worked example at real prices: "2 bottles: $48 → $43.20; 3 bottles: $72 → $61.20", plus who gets it and when.
-3. On a clear yes, `discount_functions.activate`. Then `discount_functions.provider_status` to confirm Shopify has it live, and report any error plainly.
+1. Save the draft (`chargezen.discount_functions.create.v1` with a new `operation_id`).
+2. `chargezen.discount_functions.preview.v1`, then show a worked example at real prices: "2 bottles: $48 → $43.20; 3 bottles: $72 → $61.20", plus who gets it and when.
+3. On a clear yes, `chargezen.discount_functions.activate.v1`. Then `chargezen.discount_functions.provider_status.v1` to confirm Shopify has it live, and report any error plainly.
 
-To end it later: `discount_functions.deactivate`.
+To end it later: `chargezen.discount_functions.deactivate.v1`.

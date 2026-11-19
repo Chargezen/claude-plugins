@@ -12,12 +12,12 @@ Follow the `chargezen` skill for how to reach the tools.
 
 ## 1. Read the program
 
-- `admin_rewards.get_program`: every way to earn, every reward, referrals and tiers, active or not. If there's no program, or `active` is false, say so first: customers aren't earning anything yet. Offer to set it up, then turn it on with `admin_rewards.save_program` only on their OK.
-- `admin_rewards.history` with `source: "redemptions"` (a few pages): which rewards people actually take, and how many issues failed or were voided.
-- `admin_rewards.history` with `source: "points"` (a few pages): where points come from.
-- `admin_rewards.history` with `source: "tiers"`: how many customers reach each tier.
-- `notification_emails.list`: which rewards emails exist and are on.
-- `rewards_surfaces.get`: what the rewards page and launcher show.
+- `chargezen.admin_rewards.get_program.v1`: every way to earn, every reward, referrals and tiers, active or not. If there's no program, or `active` is false, say so first: customers aren't earning anything yet. Offer to set it up, then turn it on with `chargezen.admin_rewards.save_program.v1` only on their OK.
+- `chargezen.admin_rewards.history.v1` with `source: "redemptions"` (a few pages): which rewards people actually take, and how many issues failed or were voided.
+- `chargezen.admin_rewards.history.v1` with `source: "points"` (a few pages): where points come from.
+- `chargezen.admin_rewards.history.v1` with `source: "tiers"`: how many customers reach each tier.
+- `chargezen.notification_emails.list.v1`: which rewards emails exist and are on.
+- `chargezen.rewards_surfaces.get.v1`: what the rewards page and launcher show.
 
 History is recorded activity in Chargezen, newest first; say how far back the pages you read go.
 
@@ -38,10 +38,10 @@ Recommend **three changes at most**, ranked by how many customers they reach. Fo
 
 Only the ones they approve, one at a time, reading the definition before you replace it:
 
-- earning: `admin_rewards.save_earn_definition`
-- rewards: `admin_rewards.save_redemption_definition`
-- tiers: `admin_rewards.save_tier`
-- referrals: `admin_rewards.save_referral_definition`
-- emails: `notification_emails.save`, then `notification_emails.preview`, and `send_test` to them before turning one on
+- earning: `chargezen.admin_rewards.save_earn_definition.v1`
+- rewards: `chargezen.admin_rewards.save_redemption_definition.v1`
+- tiers: `chargezen.admin_rewards.save_tier.v1`
+- referrals: `chargezen.admin_rewards.save_referral_definition.v1`
+- emails: `chargezen.notification_emails.save.v1`, then `chargezen.notification_emails.preview.v1`, and `chargezen.notification_emails.send_test.v1` to them before turning one on
 
-If the rewards page needs to show the change, `rewards_surfaces.save` the draft, show what changes, and `rewards_surfaces.publish` only when they say so. Deleting a definition or tier can't be undone: ask first, every time.
+If the rewards page needs to show the change, `chargezen.rewards_surfaces.save.v1` the draft, show what changes, and `chargezen.rewards_surfaces.publish.v1` only when they say so. Deleting a definition or tier can't be undone: ask first, every time.

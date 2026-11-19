@@ -17,7 +17,7 @@ The trigger is **Date on the profile** (`smartytap.profile.date_property`). It r
 - the day they joined (`field` `created_at`), for a "one year with us" anniversary; or
 - a custom date property, such as `birthday`.
 
-Check the property exists and is filled: `smartytap_segments.fields` lists the workspace's custom properties, and `smartytap_segments.preview` with a condition on that property (using an operator the fields list for it) counts how many people have it. If few or none do, nothing will send. Offer to collect it first:
+Check the property exists and is filled: `chargezen.smartytap_segments.fields.v1` lists the workspace's custom properties, and `chargezen.smartytap_segments.preview.v1` with a condition on that property (using an operator the fields list for it) counts how many people have it. If few or none do, nothing will send. Offer to collect it first:
 
 - a survey with a `date` question whose `property` is `birthday` (`/survey`), linked from an email or a campaign. Answers save to the profile.
 
@@ -32,7 +32,7 @@ These are marketing messages: only people who agreed to email or texts get them.
 
 ## 3. Build, check, turn on
 
-1. `workflows.authoring_options` for senders, starter designs and personalization; `workflows.list` to avoid a second birthday flow.
-2. `workflows.create` with `status: "draft"`, the `date_property` setting and a new `operation_id`.
-3. Write the email with `email_documents.apply_ops`; check with `workflows.preview_email` and `workflows.preview_sms` (trigger `smartytap.profile.date_property`).
-4. Show the messages, when they send relative to the date, and how many people have the date today. Only when they say so: `workflows.activate`.
+1. `chargezen.workflows.authoring_options.v1` for senders, starter designs and personalization; `chargezen.workflows.list.v1` to avoid a second birthday flow.
+2. `chargezen.workflows.create.v2` with `status: "draft"`, the `date_property` setting and a new `operation_id`.
+3. Write the email with `chargezen.email_documents.apply_ops.v1`; check with `chargezen.workflows.preview_email.v2` and `chargezen.workflows.preview_sms.v1` (trigger `smartytap.profile.date_property`).
+4. Show the messages, when they send relative to the date, and how many people have the date today. Only when they say so: `chargezen.workflows.activate.v1`.

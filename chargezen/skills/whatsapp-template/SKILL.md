@@ -14,7 +14,7 @@ WhatsApp marketing goes out only as a template Meta approved. SmartyTap always s
 
 ## 1. Check what's there
 
-`smartytap_whatsapp_templates.list` with Meta's status for each. If one already says what they want, offer it. For a rejected or paused one, read it with `smartytap_whatsapp_templates.get`: `status_note` says why, and `problems` says what stops a review.
+`chargezen.smartytap_whatsapp_templates.list.v1` with Meta's status for each. If one already says what they want, offer it. For a rejected or paused one, read it with `chargezen.smartytap_whatsapp_templates.get.v1`: `status_note` says why, and `problems` says what stops a review.
 
 ## 2. Write it
 
@@ -28,9 +28,9 @@ Meta rejects vague, misleading or all-variable messages. Write the offer in word
 
 ## 3. Submit and follow up
 
-1. On their OK: `smartytap_whatsapp_templates.create` with a new `operation_id`. It goes to Meta right away; review can take up to 24 hours.
-2. Check later with `smartytap_whatsapp_templates.get`: `approved`, or `rejected` with Meta's reason.
-3. **Fix a rejection:** change what the reason names and resubmit with `smartytap_whatsapp_templates.update`, passing the `version` you read. Editing a version Meta has seen makes a new version; campaigns and flows keep sending the earlier approved version until Meta approves the new one. A name-only change isn't reviewed.
+1. On their OK: `chargezen.smartytap_whatsapp_templates.create.v1` with a new `operation_id`. It goes to Meta right away; review can take up to 24 hours.
+2. Check later with `chargezen.smartytap_whatsapp_templates.get.v1`: `approved`, or `rejected` with Meta's reason.
+3. **Fix a rejection:** change what the reason names and resubmit with `chargezen.smartytap_whatsapp_templates.update.v1`, passing the `version` you read. Editing a version Meta has seen makes a new version; campaigns and flows keep sending the earlier approved version until Meta approves the new one. A name-only change isn't reviewed.
 
 ## 4. Use it
 

@@ -12,10 +12,10 @@ Follow the `chargezen` and `checkoutos` skills for how to reach the tools. **Rea
 
 ## 1. Read
 
-1. `upsell_analytics.get` with `from` and `to`: each offer with shopper events in the window (impressions, accepted, declined, purchased, revenue, conversion rate, revenue per impression), and every experiment with its control and challenger arms.
-2. `post_purchase_upsells.funnels` for the same dates: each post-purchase offer's visits, acceptances, declines, revenue and conversion, its accepted and declined next steps, and whole-funnel totals.
-3. `upsell_experiments.list` with `status: "running"` for the tests still splitting shoppers.
-4. `checkout_upsells.list` and `post_purchase_upsells.list` for active offers with no events in the window. Then `checkout_extensions.discover`: an active offer with no views often means its block isn't on the checkout.
+1. `chargezen.upsell_analytics.get.v1` with `from` and `to`: each offer with shopper events in the window (impressions, accepted, declined, purchased, revenue, conversion rate, revenue per impression), and every experiment with its control and challenger arms.
+2. `chargezen.post_purchase_upsells.funnels.v1` for the same dates: each post-purchase offer's visits, acceptances, declines, revenue and conversion, its accepted and declined next steps, and whole-funnel totals.
+3. `chargezen.upsell_experiments.list.v1` with `status: "running"` for the tests still splitting shoppers.
+4. `chargezen.checkout_upsells.list.v1` and `chargezen.post_purchase_upsells.list.v1` for active offers with no events in the window. Then `chargezen.checkout_extensions.discover.v1`: an active offer with no views often means its block isn't on the checkout.
 
 Checkout revenue counts purchased upsells; post-purchase revenue counts accepted ones. Offers with only a handful of views can't be judged yet; say so instead of ranking them.
 
@@ -33,6 +33,6 @@ For a test with a clear result, say what ending it does before asking:
 - **challenger wins:** the challenger goes live with the original's priority and targeting, and the original goes back to draft;
 - **control wins or no winner:** nothing changes; the original keeps showing to everyone.
 
-On a clear yes, `upsell_experiments.end` with the experiment and the winner. For a checkout test, `checkout_upsells.get` afterwards to confirm the discount republished, and report any error plainly.
+On a clear yes, `chargezen.upsell_experiments.end.v1` with the experiment and the winner. For a checkout test, `chargezen.checkout_upsells.get.v1` afterwards to confirm the discount republished, and report any error plainly.
 
 Offer the next step: test the weakest offer (`/upsell-experiment`), or a full checkout review (`/checkout-audit`).

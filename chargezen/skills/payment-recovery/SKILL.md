@@ -9,7 +9,7 @@ Follow the `chargezen` skill for how to reach the tools.
 
 ## 1. See what's there
 
-`workflows.list`, then `workflows.get` on any flow whose trigger is a payment event (`subscription.payment_failed_first_attempt`, `payment_retrying`, `payment_last_attempt`, `payment_method_problem`). If one already covers failed payments, read it to the person and offer to improve it rather than adding a second; two flows would message customers twice.
+`chargezen.workflows.list.v1`, then `chargezen.workflows.get.v1` on any flow whose trigger is a payment event (`subscription.payment_failed_first_attempt`, `payment_retrying`, `payment_last_attempt`, `payment_method_problem`). If one already covers failed payments, read it to the person and offer to improve it rather than adding a second; two flows would message customers twice.
 
 ## 2. Agree the plan
 
@@ -24,11 +24,11 @@ Optional, if they want: a flow on Payment method problem (`subscription.payment_
 
 ## 3. Build it as a draft
 
-1. `workflows.authoring_options` for triggers, steps, senders, templates, personalization and whether texts can send. Ask who should get the internal alert. A new alert address gets a confirmation email first and receives alerts only after it confirms; tell the person so they watch for it.
-2. `workflows.create` with `status: "draft"` and a new `operation_id` for each flow.
-3. Write each email with `email_documents.apply_ops` at the address in `email_documents`: subject under 50 characters, two or three short sentences, one button, unsubscribe link and mailing address.
-4. `workflows.preview_email` and `workflows.preview_sms`; show the person everything a customer would get, in order, with the timing.
+1. `chargezen.workflows.authoring_options.v1` for triggers, steps, senders, templates, personalization and whether texts can send. Ask who should get the internal alert. A new alert address gets a confirmation email first and receives alerts only after it confirms; tell the person so they watch for it.
+2. `chargezen.workflows.create.v2` with `status: "draft"` and a new `operation_id` for each flow.
+3. Write each email with `chargezen.email_documents.apply_ops.v1` at the address in `email_documents`: subject under 50 characters, two or three short sentences, one button, unsubscribe link and mailing address.
+4. `chargezen.workflows.preview_email.v2` and `chargezen.workflows.preview_sms.v1`; show the person everything a customer would get, in order, with the timing.
 
 ## 4. Turn it on
 
-Only when they say so: `workflows.activate` for each flow. Say it starts with the next failed renewal. For a customer whose payment already failed, offer `admin_customer_subscriptions.request_payment_method_update`, which emails them a secure link, one customer at a time on their OK.
+Only when they say so: `chargezen.workflows.activate.v1` for each flow. Say it starts with the next failed renewal. For a customer whose payment already failed, offer `chargezen.admin_customer_subscriptions.request_payment_method_update.v1`, which emails them a secure link, one customer at a time on their OK.

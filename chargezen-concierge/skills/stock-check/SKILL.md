@@ -12,7 +12,7 @@ Follow the `chargezen` skill for how to reach the tools. **Read only.** Use time
 
 ## 1. What sold
 
-`shopify_reports.sales_by_sku` for the period (all SKUs, or the ones they named; for a product name, `products.search` first to find its variants and SKUs). Rank SKUs by units sold. Keep in mind:
+`chargezen.shopify_reports.sales_by_sku.v1` for the period (all SKUs, or the ones they named; for a product name, `chargezen.products.search.v1` first to find its variants and SKUs). Rank SKUs by units sold. Keep in mind:
 
 - units include cancelled, refunded and test orders, and gross sales are before discounts and refunds; say so if you show revenue;
 - each currency is reported separately; don't add them together;
@@ -20,7 +20,7 @@ Follow the `chargezen` skill for how to reach the tools. **Read only.** Use time
 
 ## 2. What's in stock
 
-`shopify_reports.inventory` with `filters: { skus: [...] }` for the top SKUs (and any they named). For each SKU add up `available` across active locations, and note `incoming` and `committed`. Inventory that isn't tracked has no reliable count: say "not tracked" rather than zero. `shopify_locations.list` names the locations.
+`chargezen.shopify_reports.inventory.v1` with `filters: { skus: [...] }` for the top SKUs (and any they named). For each SKU add up `available` across active locations, and note `incoming` and `committed`. Inventory that isn't tracked has no reliable count: say "not tracked" rather than zero. `chargezen.shopify_locations.list.v1` names the locations.
 
 ## 3. Work it out
 
@@ -36,4 +36,4 @@ This is a simple average of past sales; it doesn't know about launches, seasons,
 
 Lead with what to reorder first: the SKUs with the fewest days left, each one line with available, days left and the suggested quantity. Then the best sellers that are fine, and slow movers holding a lot of stock (many available, few sold). No tables longer than 15 rows.
 
-This connection can't change stock or place purchase orders. Offer next steps: re-run for one product or location, find the customers who asked about a product that's out (`history.search` for its name), or answer them with `/inbox-triage`.
+This connection can't change stock or place purchase orders. Offer next steps: re-run for one product or location, find the customers who asked about a product that's out (`chargezen.history.search.v1` for its name), or answer them with `/inbox-triage`.

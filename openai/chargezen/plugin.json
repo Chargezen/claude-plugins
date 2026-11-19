@@ -35,6 +35,7 @@
           "Skip, pause, swap, reschedule or cancel a subscription",
           "Draft, test and launch email, text and WhatsApp campaigns",
           "Build automated flows such as welcome and abandoned checkout",
+          "Build sign-up forms and popups, and report on marketing and flow results",
           "Set up storefront chat, texting, email, WhatsApp and phone channels",
           "Set up AI agents, their knowledge, business hours and handoff alerts",
           "Build checkout upsells, post-purchase offers and A/B tests",
@@ -106,7 +107,7 @@
         }
       },
       "publication": {
-        "release_notes": "First release of Chargezen for ChatGPT: the full Chargezen connector (inbox, subscriptions, SmartyTap campaigns and flows, CheckoutOS offers, loyalty, Spark!, reports and Concierge) with a getting-started skill and the 77 Chargezen job skills, including channel setup, the storefront chat launcher and knowledge setup."
+        "release_notes": "First release of Chargezen for ChatGPT: the full Chargezen connector (inbox, subscriptions, SmartyTap campaigns and flows, CheckoutOS offers, loyalty, Spark!, reports and Concierge) with a getting-started skill and the 81 Chargezen job skills, including channel setup, the storefront chat launcher, knowledge setup, marketing and flow reports, sign-up forms and audience cleanup."
       }
     }
   }

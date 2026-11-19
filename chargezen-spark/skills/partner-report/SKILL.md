@@ -12,10 +12,10 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads**; Spa
 
 ## 1. Gather
 
-1. **Credited orders:** `admin_spark_referred_orders.list` with `from` and `to` for the period (`to` is exclusive), reading every page (`pagination.total_pages`). Do the same for the comparison period.
+1. **Credited orders:** `chargezen.admin_spark_referred_orders.list.v1` with `from` and `to` for the period (`to` is exclusive), reading every page (`pagination.total_pages`). Do the same for the comparison period.
 2. **Per partner**, from those orders: credited orders, sales (`order_total`), commission earned (`earned_commission`), refunded orders (`is_refunded`) and commission taken back (`refunded_commission`), and orders whose commission is `in_dispute` or `revoked`.
-3. **New partners:** `admin_spark_partners.list` with `status: "active"`; count those whose `joined_at` falls in the period, and how many of them already have a credited order.
-4. **Payouts:** `admin_spark_partner_payouts.list` (newest first, enough pages to cover the period): payouts marked `paid` in the period and their total, plus any `failed`.
+3. **New partners:** `chargezen.admin_spark_partners.list.v1` with `status: "active"`; count those whose `joined_at` falls in the period, and how many of them already have a credited order.
+4. **Payouts:** `chargezen.admin_spark_partner_payouts.list.v1` (newest first, enough pages to cover the period): payouts marked `paid` in the period and their total, plus any `failed`.
 
 Amounts are in the workspace's currency (the `currency` on each result). These are Chargezen's records of credited orders, not live Shopify payments; say so once.
 

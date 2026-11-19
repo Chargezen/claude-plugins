@@ -12,11 +12,11 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads.**
 
 ## 1. Gather
 
-1. `admin_spark_partners.list` with `query`. If several match, ask which one.
-2. `admin_spark_partners.get` with their `record_id`: membership status, links (each with destination and commission profile), lifetime clicks, unique clicks, QR scans, orders, sales and commission, refund totals and clawbacks (`refund_clawback_open`, `negative_balance`), and payouts.
-3. `admin_spark_referred_orders.list` with `partner_id` for the last 90 days (every page): orders and commission by month, refunds, disputed or revoked commission.
-4. For each commission profile on their links, `admin_spark_commission_profiles.get`: rate and customer discount.
-5. `admin_spark_partner_payouts.list` with `partner_id`: what's been paid, what's waiting.
+1. `chargezen.admin_spark_partners.list.v1` with `query`. If several match, ask which one.
+2. `chargezen.admin_spark_partners.get.v1` with their `record_id`: membership status, links (each with destination and commission profile), lifetime clicks, unique clicks, QR scans, orders, sales and commission, refund totals and clawbacks (`refund_clawback_open`, `negative_balance`), and payouts.
+3. `chargezen.admin_spark_referred_orders.list.v1` with `partner_id` for the last 90 days (every page): orders and commission by month, refunds, disputed or revoked commission.
+4. For each commission profile on their links, `chargezen.admin_spark_commission_profiles.get.v1`: rate and customer discount.
+5. `chargezen.admin_spark_partner_payouts.list.v1` with `partner_id`: what's been paid, what's waiting.
 
 Lifetime commission leaves out revoked orders; lifetime order counts and sales keep them. Everything is for this workspace only, even if the creator works with other brands.
 
@@ -28,4 +28,4 @@ Lifetime commission leaves out revoked orders; lifetime order counts and sales k
 - **Money:** paid to date, waiting, and any open clawback they'll owe from refunds.
 - **Flags:** high refund share, disputed commissions, a negative balance, a link with no commission profile, suspended or pending status.
 
-Suggest one or two things grounded in the numbers, such as a better rate for a fast grower or a check on a partner with many refunds. Rate changes, approval and suspension are done in the Spark! admin's **Partner detail** page (`admin_spark_partner_app.guide` with `partner_detail`); say where, never that you'll do it.
+Suggest one or two things grounded in the numbers, such as a better rate for a fast grower or a check on a partner with many refunds. Rate changes, approval and suspension are done in the Spark! admin's **Partner detail** page (`chargezen.admin_spark_partner_app.guide.v1` with `partner_detail`); say where, never that you'll do it.

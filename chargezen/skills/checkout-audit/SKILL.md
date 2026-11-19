@@ -10,9 +10,9 @@ Audit window: the last $ARGUMENTS days (use 30 if no number was given).
 
 Use only tools that read; change nothing. Follow the `chargezen` and `checkoutos` skills for how to reach the tools.
 
-1. **Placement:** `checkout_extensions.discover` — which Chargezen blocks are placed, editor-only, not seen recently or never seen.
+1. **Placement:** `chargezen.checkout_extensions.discover.v1` — which Chargezen blocks are placed, editor-only, not seen recently or never seen.
 2. **What's live:** checkout upsells (with priority order), post-purchase offers and funnels, running experiments, discount functions, cart transforms, validations, trust badges, texts and branding.
-3. **Performance:** `upsell_analytics.get` and `post_purchase_upsells.funnels` for the window.
+3. **Performance:** `chargezen.upsell_analytics.get.v1` and `chargezen.post_purchase_upsells.funnels.v1` for the window.
 4. **Report** as a short ranked list. For each finding give what you saw, why it matters to revenue or conversion, and the specific fix. Typical findings:
    - an active offer whose block isn't placed
    - several active campaigns where a lower-priority one never gets served

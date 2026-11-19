@@ -12,9 +12,9 @@ Follow the `chargezen` skill for how to reach the tools. Covers renewals billed 
 
 ## 1. Read the lists
 
-1. `admin_subscriptions.failed_payments` with `stage: "retrying"`, every page (`next_page` while `has_more`): charges still being retried or waiting on the store.
+1. `chargezen.admin_subscriptions.failed_payments.v1` with `stage: "retrying"`, every page (`next_page` while `has_more`): charges still being retried or waiting on the store.
 2. The same with `stage: "ended"`: charges that ran out of retries or that Chargezen couldn't complete.
-3. For the lines worth the most attention (up to 20), `admin_customer_subscriptions.get` with the line's `customer_ref` and `subscription_ref`, for what they subscribe to and the price per order. The failed list itself carries no amount; say the total at risk is from the subscriptions you read.
+3. For the lines worth the most attention (up to 20), `chargezen.admin_customer_subscriptions.get.v2` with the line's `customer_ref` and `subscription_ref`, for what they subscribe to and the price per order. The failed list itself carries no amount; say the total at risk is from the subscriptions you read.
 
 ## 2. Sort them
 
@@ -29,6 +29,6 @@ Lead with one line: how many are retrying, how many ended, and the price per ord
 
 ## 4. Ask for new cards
 
-Offer to send a card-update link to the customers who need one (ended, expired or declined). Show the list of names and say: **each customer gets an email from Shopify with a secure link to update the card for that subscription**. On a clear yes, `admin_customer_subscriptions.request_payment_method_update` for each, one at a time, passing the refs unchanged. If one returns an error (for example, the customer has several cards and must choose one in the subscription widget), note it and carry on. Report who was sent a link and who wasn't, and why. Never ask for or type card details.
+Offer to send a card-update link to the customers who need one (ended, expired or declined). Show the list of names and say: **each customer gets an email from Shopify with a secure link to update the card for that subscription**. On a clear yes, `chargezen.admin_customer_subscriptions.request_payment_method_update.v1` for each, one at a time, passing the refs unchanged. If one returns an error (for example, the customer has several cards and must choose one in the subscription widget), note it and carry on. Report who was sent a link and who wasn't, and why. Never ask for or type card details.
 
 Suggest `/payment-recovery` (full Chargezen plugin) if there's no automatic flow for failed payments yet.

@@ -12,10 +12,10 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads**; not
 
 ## 1. Gather
 
-1. **Balance now:** `admin_spark_partner_finance.get_balance`: available, reserved, pending deposits, total deposited, total paid out, committed payouts, last deposit and payout dates.
-2. **Ledger:** `admin_spark_partner_finance.list_transactions` with `start_date` and `end_date` for the period, every page. Total by `transaction_type` (`deposit`, `payout`, `fee`, `adjustment`, `refund` of a deposit, `reservation`, `release`). Note the running balance at the start and end of the period.
-3. **Deposits:** `admin_spark_partner_finance.list_deposits`, enough pages to cover the period: gross, fee and net, status, method.
-4. **Payouts:** `admin_spark_partner_payouts.list` with `status: "paid"` covering the period, and `failed`.
+1. **Balance now:** `chargezen.admin_spark_partner_finance.get_balance.v1`: available, reserved, pending deposits, total deposited, total paid out, committed payouts, last deposit and payout dates.
+2. **Ledger:** `chargezen.admin_spark_partner_finance.list_transactions.v1` with `start_date` and `end_date` for the period, every page. Total by `transaction_type` (`deposit`, `payout`, `fee`, `adjustment`, `refund` of a deposit, `reservation`, `release`). Note the running balance at the start and end of the period.
+3. **Deposits:** `chargezen.admin_spark_partner_finance.list_deposits.v1`, enough pages to cover the period: gross, fee and net, status, method.
+4. **Payouts:** `chargezen.admin_spark_partner_payouts.list.v1` with `status: "paid"` covering the period, and `failed`.
 
 These are Chargezen's records, not a bank statement. A paid payout means a teammate recorded the payment; it isn't bank confirmation.
 
@@ -30,4 +30,4 @@ These are Chargezen's records, not a bank statement. A paid payout means a teamm
 
 Lead with one line: money in, money out, closing balance, and "reconciles" or the gap. Then a short summary by type and a list of mismatches (date, amount, what's missing). Keep amounts in the balance's currency.
 
-If something needs correcting, the team records a deposit on **Partner Finance** and marks payouts on **Partner detail** in the Spark! admin (`admin_spark_partner_app.guide` with `finance` or `partner_detail`). Suggest the person check bank statements for any gap rather than guessing the cause.
+If something needs correcting, the team records a deposit on **Partner Finance** and marks payouts on **Partner detail** in the Spark! admin (`chargezen.admin_spark_partner_app.guide.v1` with `finance` or `partner_detail`). Suggest the person check bank statements for any gap rather than guessing the cause.

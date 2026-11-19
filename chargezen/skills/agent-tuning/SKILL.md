@@ -12,16 +12,16 @@ Follow the `chargezen` skill for how to reach the tools. **Read only** until the
 
 ## 1. Read the agent
 
-1. `agents.list`, then `agents.get` on the one they named (ask if several match). Note its role, status, instructions, `tool_names`, channels (`channel_endpoint_ids`), `channel_response` and `updated_at`.
-2. `agents.configuration_options`: the tools it could have (`tools`, with the roles each works for and the tools it needs) and the workspace's channels.
+1. `chargezen.agents.list.v1`, then `chargezen.agents.get.v1` on the one they named (ask if several match). Note its role, status, instructions, `tool_names`, channels (`channel_endpoint_ids`), `channel_response` and `updated_at`.
+2. `chargezen.agents.configuration_options.v1`: the tools it could have (`tools`, with the roles each works for and the tools it needs) and the workspace's channels.
 
 ## 2. See how it's doing
 
 Look at the last 14 days unless they gave a period.
 
-1. **Handed to the team:** `inbox.list` with `status: "handoff_queue"`, then `status: "all"` filtered by the agent's channels. Read a sample of handed-over conversations with `inbox.get` (up to ten). For each, note what the customer wanted and why the agent couldn't finish: it lacked a tool, the knowledge didn't say, its instructions told it to stop, or the customer asked for a person.
-2. **What it said:** `history.search` with `since` set to the period, for the topics the person raised or that came up above (for example "refund", "where is my order", "cancel", "discount code"). Read around a match with `history.read` when the fragment isn't enough. Messages with `sender: "agent"` are the agent's answers; check the facts they state against knowledge (`knowledge.search`) or orders (`admin_shopify_orders.search`) rather than trusting them.
-3. **Knowledge it lacked:** for each question it couldn't answer, `knowledge.search`. If nothing answers it, the fix is knowledge, not instructions: offer `/knowledge-gaps`.
+1. **Handed to the team:** `chargezen.inbox.list.v1` with `status: "handoff_queue"`, then `status: "all"` filtered by the agent's channels. Read a sample of handed-over conversations with `chargezen.inbox.get.v1` (up to ten). For each, note what the customer wanted and why the agent couldn't finish: it lacked a tool, the knowledge didn't say, its instructions told it to stop, or the customer asked for a person.
+2. **What it said:** `chargezen.history.search.v1` with `since` set to the period, for the topics the person raised or that came up above (for example "refund", "where is my order", "cancel", "discount code"). Read around a match with `chargezen.history.read.v1` when the fragment isn't enough. Messages with `sender: "agent"` are the agent's answers; check the facts they state against knowledge (`chargezen.knowledge.search.v1`) or orders (`chargezen.admin_shopify_orders.search.v1`) rather than trusting them.
+3. **Knowledge it lacked:** for each question it couldn't answer, `chargezen.knowledge.search.v1`. If nothing answers it, the fix is knowledge, not instructions: offer `/knowledge-gaps`.
 
 Search results show the best matches, not every one; say "seen in N of the conversations read", never a total.
 
@@ -38,7 +38,7 @@ Show the new instructions in full, with the changed lines pointed out.
 
 ## 4. Save what they approve
 
-`agents.update` with `expected_updated_at` set to the `updated_at` you read, and `changes` holding only the approved fields. A list you send replaces the whole field: send the complete `tool_names` (keeping the tools they want to keep), the complete `channel_endpoint_ids` (a channel left out is left with no agent), and every channel in `channel_response`. If the agent is active, the change applies to new messages right away; say so before saving. On `AGENT_CHANGED`, read it again with `agents.get`, show what someone else changed and redo the change on top.
+`chargezen.agents.update.v1` with `expected_updated_at` set to the `updated_at` you read, and `changes` holding only the approved fields. A list you send replaces the whole field: send the complete `tool_names` (keeping the tools they want to keep), the complete `channel_endpoint_ids` (a channel left out is left with no agent), and every channel in `channel_response`. If the agent is active, the change applies to new messages right away; say so before saving. On `AGENT_CHANGED`, read it again with `chargezen.agents.get.v1`, show what someone else changed and redo the change on top.
 
 ## 5. Report
 

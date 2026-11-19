@@ -12,7 +12,7 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads.** Thi
 
 ## 1. Pick the page
 
-`admin_spark_partner_app.guide` with the `layout_key` that fits:
+`chargezen.admin_spark_partner_app.guide.v1` with the `layout_key` that fits:
 
 | They want to | layout_key |
 |---|---|
@@ -35,7 +35,7 @@ Read more than one if the job spans pages (inviting someone onto a specific rate
 
 ## 2. Add the real values
 
-Where the answer depends on what's set up, read it: `admin_spark_partner_settings.get` for approval, minimum payout and frequency; `admin_spark_commission_profiles.list` for the profiles they can choose; `admin_spark_partners.list` to find the partner they mean.
+Where the answer depends on what's set up, read it: `chargezen.admin_spark_partner_settings.get.v1` for approval, minimum payout and frequency; `chargezen.admin_spark_commission_profiles.list.v1` for the profiles they can choose; `chargezen.admin_spark_partners.list.v1` to find the partner they mean.
 
 ## 3. Answer
 

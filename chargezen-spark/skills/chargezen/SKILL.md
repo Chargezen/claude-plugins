@@ -12,7 +12,7 @@ This plugin's Chargezen MCP server acts for the teammate who connected it, in th
 Every tool this connection can use is one of its own tools: call it directly by its name. Each tool's description and schema are the contract: follow them rather than guessing field shapes.
 
 - **Which workspace:** when the connection reaches more than one, `chargezen.connection.get_profile.v1` lists them. Ask which brand the person means unless it's clear, and pass that `workspace` on every call.
-- **Pick real records.** Customers come from `customers.search`, products from `products.search`, collections from `products.search_collections`, lists and segments from the authoring-options tools. Pass every reference through exactly as it came back.
+- **Pick real records.** Where this connection has them, customers come from `chargezen.customers.search.v1` (SmartyTap people from `chargezen.contacts.search.v1`), products from `chargezen.products.search.v1`, collections from `chargezen.products.search_collections.v1`, lists and segments from the authoring-options tools. Pass every reference through exactly as it came back.
 - **Dates:** reports take explicit timestamps with a UTC offset. Say which period you used.
 
 ## The safe order for any change

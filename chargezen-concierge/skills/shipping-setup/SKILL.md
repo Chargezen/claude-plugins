@@ -12,13 +12,13 @@ Follow the `chargezen` skill for how to reach the tools. **Read only.** Shipping
 
 ## One destination
 
-For "do we ship to X": `shopify_shipping_zones.list` with `destination` (`country` as a two-letter code, plus `province` when they named one). An empty list means the store doesn't ship there. Otherwise give each rate: its name as shoppers see it, its price, any order price or weight limits (such as free over an amount), and note that a carrier- or app-calculated rate has no fixed price because it's worked out at checkout. If a zone belongs to a product-specific profile, say which products it applies to. Then stop, or offer the full review.
+For "do we ship to X": `chargezen.shopify_shipping_zones.list.v1` with `destination` (`country` as a two-letter code, plus `province` when they named one). An empty list means the store doesn't ship there. Otherwise give each rate: its name as shoppers see it, its price, any order price or weight limits (such as free over an amount), and note that a carrier- or app-calculated rate has no fixed price because it's worked out at checkout. If a zone belongs to a product-specific profile, say which products it applies to. Then stop, or offer the full review.
 
 ## Full review
 
-1. **Zones and rates:** `shopify_shipping_zones.list` with no destination: every zone, its profile (general or product-specific), countries and rates.
-2. **Locations:** `shopify_locations.list` (all pages): where orders ship from.
-3. **What customers expect:** `knowledge.search` for shipping times, costs, free shipping and international shipping, and `saved_replies.search` for "shipping". `history.search` for the last 30 days with words like "ship to", "shipping cost", "international", "customs", from customers.
+1. **Zones and rates:** `chargezen.shopify_shipping_zones.list.v1` with no destination: every zone, its profile (general or product-specific), countries and rates.
+2. **Locations:** `chargezen.shopify_locations.list.v1` (all pages): where orders ship from.
+3. **What customers expect:** `chargezen.knowledge.search.v1` for shipping times, costs, free shipping and international shipping, and `chargezen.saved_replies.search.v1` for "shipping". `chargezen.history.search.v1` for the last 30 days with words like "ship to", "shipping cost", "international", "customs", from customers.
 
 ## What to flag
 

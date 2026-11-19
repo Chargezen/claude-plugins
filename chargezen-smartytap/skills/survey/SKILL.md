@@ -12,7 +12,7 @@ Follow the `chargezen` skill for how to reach the tools.
 
 ## 1. Check what's there
 
-`smartytap_surveys.list`: each survey's status and how many answered. If one already asks this, offer to reuse or edit it (`smartytap_surveys.get`, then `update`), or just read its results (step 5).
+`chargezen.smartytap_surveys.list.v1`: each survey's status and how many answered. If one already asks this, offer to reuse or edit it (`chargezen.smartytap_surveys.get.v1`, then `chargezen.smartytap_surveys.update.v2`), or just read its results (step 5).
 
 ## 2. Write it
 
@@ -24,15 +24,15 @@ Keep it short: one to three questions finish far more often than ten.
   - *How did you hear about us?* single choice: Instagram, TikTok, a friend, Google, a podcast, Other.
   - *How likely are you to recommend us?* NPS 0–10, then an optional "What's the main reason?" long text.
 - **Who answers:** ask for an email unless the link already knows who they are (a survey with a free gift always asks). Optional response limit or closing date.
-- **Free gift** (optional): real products from `products.search`, given when claimed, which become real orders. Say that cost plainly.
+- **Free gift** (optional): real products from `chargezen.products.search.v1`, given when claimed, which become real orders. Say that cost plainly.
 - **Thank-you** heading and text.
 
 Show the person the whole survey as respondents will see it.
 
 ## 3. Save and put live
 
-1. `smartytap_surveys.create` with the definition and a new `operation_id`. It's a draft and takes no answers. The result lists what still stops it going live; fix those with `smartytap_surveys.update` (from the revision you read).
-2. On their OK: `smartytap_surveys.publish`. It now takes answers on its own page (`page_url`, which its link and QR code open). Where it shows on the store is set in SmartyTap's survey editor.
+1. `chargezen.smartytap_surveys.create.v2` with the definition and a new `operation_id`. It's a draft and takes no answers. The result lists what still stops it going live; fix those with `chargezen.smartytap_surveys.update.v2` (from the revision you read).
+2. On their OK: `chargezen.smartytap_surveys.publish.v1`. It now takes answers on its own page (`page_url`, which its link and QR code open). Where it shows on the store is set in SmartyTap's survey editor.
 
 ## 4. Get it to people
 
@@ -42,4 +42,4 @@ Show the person the whole survey as respondents will see it.
 
 ## 5. Read the results
 
-`smartytap_surveys.results` for a range of days (30 by default, at most 366): how many saw it and answered, the response rate, free gifts claimed and turned into orders, and each question's answers (counts per answer, the rating spread and average, the NPS score). Written answers aren't included in results; say so. Lead with the headline ("Most new customers heard about you on …", "NPS is …") and one thing to do about it.
+`chargezen.smartytap_surveys.results.v1` for a range of days (30 by default, at most 366): how many saw it and answered, the response rate, free gifts claimed and turned into orders, and each question's answers (counts per answer, the rating spread and average, the NPS score). Written answers aren't included in results; say so. Lead with the headline ("Most new customers heard about you on …", "NPS is …") and one thing to do about it.

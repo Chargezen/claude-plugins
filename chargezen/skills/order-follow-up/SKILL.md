@@ -12,8 +12,8 @@ Follow the `chargezen` skill for how to reach the tools.
 
 ## 1. Check what's there
 
-1. `workflows.list`: look for flows on Order fulfilled (`shopify.orders.fulfilled`) or Order paid. If one already thanks customers, read it with `workflows.get` and offer to add to it rather than send two.
-2. `workflows.authoring_options` for senders, starter designs (VIP thank-you, Order shipped), live survey questions and whether texts can send.
+1. `chargezen.workflows.list.v1`: look for flows on Order fulfilled (`shopify.orders.fulfilled`) or Order paid. If one already thanks customers, read it with `chargezen.workflows.get.v1` and offer to add to it rather than send two.
+2. `chargezen.workflows.authoring_options.v1` for senders, starter designs (VIP thank-you, Order shipped), live survey questions and whether texts can send.
 
 There is no "delivered" event: the flow starts when the order is fulfilled, so the wait covers shipping time. Ask how long their orders usually take to arrive.
 
@@ -33,7 +33,7 @@ Order follow-ups to people who haven't agreed to marketing should stay about the
 
 ## 3. Build, check, turn on
 
-1. `workflows.create` with `status: "draft"` and a new `operation_id`.
-2. Write each email with `email_documents.apply_ops` at its address in `email_documents`, using the trigger's order tokens (`{{ order.name }}`) and `{{ profile.first_name }}` with a fallback.
-3. `workflows.preview_email` and `workflows.preview_sms` (trigger `shopify.orders.fulfilled`). Show the whole path with its timing.
-4. Only when they say so: `workflows.activate`. Orders fulfilled before then don't get it.
+1. `chargezen.workflows.create.v2` with `status: "draft"` and a new `operation_id`.
+2. Write each email with `chargezen.email_documents.apply_ops.v1` at its address in `email_documents`, using the trigger's order tokens (`{{ order.name }}`) and `{{ profile.first_name }}` with a fallback.
+3. `chargezen.workflows.preview_email.v2` and `chargezen.workflows.preview_sms.v1` (trigger `shopify.orders.fulfilled`). Show the whole path with its timing.
+4. Only when they say so: `chargezen.workflows.activate.v1`. Orders fulfilled before then don't get it.

@@ -12,9 +12,9 @@ Follow the `chargezen` skill for how to reach the tools. **Read only** until the
 
 ## 1. See what's there
 
-1. `web_chat.get`: the editable draft, the published launcher shoppers see now (or that none is published), the assistant name (Concierge or Finn), the web chat channel and the agent answering it, the installation details and `editor_url`, where the merchant can preview it.
-2. `workspace_brand.get`: the store's name, logo, colors and fonts, to match the launcher to them.
-3. `channels.list`: whether storefront chat is ready and who answers it.
+1. `chargezen.web_chat.get.v1`: the editable draft, the published launcher shoppers see now (or that none is published), the assistant name (Concierge or Finn), the web chat channel and the agent answering it, the installation details and `editor_url`, where the merchant can preview it.
+2. `chargezen.workspace_brand.get.v1`: the store's name, logo, colors and fonts, to match the launcher to them.
+3. `chargezen.channels.list.v1`: whether storefront chat is ready and who answers it.
 
 Tell them in two lines what shoppers see today and what the draft holds if it differs.
 
@@ -23,20 +23,20 @@ Tell them in two lines what shoppers see today and what the draft holds if it di
 Ask only what isn't clear, and propose a launcher in the store's voice:
 
 - **Button and teaser:** the teaser message next to the button (short, such as "Questions? We're here"), when it appears (after a few seconds, halfway down the page, when leaving, or never) and whether it shows on every page.
-- **Home view:** the brand header (logo from the brand settings), a two-line greeting (a small line, then the headline), shortcut cards (orders, subscriptions, rewards and so on), the message box prompt, and up to a handful of FAQ cards. Write FAQ answers only from facts the store has (`knowledge.search`); leave a clear blank for anything unknown.
+- **Home view:** the brand header (logo from the brand settings), a two-line greeting (a small line, then the headline), shortcut cards (orders, subscriptions, rewards and so on), the message box prompt, and up to a handful of FAQ cards. Write FAQ answers only from facts the store has (`chargezen.knowledge.search.v1`); leave a clear blank for anything unknown.
 - **Look:** a color scheme or the brand's own colors, fonts, corner rounding.
 - **Position and behavior:** left or right, offsets, hide on phones, open on the first page, message sound, and an away message for when nobody answers.
 - **Assistant name:** Concierge or Finn. Changing it shows the new name to shoppers at once, even before publishing: say so.
 
-Start from the draft `web_chat.get` returned and change only what was agreed; keep every other section, block and setting as it is, and keep the order of sections the way shoppers should see them.
+Start from the draft `chargezen.web_chat.get.v1` returned and change only what was agreed; keep every other section, block and setting as it is, and keep the order of sections the way shoppers should see them.
 
 ## 3. Save the draft
 
-`web_chat.save` with the complete draft (anything left out is removed). Shoppers keep seeing the published launcher. Describe the new launcher in a few plain lines and give `editor_url` so they can preview it. If it's refused, explain why in plain words, fix it and save again.
+`chargezen.web_chat.save.v1` with the complete draft (anything left out is removed). Shoppers keep seeing the published launcher. Describe the new launcher in a few plain lines and give `editor_url` so they can preview it. If it's refused, explain why in plain words, fix it and save again.
 
 ## 4. Publish only when they say so
 
-Ask: "Publish this launcher? It replaces what shoppers see on your store now." On an explicit yes, `web_chat.publish`. Publishing also turns on the web chat channel.
+Ask: "Publish this launcher? It replaces what shoppers see on your store now." On an explicit yes, `chargezen.web_chat.publish.v1`. Publishing also turns on the web chat channel.
 
 ## 5. What stays with the merchant
 

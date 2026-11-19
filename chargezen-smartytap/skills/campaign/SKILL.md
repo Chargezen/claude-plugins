@@ -28,7 +28,8 @@ Look at past results before you write: `chargezen.smartytap_campaigns.list.v1` w
 1. `chargezen.smartytap_campaigns.create.v2` with a new `operation_id`. Start the email from a fitting template or starter design named in the options.
 2. Write the email at the document address the result gives, with `chargezen.email_documents.apply_ops.v1`: a subject under 50 characters, preview text that adds to it, one clear headline, short body, one button, the unsubscribe link and mailing address. Use personalization tokens exactly as the options list them.
 3. Texts: under 160 characters where you can (each part costs credits), the store name first, one link, and the opt-out wording the workspace uses.
-4. Offer a subject-line A/B test (`chargezen.smartytap_campaigns.add_versions.v1`) when the list is large enough to learn from.
+4. Offer an A/B test when the list is large enough to learn from (`/campaign-ab-test`): an email's versions are added with `chargezen.smartytap_campaigns.add_versions.v1`; a text's are written inline in its `versions` (Version A is `body`), and each version is a paid text, so it costs more.
+5. If they group campaigns (such as Black Friday), set the campaign's `tags`.
 
 ## 3. Check it
 
@@ -42,4 +43,4 @@ Show the person: subject and preview text, a short summary of the body, who gets
 
 - On their OK, `chargezen.smartytap_campaigns.send_test.v2` to them (new `operation_id`).
 - Launch only when they say to: `chargezen.smartytap_campaigns.launch.v1` confirms the recipients, text cost and revision you just showed; if any of those changed, show the new figures and ask again.
-- After it sends, offer to read the results with `chargezen.smartytap_campaigns.report.v1` the next day.
+- After it sends, offer to read the results with `chargezen.smartytap_campaigns.report.v1` the next day (`/campaign-results`).

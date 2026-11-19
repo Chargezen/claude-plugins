@@ -1,6 +1,6 @@
 ---
 name: email-template
-description: Look after SmartyTap's email template library in Chargezen — list and read templates, make a reusable on-brand template from a campaign email that worked, a copy or a starter design, rename or retire old ones, save a footer or header as a reusable section used in every campaign email, and add images from the store's website. Use when they want a brand template, a newsletter layout, to save an email as a template, to tidy the template library, a shared footer, or to put an image from their site in an email.
+description: Look after SmartyTap's email template library in Chargezen — list and read templates, make a reusable on-brand template from a campaign email that worked, a copy or a starter design, rename or retire old ones, save a footer or header as a reusable section used in every campaign email, send a test of a template to an inbox, and add images from the store's website. Use when they want a brand template, a newsletter layout, to save an email as a template, to tidy the template library, a shared footer, "send me a preview of this template", or to put an image from their site in an email.
 argument-hint: "[what to do] [template name]"
 ---
 
@@ -30,7 +30,9 @@ Read the email with `chargezen.email_documents.get.v1` (the outline lists every 
 - placeholder words that say what goes there ("Headline: one line about the offer"), so whoever uses it knows what to replace;
 - `set_subject` and `set_preheader` with sample text.
 
-Check it with `chargezen.email_documents.preview.v2` and show the person the preview and the template name. `chargezen.email_documents.undo.v1` takes back the last change if they don't like it. A template's content is edited the same way, at the document address `chargezen.smartytap_email_templates.get.v1` returns.
+Check it with `chargezen.email_documents.preview.v2` and show the person the preview and the template name.
+
+**To see it in an inbox** ("send me a preview of this template"): `chargezen.smartytap_email_templates.send_test.v1` with its `template_id` and a new `operation_id` (keep it for any retry; a new one sends another test). It sends the template as saved now, subject starting with [Test], personalization filled with sample data, to the teammate's own email address. Pass `recipient` only when the teammate names another address (a colleague or a test inbox); never pick one yourself. No campaign or customer is involved and no one's consent or counts change. If it's refused because the workspace has no default sender, say so and offer to set one with `chargezen.email_channel.set_default_sender.v1` (`/sender-setup`). If `sent` is false, say why from `detail`, such as waiting for email send approval. `chargezen.email_documents.undo.v1` takes back the last change if they don't like it. A template's content is edited the same way, at the document address `chargezen.smartytap_email_templates.get.v1` returns.
 
 ## 4. Rename or retire
 

@@ -20,7 +20,7 @@ Want every Chargezen product in one connection, plus the weekly brief, win-back 
 
 ## What Claude can do
 
-Build, test, schedule, launch, manage and report on email, text and WhatsApp campaigns; A/B tests and translations; welcome, abandoned cart, back-in-stock, thank-you, order-tag and birthday flows, and a health check on them all; marketing reports and each flow's step results; people, consent, imports, timelines, custom properties, exports, lists and segments and cleaning them up; sign-up forms and how they convert; surveys and their results; brand email templates, shared sections and images; WhatsApp templates; texting setup, carrier registration, numbers and countries; email domains, mailboxes and senders; one-to-one texts and emails; replying from the inbox.
+Build, test, schedule, launch, manage and report on email, text and WhatsApp campaigns; A/B tests and translations; welcome, abandoned cart, back-in-stock, thank-you, order-tag and birthday flows, and a health check on them all; marketing reports, each flow's step results and your store's recorded events; people, consent, imports, timelines, custom properties, exports, lists and segments and cleaning them up; sign-up forms and how they convert; surveys and their results; brand email templates, shared sections and images; WhatsApp templates; texting setup, carrier registration, numbers and countries; email domains, mailboxes and senders; one-to-one texts and emails; replying from the inbox.
 
 ## What's included
 
@@ -37,17 +37,18 @@ Build, test, schedule, launch, manage and report on email, text and WhatsApp cam
 | `/order-tag-flow <tag> <action>` | Runs when an order gets a tag in Shopify: message the customer, alert your team, hold the order from shipping or tag it again |
 | `/birthday-flow` | A yearly birthday or join-date anniversary message, on the day or days before, and a survey to collect birthdays if you don't have them |
 | `/flow-health` | Read-only check of every flow: what's on or off, broken emails and texts, unapproved WhatsApp templates, runs that stopped and why, overlaps and missing journeys, with a ranked list of fixes |
-| `/segment <who>` | Builds, reads or changes a live audience (VIPs, lapsed buyers, unengaged, product buyers, survey answers), changing only the rule you ask for, counted with sample names before it's saved |
-| `/list-import <people>` | Imports subscribers with their consent recorded, reports who was added or skipped and why, handles single opt-ins and opt-outs, shows one person's timeline, sets custom properties and exports contacts to a file |
+| `/segment <who>` | Builds, reads or changes a live audience (VIPs, lapsed buyers, unengaged, product buyers, survey answers), changing only the rule you ask for, counted with sample names before it's saved; lists who is in it now, shows how it grew and tags it |
+| `/list-import <people>` | Imports subscribers with their consent and custom properties, reports who was added or skipped and why, handles single opt-ins and opt-outs (texts, WhatsApp and email), shows how a list grew and one person's timeline, sets custom properties and exports contacts to a file |
 | `/sender-setup` | Gets texting and email ready: texting set up from nothing (business details, a first toll-free number and its carrier verification, local-texting registration), numbers and countries, and your own email domain, footer, team sender and default sender, each bought or submitted only on your OK |
 | `/whatsapp-template <message>` | Writes a WhatsApp marketing template, submits it to Meta on your OK, checks the answer and fixes a rejection |
-| `/email-template` | Makes a reusable on-brand email template from a campaign that worked, a copy or a starter design; renames or retires templates, keeps a shared footer in every campaign email, and adds images from your site |
+| `/email-template` | Makes a reusable on-brand email template from a campaign that worked, a copy or a starter design; sends you a test of a template, renames or retires templates, keeps a shared footer in every campaign email, and adds images from your site |
 | `/translate-campaign <campaign> <language>` | Adds a version of a campaign message for customers whose profile language matches, written in that language and counted before launch |
-| `/campaign-ab-test <campaign>` | Sets up a subject-line, content or send-time test on a campaign email, reads how each version is doing and picks the winner on your OK |
+| `/campaign-ab-test <campaign>` | Sets up a subject-line, content or send-time test on a campaign email, or two versions of a text, reads how each version is doing and picks the winner on your OK |
 | `/campaign-results [days]` | Read-only review of recent campaigns: delivered, opened, clicked, unsubscribed, orders and revenue, channels compared, then three takeaways |
 | `/marketing-report [days]` | Read-only: how email, text and WhatsApp did against the period before, the campaigns and flows behind it, and subscriber growth, text deliverability and plan usage on request |
-| `/flow-results [days] [flow]` | Read-only: every flow's results for the period, then each step of the ones that matter (all time) to find the weakest email or text |
-| `/audience-cleanup` | Lists segments and lists with their sizes, deletes the ones you confirm by name (the people always stay), and frees one a scheduled campaign still uses |
+| `/flow-results [days] [flow]` | Read-only: every flow's results for the period, then each step of the ones that matter for the same days to find the weakest email or text |
+| `/event-metrics <question> [days]` | Read-only: one event your storefront recorded (placed orders, add-to-carts, product views) counted, counted by person or added up by day, split by currency or state, or for a segment's people |
+| `/audience-cleanup` | Lists segments and lists with their sizes, deletes the ones you confirm by name (the people always stay), frees one a scheduled campaign still uses, takes people off a list and deletes a contact you confirm |
 | `/signup-form <form>` | Builds a popup, flyout, embedded or back-in-stock sign-up form with its list and offer as a draft, publishes it on your OK, reports how forms convert (all time) and turns one off |
 | `/marketing-calendar [month]` | Plans a month of campaigns from past results and your launches and sales, then drafts each one on the campaign calendar for you to launch |
 | `/survey <question>` | Builds a survey (how did you hear about us, NPS, feedback, birthdays) with an optional free gift, puts it live on your OK, sends it and reads the results |

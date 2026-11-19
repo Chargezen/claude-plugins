@@ -13,8 +13,10 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads**; cha
 ## 1. Gather
 
 1. `chargezen.smartytap_reports.campaigns.v1` with `start_date` and `end_date`, following `next_cursor` while `has_more` is true: every one-off campaign that sent in the period or had orders placed in it credited to it, with recipients, delivered, opened, clicked, unsubscribed, credited orders and revenue, the rates and what its texts cost, all in one call. Sends count on the day they were sent and orders on the day they were placed. This is the table for several campaigns.
-2. `chargezen.smartytap_campaigns.report.v1` only for the campaigns you need to open up (the best and the worst, and any with an A/B test): one campaign's figures all time, per message and per A/B version with the winner. Say these are all time when you show them beside the period's table.
+2. `chargezen.smartytap_campaigns.report.v1` only for the campaigns you need to open up (the best and the worst, and any with an A/B test): one campaign's figures all time, per message and per A/B version with the winner. Say these are all time when you show them beside the period's table. Where the assistant shows interactive views, this report opens as one; it presents the same figures, so still state them in words and never tell the merchant to open the admin to see them.
 3. Note the attribution window the results describe (for example, orders within 5 days of a click), and say it once in the review.
+
+**Campaigns with one tag** ("how did everything tagged Black Friday do?"): `chargezen.smartytap_campaigns.list.v1` with `tag` (exact; `message_tag` is the tag on a message, and `query` only searches names), then pick those campaigns' rows from the table or open each with `chargezen.smartytap_campaigns.report.v1`.
 
 A figure a channel doesn't report (opens for texts) is null with a reason; don't fill it in. Flows (automations) aren't campaigns and aren't in these results; `/flow-results` covers them.
 

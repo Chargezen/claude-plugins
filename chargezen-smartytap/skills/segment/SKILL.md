@@ -1,6 +1,6 @@
 ---
 name: segment
-description: Build, read or change a SmartyTap segment in Chargezen — a live audience such as VIPs, repeat buyers, people who haven't opened in 90 days, subscribers of a product or survey answerers — from the conditions the segment editor offers, counted with sample names before it's saved, and saved only on the merchant's OK. Reads an existing segment's rules and changes only the one asked for, copies a segment to try a variant, and builds an "unengaged" segment to leave out of campaigns. Use when they want to target, define, check or change an audience.
+description: Build, read or change a SmartyTap segment in Chargezen — a live audience such as VIPs, repeat buyers, people who haven't opened in 90 days, subscribers of a product or survey answerers — from the conditions the segment editor offers, counted with sample names before it's saved, and saved only on the merchant's OK. Reads an existing segment's rules and changes only the one asked for, lists who is in it now, shows how it grew, tags it, copies a segment to try a variant, and builds an "unengaged" segment to leave out of campaigns. Use when they want to target, define, check or change an audience, or ask who is in a segment.
 argument-hint: "<who should be in it>"
 ---
 
@@ -14,7 +14,7 @@ A segment is live: whoever matches its conditions is in it, recounted as people 
 
 ## 1. Check what exists
 
-`chargezen.smartytap_segments.list.v1` lists the segments with how many people each matched when last counted (`counted_at`; not live), and `chargezen.smartytap_lists.list.v1` the lists. If one already fits, say so and count it instead of building a near-copy.
+`chargezen.smartytap_segments.list.v1` lists the segments with their tags and how many people each matched when last counted (`counted_at`; not live), and `chargezen.smartytap_lists.list.v1` the lists. For "every segment tagged Black Friday", pass `tag` (an exact tag), not `query`, which searches names. If one already fits, say so and count it instead of building a near-copy.
 
 ## Change an existing segment
 
@@ -40,11 +40,27 @@ Show the person, in plain words, who's in it ("customers who spent over $300 and
 
 ## 3. Save
 
-On their OK: `chargezen.smartytap_segments.save.v2` with a name that says who's in it, a short description, `active: true` and a new `operation_id`. Saving an existing segment replaces its whole set of conditions, which is why changes start from `chargezen.smartytap_segments.get.v1` (above).
+On their OK: `chargezen.smartytap_segments.save.v2` with a name that says who's in it, a short description, `active: true`, any `tags` they want (such as Black Friday) and a new `operation_id`. Saving an existing segment replaces its whole set of conditions, which is why changes start from `chargezen.smartytap_segments.get.v1` (above).
 
 ## 4. Use it
 
 - Target a campaign with it (`/campaign`), or exclude it from one: an unengaged segment in a campaign's **exclude** keeps sends to people who still read, which protects deliverability.
 - Start a flow when someone joins it: the **Joined a segment** trigger (`smartytap.segment.entered`), for example a thank-you when someone becomes a VIP.
 - A segment no longer wanted can be saved with `active: false` so campaigns and flows can't choose it, or deleted on the merchant's OK (`/audience-cleanup`; deleting never removes the people).
-- "Who is in it?" is a count and up to five names from `chargezen.smartytap_segments.preview.v1`; a segment's full membership can't be listed through these tools.
+- **Tags:** to tag a segment, save it as above with `tags` and everything else as `chargezen.smartytap_segments.get.v1` returned it. Tags label it and change nothing it matches; the whole list replaces the saved tags, and leaving `tags` out keeps them.
+
+## 5. Who is in it
+
+`chargezen.smartytap_segments.members.v1` with the segment's id and `first`: everyone it matches right now, newest first, with name, email, phone and text consent, one page at a time (`next_cursor` while `has_more`). `total` is how many it matches at this call.
+
+- It's worked out live on every call, so people enter and leave as their data changes and two pages read minutes apart may not line up.
+- Being in a segment is not consent: consent is shown, not filtered, and sending still checks it.
+- It brings customers' names, emails and phone numbers into the conversation. Page only as far as the question needs (the count and a handful of names usually answer it); for a count alone, `chargezen.smartytap_segments.get.v1` or `chargezen.smartytap_segments.preview.v1` is enough.
+
+## 6. How it grew
+
+`chargezen.smartytap_segments.growth.v1` with its id and `start_date` and `end_date` (at most 366 days apart): how many people it matched each day, and the net change between the first and last day with a count. A day's count is recorded only when the segment is counted (saved or copied, a campaign sends to it, every 15 minutes while an active flow starts when people join it).
+
+- History starts at `recorded_since`; nothing before it is known.
+- A day with a null count is unknown, **never zero and never "no growth"**. Say which days had counts.
+- It's the segment's size, not consent: for subscribers gained and lost by channel, use `chargezen.smartytap_reports.subscriber_growth.v1` (`/marketing-report`).

@@ -18,9 +18,9 @@ If they named a flow, find it here, or by name with `chargezen.workflows.list.v1
 
 ## 2. Step by step for the flows that matter
 
-For the named flow, or the two or three with the most revenue or the most recipients, `chargezen.workflows.report.v1` with its `flow_id`. It returns the flow's totals and one row per email, text and WhatsApp step: recipients, delivered, opened, clicked, unsubscribed, credited orders and revenue and the rates; a survey step adds how many answered; a removed step keeps its row while it has sends.
+For the named flow, or the two or three with the most revenue or the most recipients, `chargezen.workflows.report.v1` with its `flow_id` and the **same `start_date` and `end_date`**. It returns the flow's totals and one row per email, text and WhatsApp step: recipients, delivered, opened, clicked, unsubscribed, credited orders and revenue and the rates; a survey step adds how many answered; a removed step keeps its row while it has sends.
 
-**These step figures are all time, since the flow first sent; there is no date range.** Say so whenever you show them next to the period's figures, and don't subtract one from the other.
+With those dates the steps count only activity in those days, the way `chargezen.smartytap_reports.flows.v1` counts the flow's row, so they add up to that row (sends and their opens, clicks and unsubscribes on the day they were sent, orders on the day they were placed). For "the weakest step this month", pass this month's first day and today. **Without dates the figures are all time**, since the flow first sent: say so whenever you show them, and never set all-time steps beside the period's row.
 
 Match each row to its step in the flow with `chargezen.workflows.get.v1` (`node_id`) when you need the step's place, wait or content.
 
@@ -36,6 +36,9 @@ Compare the steps of one flow with each other, not with other flows:
 
 ## 4. Write it
 
+Where the assistant shows interactive views, a flow's report opens as one beside the result. It only presents the same figures: still write them out in words below, and never tell the merchant to open the admin to see them.
+
+
 Lead with the flows ranked by revenue in the period (name, recipients, click rate, orders, revenue), then for each flow you opened, its steps in order with one line each and the weakest one named with the number behind it. Plain words, no IDs.
 
-End with one offer: rewrite the weakest email (`chargezen.email_documents.apply_ops.v1` at its document address, then `chargezen.workflows.send_test.v1` to see it), change a wait or a text (`/flow-health` has the steps), or see where people stopped with `chargezen.workflows.list_runs.v1`. Changing an active flow changes what customers get from that moment: ask first.
+End with one offer: rewrite the weakest email (`chargezen.email_documents.apply_ops.v1` at its document address, then `chargezen.workflows.send_test.v1` to see it), change a wait or a text (`/flow-health` has the steps), or see who recent runs were for and where they stopped with `chargezen.workflows.list_runs.v1` (`/flow-health` has the steps). Changing an active flow changes what customers get from that moment: ask first.

@@ -12,7 +12,7 @@ Follow the `chargezen` skill for how to reach the tools.
 
 ## 1. Find it and its state
 
-`chargezen.smartytap_campaigns.list.v1` (by name, or status `scheduled`, `active` or `paused`), then `chargezen.smartytap_campaigns.get.v1`: each message's send status (`scheduled`, `preparing`, `sending`, `ab_test_running`, `sent`…) and recipient counts. Tell the person in one line what has gone out and what's still waiting. What's already sent can't be taken back.
+`chargezen.smartytap_campaigns.list.v1` (by name, by status `scheduled`, `active` or `paused`, or for "everything tagged Black Friday" by the exact `tag`, not `query`; each campaign comes with its tags), then `chargezen.smartytap_campaigns.get.v1`: each message's send status (`scheduled`, `preparing`, `sending`, `ab_test_running`, `sent`…) and recipient counts. Tell the person in one line what has gone out and what's still waiting. What's already sent can't be taken back.
 
 ## 2. Pick the right action
 

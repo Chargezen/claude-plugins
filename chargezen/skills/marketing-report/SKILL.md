@@ -29,6 +29,7 @@ For the same range, run these together and follow `next_cursor` while `has_more`
 
 - **Subscriber growth:** `chargezen.smartytap_reports.subscriber_growth.v1`: people who subscribed and unsubscribed per channel, by day, and where they joined or left. It counts consent changes, not the growth of one list or segment.
 - **Why texts didn't arrive:** `chargezen.smartytap_reports.text_deliverability.v1`: sent, delivered, didn't arrive, waiting and not sent, the reasons in plain words, and each sending number's figures. It covers texts only.
+- **Store events** such as revenue by day from placed orders, or add-to-carts: `/event-metrics`. Those are the storefront's recorded events, not revenue credited to messages; don't mix the two in one figure.
 - **Plan usage:** `chargezen.smartytap_usage.get.v1`: contacts against the plan's limit, marketing emails sent this calendar month against the monthly limit and when it resets, and the text credit balance. It's today's position, not the period's; `plan_limits` null means the plan sets no limit.
 
 ## 4. Write the report
@@ -41,4 +42,6 @@ Lead with **three takeaways**, each one line with the number and its change (in 
 
 A figure a channel doesn't report (opens for texts, orders while attribution is off) is null: leave it blank and say why, never fill it in. Plain words, the period stated, no IDs.
 
-End with one offer: look at a flow that's slipping step by step (`/flow-results`), dig into campaigns (`/campaign-results`), or build the next campaign on what worked (`/campaign`).
+Where the assistant shows interactive views, a campaign's or a flow's report opens as one when you call it; it presents the same figures, so the written report still states every number, and never tell the merchant to open the admin to see them.
+
+End with one offer: look at a flow that's slipping step by step for the same days (`/flow-results`), dig into campaigns (`/campaign-results`), or build the next campaign on what worked (`/campaign`).

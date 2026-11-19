@@ -27,7 +27,7 @@ Propose this, then adjust to what they say:
 5. **Wait 7 days**, then a **text** (only if texts are ready and they agreed to texts): one line, the offer, the link.
 6. **Re-entry:** once per customer (`none`), so nobody gets it twice.
 
-The offer must be real: a discount code they already have in Shopify, named exactly. If they don't have one, ask them to create it, or make the flow with no discount and a reason to come back instead. Never invent a code.
+The offer must be real. In an email, give each person their own code: set the coupon block to `couponSource: {type: "unique"}` with the offer (percent or amount off, an optional minimum order and an optional number of days it works) through `chargezen.email_documents.apply_ops.v1`. State only the offer; never ask for or upload a list of codes. Chargezen makes each recipient's single-use Shopify code when the email sends, so say plainly that turning the flow on (or launching a campaign) creates real discount codes on the store, and for a campaign confirm the number from `chargezen.smartytap_campaigns.preview_audience.v1` first. It needs a connected Shopify store. Texts can't carry a unique code: for a text, use a code the store already has in Shopify, named exactly, or no discount and a reason to come back instead. Never invent a code.
 
 ## 3. Build it as a draft
 

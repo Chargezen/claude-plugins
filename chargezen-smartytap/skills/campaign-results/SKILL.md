@@ -18,7 +18,7 @@ Follow the `chargezen` skill for how to reach the tools. **Use only reads**; cha
 
 **Campaigns with one tag** ("how did everything tagged Black Friday do?"): `chargezen.smartytap_campaigns.list.v1` with `tag` (exact; `message_tag` is the tag on a message, and `query` only searches names), then pick those campaigns' rows from the table or open each with `chargezen.smartytap_campaigns.report.v1`.
 
-A figure a channel doesn't report (opens for texts) is null with a reason; don't fill it in. Flows (automations) aren't campaigns and aren't in these results; `/flow-results` covers them.
+A figure a channel doesn't report (opens for texts) is null with a reason; don't fill it in. If a campaign's report has `discount_codes` set, its sending is paused because Shopify didn't finish or refused its emails' unique discount codes: say so with its `message` and how many emails wait, and offer `/manage-campaign` to resume it or fix the offer. Change nothing here. Flows (automations) aren't campaigns and aren't in these results; `/flow-results` covers them.
 
 ## 2. Work it out
 

@@ -32,6 +32,7 @@ Notes:
 - `chargezen.smartytap_campaigns.publish_scheduled_edit.v1` is for emails. A text in a campaign that's sending can't be edited; cancel that message and send a corrected one in a new campaign if it matters.
 - After `chargezen.smartytap_campaigns.publish_scheduled_edit.v1`, 0 updated sends means none had been prepared yet (they're prepared at the send time), not that the fix was lost.
 - A campaign the plan's contact limit paused resumes with `chargezen.smartytap_campaigns.resume.v1`, but pauses again if the workspace is still over the limit.
+- **Paused over unique discount codes** (`discount_codes` in `chargezen.smartytap_campaigns.get.v1`): relay its `message`. When `state` is `unfinished`, Shopify didn't finish the codes: resume with `chargezen.smartytap_campaigns.resume.v1`, which asks Shopify again; the waiting emails send once their codes work. When it's `refused`, give Shopify's reason, change the coupon block's offer with `chargezen.email_documents.apply_ops.v1`, then publish it with `chargezen.smartytap_campaigns.publish_scheduled_edit.v1`: the waiting emails get new codes for the new offer and send (resuming alone pauses again). Any offer changed after launch gives unsent emails new codes; old unused ones stay in Shopify until they expire.
 
 ## 3. Confirm, act, report
 

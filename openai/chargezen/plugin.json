@@ -107,7 +107,7 @@
         }
       },
       "publication": {
-        "release_notes": "First release of Chargezen for ChatGPT: the full Chargezen connector (inbox, subscriptions, SmartyTap campaigns and flows, CheckoutOS offers, loyalty, Spark!, reports and Concierge) with a getting-started skill and the 82 Chargezen job skills, including channel setup, the storefront chat launcher, knowledge setup, marketing and flow reports, store event metrics, sign-up forms and audience cleanup."
+        "release_notes": "First release of Chargezen for ChatGPT: the full Chargezen connector (inbox, subscriptions, SmartyTap campaigns and flows, CheckoutOS offers, loyalty, Spark!, reports and Concierge) with a getting-started skill and the 83 Chargezen job skills, including channel setup, the storefront chat launcher, knowledge setup, marketing and flow reports, store event metrics, Klaviyo import, sign-up forms and audience cleanup."
       }
     }
   }

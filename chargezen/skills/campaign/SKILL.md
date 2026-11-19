@@ -43,4 +43,9 @@ Show the person: subject and preview text, a short summary of the body, who gets
 
 - On their OK, `chargezen.smartytap_campaigns.send_test.v2` to them (new `operation_id`).
 - Launch only when they say to: `chargezen.smartytap_campaigns.launch.v1` confirms the recipients, text cost and revision you just showed; if any of those changed, show the new figures and ask again.
+- An email whose coupon block gives each person their own code makes one real single-use Shopify discount code per recipient as it sends (`discount_codes` in `chargezen.smartytap_campaigns.preview_audience.v1`); say so with that number before launch. Emails only; a text can't carry one.
+- If `chargezen.smartytap_campaigns.get.v1` later shows `discount_codes`, sending is paused over those codes; relay its `message` and act on its `state`:
+  - `unfinished` (Shopify didn't finish the codes): on their OK, resume with `chargezen.smartytap_campaigns.resume.v1`; Shopify is asked again and the waiting emails send once their codes work.
+  - `refused` (Shopify refused the discount, or the store is disconnected): give Shopify's reason from `message`, change the coupon block's offer with `chargezen.email_documents.apply_ops.v1`, and on their OK publish it with `chargezen.smartytap_campaigns.publish_scheduled_edit.v1`. Resuming alone pauses again.
+  - An offer changed after launch gives every unsent email a new code for the new offer; old unused codes stay in Shopify until they expire.
 - After it sends, offer to read the results with `chargezen.smartytap_campaigns.report.v1` the next day (`/campaign-results`).

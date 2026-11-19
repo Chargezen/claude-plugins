@@ -1,6 +1,6 @@
 ---
 name: list-import
-description: Put people on a SmartyTap list in Chargezen with their marketing consent recorded properly — a spreadsheet of email or text subscribers, sign-ups from an event, or one person who agreed in person — then follow the import and report who was added and who was skipped and why. Imports custom properties such as birthdays or points with the people. Also adds people to a list without consent, records one person's consent, unsubscribes someone from texts, WhatsApp or email on request, shows how a list grew, shows what one person was sent and did lately, sets their custom properties, and exports contacts to a file. Use for importing subscribers, moving a list from another tool, recording opt-ins and opt-outs, list growth, a contact's timeline or properties, or a contacts export.
+description: Put people on a SmartyTap list in Chargezen with their marketing consent recorded properly — a spreadsheet of email or text subscribers, sign-ups from an event, or one person who agreed in person — then follow the import and report who was added and who was skipped and why. Imports custom properties such as birthdays or points with the people. Also adds people to a list without consent, records one person's consent, unsubscribes someone from texts, WhatsApp or email on request, shows how a list grew, shows what one person was sent and did lately, sets their custom properties, and exports contacts to a file. Use for importing subscribers, moving a list from another tool (a Klaviyo list goes through /klaviyo-import), recording opt-ins and opt-outs, list growth, a contact's timeline or properties, or a contacts export.
 argument-hint: "<the people or file> [list name]"
 ---
 
@@ -11,6 +11,8 @@ The request: $ARGUMENTS
 Follow the `chargezen` skill for how to reach the tools.
 
 ## 1. Consent comes first
+
+**Coming from Klaviyo?** Use `/klaviyo-import`, which reads the connected Klaviyo account directly and keeps each person's Klaviyo consent and every Klaviyo unsubscribe. Never read people out of a Klaviyo connector and import them here.
 
 Ask how these people agreed to get marketing, in the merchant's words. That statement is recorded as evidence.
 
@@ -25,7 +27,7 @@ Texts need more: express written consent, how they gave it (`consent_source`) an
    - **Custom properties** (a birthday, a loyalty tier, points): give each person's as `custom_properties`, by a name of letters, numbers and underscores (not `first_name` or `last_name`). Each is saved on their profile, replacing a property of the same name. A property you give as a JSON number **for everyone who has it in this call** is saved as a number, which segment comparisons such as "points greater than 1000" need; if even one person's value is text, it's saved as text for all. So send counts and amounts as numbers, and ids, zip codes and phone-like values as text (a leading zero must survive). Write dates as `YYYY-MM-DD`, or `MM-DD` for a yearly date such as a birthday without a year; a date property can start a "Date on the profile" flow for them on that date, so say so.
 2. Show the person: the list, the channel, how many people, the custom properties and their types, five sample rows, rows you dropped (no email or phone, clear typos) and the consent statement as you'll record it.
 3. On their OK: `chargezen.smartytap_lists.import.v1` with `consent_confirmed: true`, the consent details and a new `operation_id`. Keep that `operation_id` for any retry.
-4. Follow it with `chargezen.smartytap_lists.get_import.v1` until it's `completed` or `failed`. Report how many were added, already on the list, skipped and invalid, with the skipped reasons grouped. Anyone who unsubscribed, texted STOP, bounced or marked mail as spam is never subscribed again; say that's working as intended.
+4. Follow it with `chargezen.smartytap_lists.get_import.v1` until it's `completed` or `failed`. Report how many were added, already on the list, skipped and invalid, with the skipped reasons grouped. `dropped_value_count` is how many custom property values were left off because a number property had a value that isn't a number; those people were still imported with everything else. Say how many and which property if you can tell, and offer to set the right values with `chargezen.contacts.update.v1`. Anyone who unsubscribed, texted STOP, bounced or marked mail as spam is never subscribed again; say that's working as intended.
 
 Importing sends nothing. Chargezen's welcome flows leave imported people out; a flow of the workspace's own on "Subscribed to a list" without that filter would welcome them. Check `chargezen.workflows.list.v1` and say so if one would.
 
@@ -41,7 +43,7 @@ Importing sends nothing. Chargezen's welcome flows leave imported people out; a 
   - Never delete a contact or take them off a list to stop their marketing: neither unsubscribes anyone.
 - **How a list grew:** `chargezen.smartytap_lists.growth.v1` with its `list_id` and `start_date` and `end_date` (at most 366 days apart): how many people were on it each day and the net change between the first and last day with a count. A count is recorded whenever the list is counted: someone joins it (a sign-up form, a keyword, a confirmed text, the subscribe API), a teammate adds, removes or imports people, or the list is made or copied. History starts at `recorded_since`, and a day with a null count is unknown, **never zero and never "no growth"**. It's the list's size, not consent: for subscribers gained and lost by channel, use `chargezen.smartytap_reports.subscriber_growth.v1`.
 - **Tags:** `chargezen.smartytap_lists.create.v1` takes `tags`, and `chargezen.smartytap_lists.update.v1` changes them; `chargezen.smartytap_lists.list.v1` with an exact `tag` lists the lists carrying it.
-- **Take people off a list** or delete a contact: `/audience-cleanup`.
+- **Take people off a list**, delete a contact or merge two profiles of the same person: `/audience-cleanup`.
 - **Rename a list:** `chargezen.smartytap_lists.update.v1`. A flow filtered on the old list name stops matching; check `chargezen.workflows.list.v1` and say so.
 - **One list's details:** `chargezen.smartytap_lists.get.v1`: how it was made, whether it takes new sign-ups, how many are on it and its subscribe page. To delete lists, use `/audience-cleanup`.
 
@@ -55,6 +57,7 @@ Importing sends nothing. Chargezen's welcome flows leave imported people out; a 
 `chargezen.contacts.export.v1` makes a CSV of everyone, or of the people `chargezen.contacts.search.v1` finds with the same search and filters (name, email or phone, stage, text consent, preferred channel, tag, company), with name, phone, email, text consent, stage and tags.
 
 - It exports the Contacts list, not one list's or segment's members. For who is on a list, use `chargezen.smartytap_lists.members.v1` above.
-- Say first that the file takes customers' personal data out of Chargezen, and that anyone in the workspace who can open Contacts can download it. Start it only on their OK.
+- **Count first:** run `chargezen.contacts.search.v1` with the same search and filters and tell the merchant its `total`, the number of people the file will hold.
+- Say that the file takes customers' personal data out of Chargezen, that anyone in the workspace who can open Contacts can download it, and that this can't be undone. The export asks for confirmation; start it only on their OK.
 - Use **one `operation_id` per export** and keep it for any retry; a new one makes another file.
-- Follow it with `chargezen.contacts.get_export.v1` until it's ready, then hand the merchant the download link (the same one they're emailed); it opens Contacts and downloads after they sign in. **Never paste rows** into the conversation; the tools don't return them. An export that keeps reading `in_progress` can be started again with a new `operation_id`.
+- Follow it with `chargezen.contacts.get_export.v1` until it's ready, then hand the merchant the download link (the same one they're emailed); it opens Contacts and downloads after they sign in. **The link lasts 7 days** from when the file was made (`expires_at`): say until when. After that it reads `expired` with no link, the file is removed, and a new export needs a new `operation_id`. **Never paste rows** into the conversation; the tools don't return them. An export that keeps reading `in_progress` can be started again with a new `operation_id`.

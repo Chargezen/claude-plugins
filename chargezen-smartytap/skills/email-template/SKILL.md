@@ -1,6 +1,6 @@
 ---
 name: email-template
-description: Look after SmartyTap's email template library in Chargezen — list and read templates, make a reusable on-brand template from a campaign email that worked, a copy or a starter design, rename or retire old ones, save a footer or header as a reusable section used in every campaign email, send a test of a template to an inbox, and add images from the store's website. Use when they want a brand template, a newsletter layout, to save an email as a template, to tidy the template library, a shared footer, "send me a preview of this template", or to put an image from their site in an email.
+description: Look after SmartyTap's email template library in Chargezen — list and read templates, make a reusable on-brand template from a campaign email that worked, a copy or a starter design, rename or retire old ones, save a footer or header as a reusable section used in every campaign email and update it everywhere at once, send a test of a template to an inbox, and add images from the store's website. Use when they want a brand template, a newsletter layout, to save an email as a template, to tidy the template library, a shared footer, "update my footer everywhere", "send me a preview of this template", or to put an image from their site in an email.
 argument-hint: "[what to do] [template name]"
 ---
 
@@ -12,7 +12,7 @@ Follow the `chargezen` skill for how to reach the tools.
 
 ## 1. See what's there
 
-- `chargezen.smartytap_email_templates.list.v1`: the active templates and saved sections and blocks, most recently changed first (narrow with `query`), each with its document address and, for a saved section, how many campaign emails hold a linked copy. Retired templates aren't listed; read one by its `template_id` with `chargezen.smartytap_email_templates.get.v1`.
+- `chargezen.smartytap_email_templates.list.v1`: the active templates and saved sections and blocks, most recently changed first (narrow with `query`), each with its document address. How many emails hold a linked copy of a saved section, and some of them, come from `chargezen.smartytap_email_templates.get.v1` on that section, not from the list. Retired templates aren't listed; read one by its `template_id` with `chargezen.smartytap_email_templates.get.v1`.
 - `chargezen.smartytap_campaigns.authoring_options.v1`: the brand (store address, logo, colors, fonts, brand styles) and Chargezen's starter designs (with a `starter_key`, such as Welcome, Product launch, VIP thank-you). If the brand has no colors or logo yet, ask for them or a link to the site.
 
 ## 2. Make a template
@@ -43,7 +43,14 @@ Check it with `chargezen.email_documents.preview.v2` and show the person the pre
 1. Find the campaign email that has the section as it should be, and the section's or block's id in the outline from `chargezen.email_documents.get.v1`.
 2. `chargezen.smartytap_email_templates.create_section.v1` with that email's address, the `node_id`, a name ("Footer") and a new `operation_id`. The email it came from keeps its part unchanged and not linked.
 3. Put it in each campaign email with the `insert_universal` op in `chargezen.email_documents.apply_ops.v1`, its `universal_id` being the returned `template_id`. Each email gets its own linked copy.
-4. **Later changes:** edit the saved section at its document address. Emails already using it don't change until each one is brought up to date with the `refresh_universal` op on that email. `chargezen.smartytap_email_templates.get.v1` on the section lists how many linked copies there are and some of the emails holding them; say which ones you refreshed and which you didn't.
+4. **Later changes ("update my footer everywhere"):**
+   1. Change the saved section's own content with `chargezen.email_documents.apply_ops.v1` at its document address (from `chargezen.smartytap_email_templates.get.v1`). Emails already using it don't change yet.
+   2. `chargezen.smartytap_email_templates.linked_emails.v1` with its `template_id`: every campaign, A/B version, flow and notification email holding a linked copy, each with its state, whether it's out of date, and whether this connection would change it. Tell the merchant how many will change (`will_change`) and **which are live**: a live flow's email (`live_flow`) changes at once for everyone who reaches that step from now on, including people already waiting there; a scheduled or sending campaign's email is saved changed, but its waiting sends keep the old version until the edit is published; a draft goes out changed when it launches; a notification email changes for the next one sent. Emails already sent never change.
+   3. On their yes, `chargezen.smartytap_email_templates.update_linked.v1` with the `template_id`. It changes only the out-of-date emails it can.
+   4. For each changed campaign that is scheduled or sending, offer `chargezen.smartytap_campaigns.publish_scheduled_edit.v1` with the returned `campaign_id` and `message_id`, so people who haven't got it yet get the new section; publish only on a yes for that campaign.
+   5. Relay every email in `skipped` with its reason, and the scopes it names when a missing scope is why; a teammate can also bring one up to date with Update linked in Chargezen's email editor.
+
+   To bring just one email up to date instead, use the `refresh_universal` op on that email.
 
 ## 6. Images
 

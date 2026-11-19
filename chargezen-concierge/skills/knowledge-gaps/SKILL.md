@@ -1,6 +1,6 @@
 ---
 name: knowledge-gaps
-description: Find the customer questions the merchant's Chargezen knowledge doesn't answer — search recent conversations for what customers asked, check each question against the published knowledge, and draft the missing answers from the store's real policies, shipping settings and past replies, ready to add in Concierge's Knowledge page. Use when the agent gives vague answers, hands over too often, before turning on a support agent, or when they ask what their FAQ is missing.
+description: Find the customer questions the merchant's Chargezen knowledge doesn't answer — search recent conversations for what customers asked, check each question against the published knowledge, draft the missing answers from the store's real policies, shipping settings and past replies, then save them as drafts and publish the ones the merchant approves. Use when the agent gives vague answers, hands over too often, before turning on a support agent, or when they ask what their FAQ is missing.
 argument-hint: "[days, default 30, or a topic]"
 ---
 
@@ -8,13 +8,14 @@ argument-hint: "[days, default 30, or a topic]"
 
 Period or topic: $ARGUMENTS (the last 30 days if nothing was given).
 
-Follow the `chargezen` skill for how to reach the tools. **Read only.** This connection can read knowledge but can't add or edit it; you'll hand the person drafts to add themselves.
+Follow the `chargezen` skill for how to reach the tools. **Read only** until the person approves the answers to save.
 
 ## 1. Collect the questions
 
 1. **Topics to try:** start with what customers of a store usually ask: shipping times and costs, international shipping, order tracking, returns and exchanges, refunds, damaged or wrong items, cancelling an order, changing an address, discount codes, sizing, ingredients or materials, stock and restocks, subscriptions (skip, pause, cancel), loyalty points, payment methods, and contacting a person. Add anything the person named.
 2. **Find them:** `history.search` for each topic with `since` set to the period, using the words customers would write (for example "where is my order", "tracking number", "hasn't arrived"). Keep matches with `sender: "customer"`; read around one with `history.read` to see the whole question and how it was answered.
 3. **Handovers:** `inbox.list` with `status: "handoff_queue"` and `inbox.get` on a few: a question the agent couldn't answer is often a gap.
+4. **Gaps Chargezen already noticed:** `knowledge.list_content_gaps` with `status: "open"` and `days_back` set to the period: similar questions grouped, how often each came up, how the agent responded, and any suggested draft.
 
 Search returns the best matches, not every one; record "seen in N conversations read", never a total.
 
@@ -41,4 +42,11 @@ When no tool gives the fact (a return window, a refund rule), write the draft wi
 
 Lead with the count of questions checked and how many are gaps. Then the gaps, most common first: the question in a customer's words, how often you saw it, and the draft answer. Then answers that look out of date, with what disagrees.
 
-To add them: in Chargezen open **Concierge → Knowledge** and add each as an FAQ or Q&A entry (or upload a document or import a page from the store's website). Agents and Concierge use an entry once it is published. Offer to recheck with `/knowledge-gaps` afterwards, or to update an agent's instructions with `/agent-tuning`.
+## 5. Save the answers they approve
+
+1. Ask which drafts to save, and have them fill every blank first.
+2. Save each as a **draft**, so no customer sees it yet: a common question shoppers could browse becomes an FAQ (`knowledge.save_faq`, shown in the storefront chat's FAQ section once published), one with several phrasings a Q&A (`knowledge.save_qna`, with the other ways customers ask it), and a longer policy an article (`knowledge.save_entry`). Always pass `status: "draft"`, since new entries are published by default, and a fresh `operation_id` for each, kept on a retry.
+3. For an out-of-date entry, show the old and new wording side by side. Editing a published entry changes agents' answers at once, so save it only on their OK.
+4. Read the drafts back in one short list, then ask: "Publish these? Agents start using them in their answers right away, and FAQs appear in the storefront chat." On a yes, save each again with its `knowledge_entry_id` and `status: "published"`.
+
+Say what was saved, what's live and what's still a draft. Offer to recheck with `/knowledge-gaps` after a few weeks, or to update an agent's instructions with `/agent-tuning`.

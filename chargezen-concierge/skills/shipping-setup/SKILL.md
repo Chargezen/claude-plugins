@@ -33,4 +33,4 @@ These tools don't cover local delivery, pickup, taxes or duties, or quote an exa
 
 ## Report
 
-Lead with up to three fixes, each one line: what's wrong, who it affects and where to fix it (Shopify's shipping settings for rates and zones; **Concierge → Knowledge** or the saved reply for wrong promises). Then one line per zone: countries, rates and thresholds. Offer to draft corrected knowledge answers (`/knowledge-gaps`) or saved replies (`/saved-reply-review`).
+Lead with up to three fixes, each one line: what's wrong, who it affects and where to fix it (Shopify's shipping settings for rates and zones; the knowledge entry or saved reply for wrong promises). Then one line per zone: countries, rates and thresholds. Offer to correct the knowledge (`/knowledge-gaps`) or the saved replies (`/saved-reply-review`) on their OK.

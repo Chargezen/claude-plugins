@@ -1,6 +1,6 @@
 ---
 name: chargezen
-description: Use whenever the user wants to look something up or get something done in their Chargezen workspace — customers, orders, stock, subscriptions, the inbox, email and text campaigns, flows (automations), loyalty points and rewards, Spark! creators and payouts, checkout offers. Covers how to reach Chargezen's tools, the safe order for changes, and the rules every other Chargezen skill follows.
+description: Use whenever the user wants to look something up or get something done in their Chargezen workspace — customers, orders, stock, subscriptions, the inbox, agents and their knowledge, the channels customers reach the store on, email and text campaigns, flows (automations), loyalty points and rewards, Spark! creators and payouts, checkout offers. Covers how to reach Chargezen's tools, the safe order for changes, and the rules every other Chargezen skill follows.
 ---
 
 # Chargezen

@@ -20,7 +20,7 @@ Want every Chargezen product in one connection, plus the weekly brief, win-back 
 
 ## What Claude can do
 
-Build, test, schedule, launch, manage and report on email, text and WhatsApp campaigns; A/B tests and translations; welcome, abandoned cart, back-in-stock, thank-you, order-tag and birthday flows, and a health check on them all; people, consent, imports, lists and segments; surveys and their results; brand email templates; WhatsApp templates, texting numbers and senders; one-to-one texts and emails; replying from the inbox.
+Build, test, schedule, launch, manage and report on email, text and WhatsApp campaigns; A/B tests and translations; welcome, abandoned cart, back-in-stock, thank-you, order-tag and birthday flows, and a health check on them all; people, consent, imports, lists and segments; surveys and their results; brand email templates; WhatsApp templates; texting setup, carrier registration, numbers and countries; email domains, mailboxes and senders; one-to-one texts and emails; replying from the inbox.
 
 ## What's included
 
@@ -39,7 +39,7 @@ Build, test, schedule, launch, manage and report on email, text and WhatsApp cam
 | `/flow-health` | Read-only check of every flow: what's on or off, broken emails and texts, unapproved WhatsApp templates, overlaps and missing journeys, with a ranked list of fixes |
 | `/segment <who>` | Builds or changes a live audience (VIPs, lapsed buyers, unengaged, product buyers, survey answers), counted with sample names before it's saved |
 | `/list-import <people>` | Imports subscribers with their consent recorded, reports who was added or skipped and why, and handles single opt-ins and opt-outs |
-| `/sender-setup` | Gets texting ready: what setup still needs, the countries you text, another local or toll-free number you pick and approve, and a team email sender |
+| `/sender-setup` | Gets texting and email ready: texting set up from nothing (business details, a first toll-free number and its carrier verification, local-texting registration), numbers and countries, and your own email domain, footer, team sender and default sender, each bought or submitted only on your OK |
 | `/whatsapp-template <message>` | Writes a WhatsApp marketing template, submits it to Meta on your OK, checks the answer and fixes a rejection |
 | `/email-template` | Makes a reusable on-brand email template from a campaign that worked, a copy of a template or a starter design |
 | `/translate-campaign <campaign> <language>` | Adds a version of a campaign message for customers whose profile language matches, written in that language and counted before launch |
